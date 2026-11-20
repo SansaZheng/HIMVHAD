@@ -17,4 +17,9 @@ def provenance():
     root=Path(__file__).resolve().parents[1];commit=None
     try:commit=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],stderr=subprocess.DEVNULL,text=True).strip()
     except (subprocess.CalledProcessError,FileNotFoundError):pass
-    return dict(git_commit=commit,source_sha256={p.name:sha(p) for p in sorted(Path(__file__).parent.glob('*.py'))},python=platform.python_version(),numpy=np.__version__,scipy=scipy.__version__,sklearn=sklearn.__version__,torch=torch.__version__)
+    match=None
+    if commit is not None:
+        changed=subprocess.run(['git','-C',str(root),'diff','--quiet',commit,'--','himvhad'],capture_output=True).returncode
+        untracked=subprocess.check_output(['git','-C',str(root),'ls-files','--others','--exclude-standard','--','himvhad'],text=True).strip()
+        match=changed==0 and not untracked
+    return dict(git_commit=commit,source_matches_git_commit=match,source_sha256={p.name:sha(p) for p in sorted(Path(__file__).parent.iterdir()) if p.suffix in ['.py','.json']},python=platform.python_version(),numpy=np.__version__,scipy=scipy.__version__,sklearn=sklearn.__version__,torch=torch.__version__)

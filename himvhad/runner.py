@@ -31,7 +31,7 @@ def run_group(data,out,variant='cm',seed=42,steps=None,scores=('field','flat','t
     if variant not in ['legacy','f00','c','m','cm']:raise ValueError('Unknown context/masking variant')
     if not scores or any(s not in SCORES for s in scores) or len(set(scores))!=len(scores):raise ValueError('Invalid or duplicate score names')
     if min(max_train,max_calibration)<2:raise ValueError('Sampling limits must be >=2')
-    schema,raw=load_data(data);nviews=len(schema['view_columns']);width=len(schema['features']);out.mkdir(parents=True);start=time.monotonic()
+    schema,raw=load_data(data);nviews=len(schema['view_columns']);width=len(schema['features']);out.mkdir(parents=True);write(out/'input_schema.json',dict(features=schema['features'],field_groups=schema['field_groups']));start=time.monotonic()
     files=[data/'schema.json']+[data/f'{s}.{ext}' for s in PHASES for ext in ['x.f32','keys.npz']]
     write(out/'run_manifest.json',dict(**provenance(),dataset=schema['dataset'],variant=variant,seed=seed,steps=steps if steps is not None else (200 if variant=='legacy' else 800),score_names=list(scores),device=device,max_train=max_train,max_calibration=max_calibration,hidden=hidden,input_sha256={p.name:sha(p) for p in files},zero_real_labels=True))
     ti=np.sort(np.random.default_rng(seed).choice(len(raw['train']),min(max_train,len(raw['train'])),replace=False));ci=np.sort(np.random.default_rng(seed+100).choice(len(raw['calibration']),min(max_calibration,len(raw['calibration'])),replace=False))
@@ -82,8 +82,22 @@ def rescore(parent,out,scores=('field','flat','tail','tail_flat'),data=None):
         skill=SkillScorer().fit(pre.transform(raw['train'][ti]),pre.transform(raw['calibration'][ci]),comp['calibration'],model.groups);skill.save(out/'skill_calibrator.npz')
         for s,c in comp.items():values[s].update(skill.all_scores(c))
     for name in scores:
-        folder=out/name;folder.mkdir();np.savez_compressed(folder/'scores.npz',calibration=values['calibration'][name],test=values['test'][name]);thresholds=calibrate(values['calibration'][name]);write(folder/'thresholds.json',thresholds);write(folder/'label_access_gate.json',dict(status='scores_and_thresholds_saved_before_labels',parent_checkpoint_sha256=sha(parent/'model.pt'),parent_components_sha256=sha(parent/'components.npz'),scores_sha256=sha(folder/'scores.npz'),thresholds_sha256=sha(folder/'thresholds.json')))
+        folder=out/name;folder.mkdir();np.savez_compressed(folder/'scores.npz',calibration=values['calibration'][name],test=values['test'][name]);thresholds=calibrate(values['calibration'][name]);write(folder/'thresholds.json',thresholds);write(folder/'label_access_gate.json',dict(status='scores_and_thresholds_saved_before_labels',parent_checkpoint_sha256=sha(parent/'model.pt'),parent_components_sha256=sha(parent/'components.npz'),field_calibrator_sha256=sha(out/'field_calibrator.npz'),skill_calibrator_sha256=sha(out/'skill_calibrator.npz') if (out/'skill_calibrator.npz').exists() else None,scores_sha256=sha(folder/'scores.npz'),thresholds_sha256=sha(folder/'thresholds.json')))
     y=np.fromfile(Path(data)/'test.y.i8',dtype='i1') if data is not None else None
     for name in scores:
         folder=out/name;r=dict(scoring=name,new_network_fits=0,metrics=metrics(y,values['test'][name],json.loads((folder/'thresholds.json').read_text())) if y is not None else None);write(folder/'result.json',r);records.append(r)
     write(out/'records.json',records);return records
+
+
+def predict(run,data,out,score='tail',phase='test'):
+    """Apply frozen checkpoint/scaler/calibrator/thresholds; never read targets."""
+    run,data,out=Path(run),Path(data),Path(out)
+    if out.exists():raise FileExistsError('Use a fresh prediction directory')
+    schema,raw=load_data(data);pre=Preprocessor.load(run/'preprocessor.npz');model=HIMVHAnomalyDetector.load(run/'model.pt','cpu');x=pre.transform(raw[phase])
+    if x.shape[1]!=model.width or schema['field_groups']!=[g.tolist() for g in model.groups]:raise ValueError('Prepared feature schema differs from checkpoint')
+    expected=run/'input_schema.json'
+    if expected.exists() and json.loads(expected.read_text())['features']!=schema['features']:raise ValueError('Prepared feature order differs from checkpoint')
+    components=model.components(x,load_views(data,phase));calibrator=SkillScorer.load(run/'skill_calibrator.npz') if score.startswith('skill_') else FieldScorer.load(run/'field_calibrator.npz');values=calibrator.all_scores(components)
+    if score not in values:raise ValueError('Unsupported scoring method for this calibrator')
+    thresholds=json.loads((run/score/'thresholds.json').read_text());out.mkdir(parents=True);np.savez_compressed(out/'predictions.npz',score=values[score],**{k:values[score]>=v['threshold'] for k,v in thresholds.items() if v['status']=='ok'})
+    write(out/'prediction_manifest.json',dict(source=provenance(),rows=len(x),phase=phase,scoring=score,checkpoint_sha256=sha(run/'model.pt'),scaler_sha256=sha(run/'preprocessor.npz'),calibrator_sha256=sha(run/('skill_calibrator.npz' if score.startswith('skill_') else 'field_calibrator.npz')),thresholds_sha256=sha(run/score/'thresholds.json'),real_labels_read=False));return values[score]

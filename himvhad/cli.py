@@ -2,7 +2,7 @@
 import argparse,json
 from pathlib import Path
 import numpy as np
-from .runner import run_group,rescore,SCORES
+from .runner import run_group,rescore,predict,SCORES
 from .data import demo_data,prepare_csv
 from .benchmark import fetch_benchmark
 from .evaluation import metrics
@@ -16,6 +16,7 @@ def main():
     c=sub.add_parser('prepare-csv');c.add_argument('--csv',type=Path,required=True);c.add_argument('--config',type=Path,required=True);c.add_argument('--output',type=Path,required=True)
     r=sub.add_parser('run');r.add_argument('--data',type=Path,required=True);r.add_argument('--output',type=Path,required=True);r.add_argument('--variants',nargs='+',choices=['legacy','f00','c','m','cm'],default=['cm']);r.add_argument('--seeds',nargs='+',type=int,default=[42]);r.add_argument('--steps',type=int);r.add_argument('--scores',nargs='+',choices=SCORES,default=['field','flat','tail','tail_flat']);r.add_argument('--device',default='cpu');r.add_argument('--hidden',type=int,default=256);r.add_argument('--max-train',type=int,default=8192);r.add_argument('--max-calibration',type=int,default=100000)
     s=sub.add_parser('rescore');s.add_argument('--parent',type=Path,required=True);s.add_argument('--output',type=Path,required=True);s.add_argument('--data',type=Path);s.add_argument('--scores',nargs='+',choices=SCORES,default=['field','flat','tail','tail_flat'])
+    q=sub.add_parser('predict');q.add_argument('--run',type=Path,required=True);q.add_argument('--data',type=Path,required=True);q.add_argument('--output',type=Path,required=True);q.add_argument('--score',choices=SCORES,default='tail');q.add_argument('--phase',choices=['train','calibration','test'],default='test')
     e=sub.add_parser('evaluate');e.add_argument('--scores',type=Path,required=True);e.add_argument('--labels',type=Path,required=True);e.add_argument('--thresholds',type=Path);e.add_argument('--output',type=Path)
     a=p.parse_args()
     if a.command=='demo':
@@ -32,6 +33,7 @@ def main():
                 records+=run_group(a.data,a.output/variant/str(seed),variant,seed,a.steps,a.scores,a.device,a.hidden,a.max_train,a.max_calibration);print('DONE '+variant+'/'+str(seed),flush=True)
         write(a.output/'records.json',records);write(a.output/'complete.json',dict(status='complete',network_fits=len(a.seeds)*len(a.variants),scoring_settings=len(records)))
     elif a.command=='rescore':rescore(a.parent,a.output,a.scores,a.data);print('Rescored frozen checkpoint without fitting a network')
+    elif a.command=='predict':predict(a.run,a.data,a.output,a.score,a.phase);print('Predicted without target access: '+str(a.output))
     else:
         with np.load(a.scores,allow_pickle=False) as z:c,t=z['calibration'],z['test']
         y=np.load(a.labels,allow_pickle=False) if a.labels.suffix=='.npy' else np.fromfile(a.labels,dtype='i1');thresholds=json.loads(a.thresholds.read_text()) if a.thresholds else calibrate(c);result=metrics(y,t,thresholds)

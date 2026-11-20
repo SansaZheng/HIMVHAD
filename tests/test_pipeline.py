@@ -72,3 +72,13 @@ def test_experimental_rescore_with_original_data(tmp_path):
     rescore(out,tmp_path/'new',['skill_tail'],data)
     with np.load(out/'skill_tail/scores.npz') as a,np.load(tmp_path/'new/skill_tail/scores.npz') as b:
         np.testing.assert_array_equal(a['test'],b['test'])
+
+def test_predict_freezes_weights_and_never_reads_labels(tmp_path,monkeypatch):
+    from himvhad.runner import predict
+    data=tmp_path/'data';demo_data(data);out=tmp_path/'run';run_group(data,out,steps=1,hidden=16,scores=['tail']);original=np.fromfile
+    def guard(file,*a,**kw):
+        assert not str(file).endswith('.y.i8');return original(file,*a,**kw)
+    monkeypatch.setattr(np,'fromfile',guard);v=predict(out,data,tmp_path/'predict','tail')
+    with np.load(out/'tail/scores.npz') as z:np.testing.assert_array_equal(v,z['test'])
+    schema=json.loads((data/'schema.json').read_text());schema['features']=list(reversed(schema['features']));(data/'schema.json').write_text(json.dumps(schema))
+    with pytest.raises(ValueError):predict(out,data,tmp_path/'bad','tail')
