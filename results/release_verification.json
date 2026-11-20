@@ -1,5 +1,5 @@
 {
-  "status": "checked_publication_pending",
+  "status": "complete",
   "date": "2026-11-21",
   "scope": "standalone zero-label adaptation explicitly selected by user",
   "parent_source_commit": "f0a6c7fa00eb54fba0f76b421cc11f66b9b536fe",
@@ -263,9 +263,31 @@
   "financial_audit_seconds": 57.79013887490146,
   "baseline_scope": "historical/reference metrics; not baseline fitting by HIMVHAD",
   "publication": {
-    "status": "pending"
+    "status": "published",
+    "content_commit": "4460860e1ab01367aed0b4c1fdd04ebc2fe95b00",
+    "branches": [
+      "main",
+      "codex/standalone-zero-label"
+    ],
+    "readme_blob_sha": "26fbbe437bb330990fa67a088bb7f47aafe09a11",
+    "report_blob_sha": "de326af6bfa4ed41c936dabdbce9ee3154260e5c",
+    "pretrained_Git_blob_shas": {
+      "banksim": "b923958daa915e952eaad01d2af1e29672340136",
+      "s_ffsd": "297a75dc0bdbc6c22766b195c360533544d3844b",
+      "cardsim": "3936cab313aaa8c01c1beb0b54c937143018c857"
+    },
+    "remote_files_and_refs_verified": true
   },
   "CI": {
-    "status": "pending"
+    "status": "configured_active_no_remote_run_observed",
+    "workflow_id": 425447450,
+    "configured_python_versions": [
+      "3.10",
+      "3.12"
+    ],
+    "local_python": "3.12.14",
+    "local_tests": 27,
+    "remote_CI_pass_claim": false,
+    "note": "Public API showed an active workflow but zero runs; local tests,wheel/demo and financial audits passed."
   }
 }

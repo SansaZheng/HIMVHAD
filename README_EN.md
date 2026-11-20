@@ -32,3 +32,5 @@ Use CPU if CUDA is unavailable. Default budgets match the prior zero-label adapt
 This release audited144 scoring configurations/288 operating points on18 frozen financial models; **zero new financial neural-network fits**.48 previous configurations match the historical metrics exactly. Retrospective BankSim/S-FFSD results are separated from one independently generated CardSim world. That synthetic-world validation is neither real-bank external validation nor zero-shot transfer. Skill weights do not consistently outperform existing scoring controls; negative results are retained. Our anomaly-class F1 is distinct from the paper's macro-F1.
 
 [Chinese quickstart](README.md) · [Full results and limitations](results/frozen/README_CN.md) · [Method boundaries](docs/reproduction_CN.md) · [Source manifest](PORTING_MANIFEST.json) · [Release verification](results/release_verification.json).
+
+Local27 tests,installed-wheel demo and financial audits passed. GitHub CI is configured and active,but no remote run was observed at release; no remote-CI pass is claimed.

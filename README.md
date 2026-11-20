@@ -116,6 +116,8 @@ restored = HIMVHAnomalyDetector.load("model.pt")
 
 BankSim/S-FFSD为旧测试回顾性评估；CardSim为一个预先固定参数后生成的独立模拟世界，不能替代真实银行外部验证。重构可预测性不是欺诈相关性，新增权重没有稳定超过已有评分对照。本文F1是异常类F1，论文报告macro-F1，两者不直接比较。跨设备推理可能使阈值边缘样本有微小差异；重新评分与端到端推理分别记录。
 
+本地27项测试、wheel及实际演示已通过。GitHub CI已配置；发布核对时API尚无远端运行记录，未标记为CI通过。
+
 完整文件索引、来源、命令和环境见[发布核验](results/release_verification.json)与[工作流状态](paper/workflow/current.md)。
 
 ## 来源与许可
