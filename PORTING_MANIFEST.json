@@ -1,0 +1,15 @@
+{
+  "parent_repository": "https://github.com/SansaZheng/Financial_unsuperviesdAD",
+  "parent_commit": "f0a6c7fa00eb54fba0f76b421cc11f66b9b536fe",
+  "license": "MIT; original independent implementation, no author source copied",
+  "files": {
+    "finad_recent/himvh.py": "82d3c34b4dafbf606c0f42cd8b2cc8bcb00c5e6770635a8b25935e6ba8d09b9a",
+    "finad_repair/hypergraph.py": "4f1ca4e839f215282b83c60ac82f1083250747dde3bc309f3fe1dbf4d1575eae",
+    "finad_repair/himvh.py": "7f3ae7f9faa48bd2944475dfd8e3556cbc2525ec9c18812baba893f06902f7ee",
+    "finad_roleweight/fields.py": "d41c36117944ab6faed5312d0c5c64eb7477fbd92068b41db3f5abe62659f7f7",
+    "finad/preprocessing.py": "ae807b6df9c6cf6e9f5496167335587860e9f1e3db22c6596150a7833a8f541c",
+    "finad/thresholds.py": "7b628daa1dc62e25489ccf9a3126f718644958444d717b5a36cf6f426e95e506",
+    "finad/evaluation.py": "46244c0c80a77ed0a50fa40de2783ec3c3c2176ce9e557ab04ee55db978dce9c",
+    "finad_geometry/models.py": "598e925f81b6902021c6920453201db6e9b78f3d640698550aced8f9bf8606d3"
+  }
+}

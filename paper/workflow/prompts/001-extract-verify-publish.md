@@ -1,0 +1,9 @@
+# Stage001 — local task specification
+
+Executor: Codex primary directly, no delegation or external-model invocation. Revision1,route standalone-zero-20261121,venue none. User explicitly selected the existing zero-label HIMVH adaptation and requested publication to SansaZheng/HIMVHAD.
+
+Inputs: MIT-licensed Financial_unsuperviesdAD sourcef0a6c7fa00eb54fba0f76b421cc11f66b9b536fe,verified HIM models/results from recent_repair and roleweight rounds,original pinned financial caches. Preserve source project and all its queued jobs unchanged.
+
+Create an independently installable Python package with native hypergraph/discrepancy/novelty/fusion implementation,consistent masked-field self-supervision,exact ego minibatches,baseline/m/cm controls,field/tail/skill scoring,train-only preprocessing,unaltered POT/q99 and full metrics. No real train/calibration labels in fit/calibration. Provide one-command CPU demo clearly labeled synthetic;raw-CSV/custom schema and exact frozen benchmark download/run/re-score/evaluate entry points;checkpoint persistence and source SHA attribution. Do not upload unneeded raw financial data or large model duplicates. Preserve old verified financial results as imported historical evidence,never claim they were newly trained here. Clearly mark the skill-weight experiment as pending financial validation.
+
+Test actual CLI without training/calibration label files,exact dense/ego forward and gradient equivalence,masking independence,scoring/serialization and archived-checkpoint parity. Independently replay imported summaries/metrics where artifacts available;separate demo results from financial evidence. Write clear Chinese/English quickstart,method/equation differences,limitations,licenses and reproducing instructions. Publish code/docs/results to main without overwriting remote work;verify Git refs,remote report and CI before completion.

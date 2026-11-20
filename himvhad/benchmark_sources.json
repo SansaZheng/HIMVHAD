@@ -1,0 +1,408 @@
+{
+  "repository": "SansaZheng/Financial_unsuperviesdAD",
+  "commit": "f0a6c7fa00eb54fba0f76b421cc11f66b9b536fe",
+  "archive": {
+    "path": "data/derived/zero_label_20261114_tabular.tar.gz",
+    "url": "https://raw.githubusercontent.com/SansaZheng/Financial_unsuperviesdAD/f0a6c7fa00eb54fba0f76b421cc11f66b9b536fe/data/derived/zero_label_20261114_tabular.tar.gz",
+    "bytes": 53954523,
+    "sha256": "ab36533057d62c8cff003b7d9efb457a8dced77ef3f8953d4a10725e8c54fe37"
+  },
+  "canonical_files": {
+    "banksim/calibration.x.f32": {
+      "bytes": 29004036,
+      "sha256": "6293cf36d2b3c27c3831ba64aefb6ceb73aa31727e03f0fdecac663684879eda"
+    },
+    "banksim/calibration.y.i8": {
+      "bytes": 118869,
+      "sha256": "58eee4e8ae18215779d1d83bc2defc83c8f533ec3a71f8004b3a80fe3969078a"
+    },
+    "banksim/manifest.json": {
+      "bytes": 2026,
+      "sha256": "76e8de2f1e41620f9150db0dd898a25e871871419843f11a84f04d7175dc1f7c"
+    },
+    "banksim/test.x.f32": {
+      "bytes": 28947672,
+      "sha256": "b83348282a60d45766834bd376710b1cac9048361002f50ec16ac5c7a87a4ae4"
+    },
+    "banksim/test.y.i8": {
+      "bytes": 118638,
+      "sha256": "9cf9860f4f344a0bf2ea3ca380d044da553dae986f6041afc28524ad40d0cf1c"
+    },
+    "banksim/train.x.f32": {
+      "bytes": 87141184,
+      "sha256": "049aef7f647cbefbce789c6fd0baeabf2bac45b8b556f3fb9b0e50c1bd6c2944"
+    },
+    "banksim/train.y.i8": {
+      "bytes": 357136,
+      "sha256": "c12febbaf947bf396d9024a9f2a535a9563f6cc71868b1141bc290a1b1133699"
+    },
+    "s_ffsd/calibration.x.f32": {
+      "bytes": 3052896,
+      "sha256": "955163f717e2cfa6f96ad4ce87b85bdb030f50dd6fd27edcad4fab257e939278"
+    },
+    "s_ffsd/calibration.y.i8": {
+      "bytes": 15576,
+      "sha256": "4a6ee6159d35079272d4766028a30bfd226197513e576da44d61ab4222e277f3"
+    },
+    "s_ffsd/manifest.json": {
+      "bytes": 1745,
+      "sha256": "1d959c49f36fa1ce23267a9296cd9af76fcc22956094550e152b912ae6414cff"
+    },
+    "s_ffsd/test.x.f32": {
+      "bytes": 3052896,
+      "sha256": "b885e1a38556aac2035b32aa2abc894f25963ff06cf5f765e2e23cb5f9bc9750"
+    },
+    "s_ffsd/test.y.i8": {
+      "bytes": 15576,
+      "sha256": "fe1bd872b78f907c3f7b54a5a7ae38843680fb08d083f1168c39109133c45694"
+    },
+    "s_ffsd/train.x.f32": {
+      "bytes": 9158884,
+      "sha256": "9b8bde93652de59cacd1e5544df389ef60bfe4a8809dc733658bd36957c00597"
+    },
+    "s_ffsd/train.y.i8": {
+      "bytes": 46729,
+      "sha256": "023bcab5930897efb49d3f31db0900e96ddf21ef68ee0d02eb814f00134a36c3"
+    }
+  },
+  "datasets": {
+    "banksim": {
+      "raw": {
+        "path": "data/raw/banksim/banksim.zip",
+        "url": "https://raw.githubusercontent.com/SansaZheng/Financial_unsuperviesdAD/f0a6c7fa00eb54fba0f76b421cc11f66b9b536fe/data/raw/banksim/banksim.zip",
+        "bytes": 13712256,
+        "sha256": "3bfd0c2bfbdec83ad36eed499eaf38c6951c36be864ecbe30f3bcb7d84895f66",
+        "name": "banksim.zip"
+      },
+      "member": "bs140513_032310.csv",
+      "key_columns": [
+        "customer",
+        "merchant",
+        "category",
+        "gender",
+        "step"
+      ],
+      "time": "step",
+      "views": [
+        "customer",
+        "merchant",
+        "category",
+        "gender"
+      ],
+      "field_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          9,
+          10,
+          11,
+          12
+        ],
+        [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44
+        ],
+        [
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60
+        ]
+      ]
+    },
+    "s_ffsd": {
+      "raw": {
+        "path": "data/raw/s_ffsd/data/S-FFSD.zip",
+        "url": "https://raw.githubusercontent.com/SansaZheng/Financial_unsuperviesdAD/f0a6c7fa00eb54fba0f76b421cc11f66b9b536fe/data/raw/s_ffsd/data/S-FFSD.zip",
+        "bytes": 581456,
+        "sha256": "7dadda00a45162b648ccb98e1c2d21861358c61665abad517ff392ba11e3e434",
+        "name": "s_ffsd.zip"
+      },
+      "member": "S-FFSD.csv",
+      "key_columns": [
+        "Source",
+        "Target",
+        "Location",
+        "Type",
+        "Time"
+      ],
+      "time": "Time",
+      "views": [
+        "Source",
+        "Target",
+        "Location",
+        "Type"
+      ],
+      "field_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        [
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32
+        ],
+        [
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48
+        ]
+      ]
+    },
+    "cardsim": {
+      "field_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        [
+          22,
+          23
+        ]
+      ],
+      "views": [
+        "payer_id",
+        "payee_id",
+        "credit_card",
+        "remote"
+      ]
+    }
+  },
+  "cardsim_archive": {
+    "path": "data/derived/geometry_20261117_cardsim.tar.gz",
+    "url": "https://raw.githubusercontent.com/SansaZheng/Financial_unsuperviesdAD/f0a6c7fa00eb54fba0f76b421cc11f66b9b536fe/data/derived/geometry_20261117_cardsim.tar.gz",
+    "bytes": 3181119,
+    "sha256": "b33663316052d419511904b21514ebed9575844ae06a8ab010b9e3fde10be777"
+  },
+  "cardsim_files": {
+    "graphs/cardsim/calibration.graph.npz": {
+      "bytes": 161311,
+      "sha256": "6752d1c0a60c3249d1aac7124517b9858cd310f87484921eb4022a84c8bbf779"
+    },
+    "graphs/cardsim/calibration.ids.json": {
+      "bytes": 18260,
+      "sha256": "d7251a9d41b7bded2775c6fb71213a9a12e20d29f55f6579e9a99bb03a3728f8"
+    },
+    "graphs/cardsim/calibration.y.npy": {
+      "bytes": 2176,
+      "sha256": "b8a21df1515024a5418cf943dde61a571227d9c6610142b04fad864d1540bb88"
+    },
+    "graphs/cardsim/manifest.json": {
+      "bytes": 1158,
+      "sha256": "98e357ba42e0197a78c3c77e55be7f94f3b585657a14c38990edc142dca4d197"
+    },
+    "graphs/cardsim/test.graph.npz": {
+      "bytes": 161579,
+      "sha256": "f096526f85a5a346c8cdd4a0eab40741c0d2410233ddff3e5e6e8e4189edd71b"
+    },
+    "graphs/cardsim/test.ids.json": {
+      "bytes": 18260,
+      "sha256": "d7251a9d41b7bded2775c6fb71213a9a12e20d29f55f6579e9a99bb03a3728f8"
+    },
+    "graphs/cardsim/test.y.npy": {
+      "bytes": 2176,
+      "sha256": "933e6553b64fc6939fd40f7cb9dc676ef13e25682a872b8a863dfacf4ee35476"
+    },
+    "graphs/cardsim/train.graph.npz": {
+      "bytes": 235128,
+      "sha256": "77275dbf711a2b8608f13651213b8140c98b5365b582c014b6c850e73b9899a5"
+    },
+    "graphs/cardsim/train.ids.json": {
+      "bytes": 18260,
+      "sha256": "d7251a9d41b7bded2775c6fb71213a9a12e20d29f55f6579e9a99bb03a3728f8"
+    },
+    "graphs/cardsim/train.y.npy": {
+      "bytes": 2176,
+      "sha256": "d461487257ee5aa719e7e55b2bf2c1bbb388ecb01cacee5d9fc662372dc10395"
+    },
+    "tabular/cardsim/calibration.keys.npz": {
+      "bytes": 86274,
+      "sha256": "1c215c1b7c4028567e747d803cbdf6488a4c3f1245d21c45e7ab7eae063470c1"
+    },
+    "tabular/cardsim/calibration.rows.i64": {
+      "bytes": 128168,
+      "sha256": "e542003aa0f3d2098fae05848753087f84d4f45ea47f8e42c2ac9d0dab7655bd"
+    },
+    "tabular/cardsim/calibration.views.npz": {
+      "bytes": 165046,
+      "sha256": "60992d5074f8c8e4685fd598d4c8dce00fd7c012b4f4d36fe08b8157f050e9e6"
+    },
+    "tabular/cardsim/calibration.x.f32": {
+      "bytes": 1538016,
+      "sha256": "dd530569b1464eca135782f14725cb48ae140b17ca3a2a3cddbdca18724f77ed"
+    },
+    "tabular/cardsim/calibration.y.i8": {
+      "bytes": 16021,
+      "sha256": "1f6a5cf1fee39d9e6bf508304ff034a26f566638bb730889a9eb85f3bace7a89"
+    },
+    "tabular/cardsim/manifest.json": {
+      "bytes": 1002,
+      "sha256": "8157ea15693074430ca173bb499a348c3182960f699a833291f8c7f98b00d653"
+    },
+    "tabular/cardsim/test.keys.npz": {
+      "bytes": 86195,
+      "sha256": "26d6079338b5d469e642b46ab105c32c0b4059d8217cba86741c43eb7ce132ad"
+    },
+    "tabular/cardsim/test.rows.i64": {
+      "bytes": 128168,
+      "sha256": "0476cffd7239dd20e8aefadcd4cc90c5e7b0503362287a70cee3da42098f7b6e"
+    },
+    "tabular/cardsim/test.views.npz": {
+      "bytes": 164983,
+      "sha256": "b09b65aebb53677ac4c6587cc13ab02d9416d0305055d8e034d7ef21759c876c"
+    },
+    "tabular/cardsim/test.x.f32": {
+      "bytes": 1538016,
+      "sha256": "3c45db3abef561e938e21e3aad9a61dc9835f8c277149009c781237a88527a55"
+    },
+    "tabular/cardsim/test.y.i8": {
+      "bytes": 16021,
+      "sha256": "cf4660da17fb6fcb1b10da08094c529e7c2a380a8c766b1103e42ed1d6f96cc5"
+    },
+    "tabular/cardsim/train.keys.npz": {
+      "bytes": 255391,
+      "sha256": "d3af5cd6f5d3b6c43c8136a34dfae19fa6abb16820f50a2338f23317a6b1c3e3"
+    },
+    "tabular/cardsim/train.rows.i64": {
+      "bytes": 384520,
+      "sha256": "080c3a40546dd84710f0af60bec8a3ef3204f7f3ed430e0617fe5bdf5e164c68"
+    },
+    "tabular/cardsim/train.views.npz": {
+      "bytes": 500452,
+      "sha256": "5b4c56f8d5a0f25985e670aec60ce39ebb9cad16eeded3924a28ecdd749b1888"
+    },
+    "tabular/cardsim/train.x.f32": {
+      "bytes": 4614240,
+      "sha256": "c066fd25a14bb7303e09fac71e589d3363151e4d9543ccbcbf09fab792486b7a"
+    },
+    "tabular/cardsim/train.y.i8": {
+      "bytes": 48065,
+      "sha256": "e0a5f76a9d1f3b988e3d1e4dd10d83c7fc7b7b63326625ce06c32f98f5a0aa79"
+    }
+  }
+}
