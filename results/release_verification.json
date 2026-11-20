@@ -1,0 +1,271 @@
+{
+  "status": "checked_publication_pending",
+  "date": "2026-11-21",
+  "scope": "standalone zero-label adaptation explicitly selected by user",
+  "parent_source_commit": "f0a6c7fa00eb54fba0f76b421cc11f66b9b536fe",
+  "financial_evaluation_source_commit": "f64cf733f0949ebc49957b9cdc8c37eed65db4e1",
+  "numerical_core_files_unchanged_since_financial_audit": {
+    "network.py": "da434d857d397067b5c659803ebb00062bc26ae805bc3941e8489365e68060ba",
+    "hypergraph.py": "136fc02c347bf4249fb6011470a962ee97d36283e8797581d4fadf4aa1206c29",
+    "model.py": "a3a85599e1e618a8dac470ee39dfce99cde7bab6d98a62672cb1e0dfa0e90bcf",
+    "scoring.py": "9557579da83322ded3da223c0f836083479796d1ecd1bb9ad8f42f6c030f5a36",
+    "preprocessing.py": "ae807b6df9c6cf6e9f5496167335587860e9f1e3db22c6596150a7833a8f541c",
+    "thresholds.py": "7b628daa1dc62e25489ccf9a3126f718644958444d717b5a36cf6f426e95e506",
+    "evaluation.py": "46244c0c80a77ed0a50fa40de2783ec3c3c2176ce9e557ab04ee55db978dce9c",
+    "runner.py": "d890d73f16648bb75fe23791a9d438eef2ed2c0cb592e3f22b9db6b86e35b4a0"
+  },
+  "unit_tests": 27,
+  "parent_exact_toy_training_controls": 4,
+  "frozen_financial_models": 18,
+  "score_configurations": 144,
+  "operating_records": 288,
+  "new_financial_NN_fits_this_task": 0,
+  "imported_historical_configurations": {
+    "repair": 42,
+    "fields": 96
+  },
+  "old_metric_identity_checks": 48,
+  "CardSim_baseline_metric_replays": 9,
+  "pretrained_examples": {
+    "selection": "cm/seed42 fixed for all datasets; not best-seed selection",
+    "count": 3
+  },
+  "wheel": {
+    "status": "installed_and_demo_passed",
+    "sha256": "1a4d8f90f0be3d6503da36e01284ea359bc364ec79dbd28929f27589b222e981",
+    "contains_benchmark_sources": true,
+    "contains_report_extra": true,
+    "financial_benchmark": false
+  },
+  "public_download": {
+    "dataset": "cardsim",
+    "status": "download_SHA256_and_preparation_passed"
+  },
+  "end_to_end_pretrained_prediction": {
+    "dataset": "cardsim",
+    "variant": "cm",
+    "seed": 42,
+    "scoring": "tail",
+    "rows": 16021,
+    "real_labels_read": false,
+    "max_score_delta_vs_saved_GPU_components": 0.0007558591942320447,
+    "threshold_alarm_differences": {
+      "quantile": 0,
+      "pot": 0
+    },
+    "scope": "one complete CPU prediction; financial results table uses frozen saved components"
+  },
+  "prepared_data": [
+    {
+      "dataset": "banksim",
+      "files": 10,
+      "schema_sha256": "9437a3583fe905c7abc2ee0d8be3f3b9f48fa0058178441336658f147a05d762",
+      "features": 61,
+      "field_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8
+        ],
+        [
+          9,
+          10,
+          11,
+          12
+        ],
+        [
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32,
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44
+        ],
+        [
+          45,
+          46,
+          47,
+          48,
+          49,
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56,
+          57,
+          58,
+          59,
+          60
+        ]
+      ],
+      "splits": {
+        "train": 357136,
+        "calibration": 118869,
+        "test": 118638
+      }
+    },
+    {
+      "dataset": "s_ffsd",
+      "files": 10,
+      "schema_sha256": "916c1a06e7372d7c3125c12b9a7a70c4ca7d93af974991970c425036789b9abe",
+      "features": 49,
+      "field_groups": [
+        [
+          0
+        ],
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16
+        ],
+        [
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31,
+          32
+        ],
+        [
+          33,
+          34,
+          35,
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43,
+          44,
+          45,
+          46,
+          47,
+          48
+        ]
+      ],
+      "splits": {
+        "train": 46729,
+        "calibration": 15576,
+        "test": 15576
+      }
+    },
+    {
+      "dataset": "cardsim",
+      "files": 16,
+      "schema_sha256": "10f14abf432d5cb49a2a418af8d0c75fefa32f919cac92a05539da49e3efcf09",
+      "features": 24,
+      "field_groups": [
+        [
+          0
+        ],
+        [
+          1
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          4,
+          5
+        ],
+        [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21
+        ],
+        [
+          22,
+          23
+        ]
+      ],
+      "splits": {
+        "train": 48065,
+        "calibration": 16021,
+        "test": 16021
+      }
+    }
+  ],
+  "financial_audit_seconds": 57.79013887490146,
+  "baseline_scope": "historical/reference metrics; not baseline fitting by HIMVHAD",
+  "publication": {
+    "status": "pending"
+  },
+  "CI": {
+    "status": "pending"
+  }
+}

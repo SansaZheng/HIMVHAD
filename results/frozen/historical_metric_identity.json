@@ -1,0 +1,342 @@
+{
+  "status": "passed",
+  "matching_configurations": 48,
+  "checks": [
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "scoring": "field",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "scoring": "flat",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "scoring": "tail",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "scoring": "tail_flat",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "scoring": "field",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "scoring": "flat",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "scoring": "tail",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "scoring": "tail_flat",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "scoring": "field",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "scoring": "flat",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "scoring": "tail",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "scoring": "tail_flat",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "scoring": "field",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "scoring": "flat",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "scoring": "tail",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "scoring": "tail_flat",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "scoring": "field",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "scoring": "flat",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "scoring": "tail",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "scoring": "tail_flat",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "scoring": "field",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "scoring": "flat",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "scoring": "tail",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "scoring": "tail_flat",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "scoring": "field",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "scoring": "flat",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "scoring": "tail",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "scoring": "tail_flat",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "scoring": "field",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "scoring": "flat",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "scoring": "tail",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "scoring": "tail_flat",
+      "seed": 42,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "scoring": "field",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "scoring": "flat",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "scoring": "tail",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "scoring": "tail_flat",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "scoring": "field",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "scoring": "flat",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "scoring": "tail",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "scoring": "tail_flat",
+      "seed": 43,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "scoring": "field",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "scoring": "flat",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "scoring": "tail",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "scoring": "tail_flat",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "scoring": "field",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "scoring": "flat",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "scoring": "tail",
+      "seed": 44,
+      "metrics_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "scoring": "tail_flat",
+      "seed": 44,
+      "metrics_exact": true
+    }
+  ]
+}

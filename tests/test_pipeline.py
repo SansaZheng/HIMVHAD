@@ -82,3 +82,8 @@ def test_predict_freezes_weights_and_never_reads_labels(tmp_path,monkeypatch):
     with np.load(out/'tail/scores.npz') as z:np.testing.assert_array_equal(v,z['test'])
     schema=json.loads((data/'schema.json').read_text());schema['features']=list(reversed(schema['features']));(data/'schema.json').write_text(json.dumps(schema))
     with pytest.raises(ValueError):predict(out,data,tmp_path/'bad','tail')
+
+def test_cli_evaluates_predictions_with_frozen_thresholds(tmp_path,monkeypatch):
+    from himvhad.cli import main
+    out=tmp_path/'pred.npz';np.savez(out,score=np.array([0.,1.,2.]));labels=tmp_path/'y.i8';np.array([0,0,1],dtype='i1').tofile(labels);th=tmp_path/'th.json';th.write_text(json.dumps({'quantile':{'status':'ok','threshold':1.5},'pot':{'status':'failed','threshold':None,'reason':'fixture'}}));dest=tmp_path/'metrics.json'
+    monkeypatch.setattr(sys,'argv',['himvhad','evaluate','--scores',str(out),'--labels',str(labels),'--thresholds',str(th),'--output',str(dest)]);main();m=json.loads(dest.read_text());assert m['operating_points']['quantile']['f1']==1 and m['operating_points']['pot'] is None

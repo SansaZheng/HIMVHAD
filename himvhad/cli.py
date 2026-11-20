@@ -35,7 +35,10 @@ def main():
     elif a.command=='rescore':rescore(a.parent,a.output,a.scores,a.data);print('Rescored frozen checkpoint without fitting a network')
     elif a.command=='predict':predict(a.run,a.data,a.output,a.score,a.phase);print('Predicted without target access: '+str(a.output))
     else:
-        with np.load(a.scores,allow_pickle=False) as z:c,t=z['calibration'],z['test']
+        with np.load(a.scores,allow_pickle=False) as z:
+            if 'test' in z and 'calibration' in z:c,t=z['calibration'],z['test']
+            elif 'score' in z and a.thresholds is not None:c,t=None,z['score']
+            else:raise ValueError('Use calibration/test scores, or predictions with --thresholds from the frozen run')
         y=np.load(a.labels,allow_pickle=False) if a.labels.suffix=='.npy' else np.fromfile(a.labels,dtype='i1');thresholds=json.loads(a.thresholds.read_text()) if a.thresholds else calibrate(c);result=metrics(y,t,thresholds)
         if a.output:write(a.output,result)
         else:print(json.dumps(result,indent=2,allow_nan=False))

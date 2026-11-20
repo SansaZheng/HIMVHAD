@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this independent zero-label adaptation, cite the original HIMVH paper and this repository."
+title: "HIMVHAD: independent zero-label financial anomaly detection adaptation"
+type: software
+authors:
+  - name: "SansaZheng"
+version: 0.1.0
+license: MIT
+repository-code: "https://github.com/SansaZheng/HIMVHAD"
+references:
+  - type: article
+    title: "Bridging Cognitive Neuroscience and Graph Intelligence: Hippocampus-Inspired Multi-View Hypergraph Learning for Web Finance Fraud"
+    authors:
+      - family-names: Cui
+        given-names: Rongkun
+      - family-names: Zhang
+        given-names: Nana
+      - family-names: Zhu
+        given-names: Kun
+      - family-names: Zhang
+        given-names: Qi
+    year: 2026
+    doi: "10.1145/3774904.3792979"
+    url: "https://arxiv.org/abs/2601.11073"

@@ -1,0 +1,37 @@
+{
+  "source": {
+    "git_commit": "f64cf733f0949ebc49957b9cdc8c37eed65db4e1",
+    "source_matches_git_commit": true,
+    "source_sha256": {
+      "__init__.py": "507668233b54129cfa24e3acf810b174944d5f82c779941407f2f9658cc3aa6a",
+      "__main__.py": "cf7390a2508a0fcad4777a4a629fc5212ab655cb45845975995f835676a834e3",
+      "audit.py": "047f340e97ed67ac7efe800af6c402a132b68cdd41c340520c4031ef1f206e9c",
+      "benchmark.py": "3a339fab718ccf7d7e436e5161e8407a922305522d17289219bfa411c5e2c14b",
+      "benchmark_sources.json": "9158543ba3a9889a660aab06b2b792bc46c59919480823fe5ba272928ed7a052",
+      "cli.py": "87d4b4caf92b0bbf5e95aad765eda0407b5ac6f94715a849334c39e617a6e4ee",
+      "data.py": "84e7e196fe7c3515ec379d712943fa81a6b41300b3804f11d960e99730aca0b8",
+      "evaluation.py": "46244c0c80a77ed0a50fa40de2783ec3c3c2176ce9e557ab04ee55db978dce9c",
+      "hypergraph.py": "136fc02c347bf4249fb6011470a962ee97d36283e8797581d4fadf4aa1206c29",
+      "io.py": "972677fff1ef31fac48514433c5b14400ea51fec67ec7f003012dfb84fa24b11",
+      "model.py": "a3a85599e1e618a8dac470ee39dfce99cde7bab6d98a62672cb1e0dfa0e90bcf",
+      "network.py": "da434d857d397067b5c659803ebb00062bc26ae805bc3941e8489365e68060ba",
+      "preprocessing.py": "ae807b6df9c6cf6e9f5496167335587860e9f1e3db22c6596150a7833a8f541c",
+      "runner.py": "d890d73f16648bb75fe23791a9d438eef2ed2c0cb592e3f22b9db6b86e35b4a0",
+      "scoring.py": "9557579da83322ded3da223c0f836083479796d1ecd1bb9ad8f42f6c030f5a36",
+      "thresholds.py": "7b628daa1dc62e25489ccf9a3126f718644958444d717b5a36cf6f426e95e506"
+    },
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2",
+    "torch": "2.6.0"
+  },
+  "rows": 16021,
+  "phase": "test",
+  "scoring": "tail",
+  "checkpoint_sha256": "6f99293d07cf6efb01c78c9e09c9f03918e614748709319982b5493fa943a957",
+  "scaler_sha256": "bacedb5c768dfbcdf7ae071466b8005f3beff1c1edca1c25e21cbf61b370fc3f",
+  "calibrator_sha256": "46c4c374c5c6a9342e03751911e9168182d94f2e0c6732f26a5649882dfef077",
+  "thresholds_sha256": "3c26c6de2f58f6a965e2b78991c5bde6965f2a1ed9c5a9d48c4184e54cac9ea5",
+  "real_labels_read": false
+}

@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "source": {
+    "git_commit": "96a6c4bcd7286c2571ecdc354388b210ce0bc07d",
+    "source_sha256": {
+      "__init__.py": "507668233b54129cfa24e3acf810b174944d5f82c779941407f2f9658cc3aa6a",
+      "__main__.py": "cf7390a2508a0fcad4777a4a629fc5212ab655cb45845975995f835676a834e3",
+      "benchmark.py": "3a339fab718ccf7d7e436e5161e8407a922305522d17289219bfa411c5e2c14b",
+      "cli.py": "023d0b43e5531013e9e4fda73c96be410a7c149d698c3bbb0538814ef6ae1558",
+      "data.py": "84e7e196fe7c3515ec379d712943fa81a6b41300b3804f11d960e99730aca0b8",
+      "evaluation.py": "46244c0c80a77ed0a50fa40de2783ec3c3c2176ce9e557ab04ee55db978dce9c",
+      "hypergraph.py": "136fc02c347bf4249fb6011470a962ee97d36283e8797581d4fadf4aa1206c29",
+      "io.py": "889603d2b34571464becca0bef82f547525cb18313511e99213fe6922ef34683",
+      "model.py": "a3a85599e1e618a8dac470ee39dfce99cde7bab6d98a62672cb1e0dfa0e90bcf",
+      "network.py": "da434d857d397067b5c659803ebb00062bc26ae805bc3941e8489365e68060ba",
+      "preprocessing.py": "ae807b6df9c6cf6e9f5496167335587860e9f1e3db22c6596150a7833a8f541c",
+      "runner.py": "52d447193b55e2b4c0780bab7ec9f886aa89207649784cbbc2a565820dd045bb",
+      "scoring.py": "9557579da83322ded3da223c0f836083479796d1ecd1bb9ad8f42f6c030f5a36",
+      "thresholds.py": "7b628daa1dc62e25489ccf9a3126f718644958444d717b5a36cf6f426e95e506"
+    },
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2",
+    "torch": "2.6.0"
+  },
+  "parent_commit": "f0a6c7fa00eb54fba0f76b421cc11f66b9b536fe",
+  "toy_training_only": true,
+  "new_financial_fits": 0,
+  "checks": [
+    {
+      "native": false,
+      "consistent": false,
+      "state_tensors_bitwise_equal": true,
+      "components_bitwise_equal": true
+    },
+    {
+      "native": true,
+      "consistent": false,
+      "state_tensors_bitwise_equal": true,
+      "components_bitwise_equal": true
+    },
+    {
+      "native": false,
+      "consistent": true,
+      "state_tensors_bitwise_equal": true,
+      "components_bitwise_equal": true
+    },
+    {
+      "native": true,
+      "consistent": true,
+      "state_tensors_bitwise_equal": true,
+      "components_bitwise_equal": true
+    }
+  ],
+  "seconds": 1.718036208068952
+}

@@ -1,3 +1,4 @@
+# Reference preprocessing/metrics pins for Python3.11+; Python3.10 uses pyproject compatible dependencies.
 numpy==2.3.5
 scipy==1.15.3
 pandas==2.3.3

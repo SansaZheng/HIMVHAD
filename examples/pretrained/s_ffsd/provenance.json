@@ -1,0 +1,21 @@
+{
+  "dataset": "s_ffsd",
+  "variant": "cm",
+  "seed": 42,
+  "origin": "copied_frozen_checkpoint_not_new_training",
+  "files_sha256": {
+    "field/thresholds.json": "4fd647cf4463150d1932ac9e51341586219e13c65c9577110444565673eea55e",
+    "field_calibrator.npz": "46c3456a21258b00c061538b88599ca77efbfbc7af24fdee1d257ed84946a0ba",
+    "flat/thresholds.json": "71271c25c489b26410b3d7e3788c80559d8beb0baad9ec3bb3191f48c343836e",
+    "input_schema.json": "a88b45ea940a5e0dccd0909c0f9d9096cc852e20a27978bfeb328e337809c0e4",
+    "model.pt": "b0e78741dbe97f354d962020b965eef390bcd26eca6083aac5388863c32587e2",
+    "preprocessor.npz": "cb0ae2a0e4b2dfc0f2eb47c089d8805008b7e02d44f533f560822acb2709d0f1",
+    "skill_calibrator.npz": "59759d878cd43d30b5a94873bcadcb37c71c0c1e30d1580e332b2c5354f936a4",
+    "skill_equal_tail/thresholds.json": "1f0a7eef80769009f5fe8637d2c2c1aa460c3afd72bcc111949bdfd6870b80bc",
+    "skill_hard_tail/thresholds.json": "bf9d8cbedc0c9492d79c4cbe7c1a65879ed6203de5bc17aa85644575375ad8f7",
+    "skill_raw/thresholds.json": "d7ea2c93cadf8584750f663044fc2981ca1d35b0af681ce5be0b30257c6e2628",
+    "skill_tail/thresholds.json": "ef06c2f9fc70f278506ae099403704de59df89433688de3c3104478b64fdc6ba",
+    "tail/thresholds.json": "f283cff9608a25311478e9cf5527721aa24fd1f6011dc524c5cf826e0d9518e8",
+    "tail_flat/thresholds.json": "cd013baed4e86e7fc9372a8ca92cf025aec8c2693e7807063474e80103ccbfff"
+  }
+}

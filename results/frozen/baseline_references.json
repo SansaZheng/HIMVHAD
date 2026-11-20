@@ -1,0 +1,560 @@
+[
+  {
+    "track": "tabular",
+    "dataset": "cardsim",
+    "family": "baseline",
+    "variant": "hbos",
+    "method": "baseline_geometry_hbos",
+    "seed": 42,
+    "metrics": {
+      "evaluated": 16021,
+      "unknown_excluded": 0,
+      "positives": 154,
+      "normal": 15867,
+      "prevalence": 0.009612383746332939,
+      "average_precision": 0.15751171997896785,
+      "roc_auc": 0.922200082012901,
+      "pr_auc_trapezoid": 0.15446135788189752,
+      "operating_points": {
+        "quantile": {
+          "tp": 46,
+          "fp": 115,
+          "fn": 108,
+          "tn": 15752,
+          "precision": 0.2857142857142857,
+          "recall": 0.2987012987012987,
+          "f1": 0.2920634920634921,
+          "fpr": 0.007247746896073612,
+          "alarm_fraction": 0.010049310280257162
+        },
+        "pot": {
+          "tp": 40,
+          "fp": 107,
+          "fn": 114,
+          "tn": 15760,
+          "precision": 0.272108843537415,
+          "recall": 0.2597402597402597,
+          "f1": 0.26578073089701,
+          "fpr": 0.0067435558076511,
+          "alarm_fraction": 0.009175457212408714
+        }
+      }
+    },
+    "model_info": {
+      "method": "hbos",
+      "bins": 10,
+      "binning": "equal_width",
+      "pseudocount": 1,
+      "density_normalization": "maximum_per_feature",
+      "warnings": []
+    },
+    "seconds": 0.12153281700000207,
+    "parent_sha256": {
+      "model": "d34563a76b50891ae11b99b9a415efc19d09d3af08b1a741215cc9fa610058d1"
+    },
+    "score_sha256": "ad827bdaf0b9e54c0f2a9afb40b7e9bdd3b24575bbd8485272e0cce0e4b0f98b"
+  },
+  {
+    "track": "tabular",
+    "dataset": "cardsim",
+    "family": "baseline",
+    "variant": "hbos",
+    "method": "baseline_geometry_hbos",
+    "seed": 43,
+    "metrics": {
+      "evaluated": 16021,
+      "unknown_excluded": 0,
+      "positives": 154,
+      "normal": 15867,
+      "prevalence": 0.009612383746332939,
+      "average_precision": 0.15527301801953391,
+      "roc_auc": 0.918533033110458,
+      "pr_auc_trapezoid": 0.15079566860362226,
+      "operating_points": {
+        "quantile": {
+          "tp": 36,
+          "fp": 116,
+          "fn": 118,
+          "tn": 15751,
+          "precision": 0.23684210526315788,
+          "recall": 0.23376623376623376,
+          "f1": 0.23529411764705882,
+          "fpr": 0.0073107707821264255,
+          "alarm_fraction": 0.009487547593783159
+        },
+        "pot": {
+          "tp": 33,
+          "fp": 107,
+          "fn": 121,
+          "tn": 15760,
+          "precision": 0.2357142857142857,
+          "recall": 0.21428571428571427,
+          "f1": 0.22448979591836735,
+          "fpr": 0.0067435558076511,
+          "alarm_fraction": 0.008738530678484489
+        }
+      }
+    },
+    "model_info": {
+      "method": "hbos",
+      "bins": 10,
+      "binning": "equal_width",
+      "pseudocount": 1,
+      "density_normalization": "maximum_per_feature",
+      "warnings": []
+    },
+    "seconds": 0.13379810800006453,
+    "parent_sha256": {
+      "model": "169abf8e4f7322ee9c6a2e217c07ac5b7db5f47d37e6e2ad90dcf9654510e221"
+    },
+    "score_sha256": "a68be494895740e76dd548bbfe4ce3359c305575c20327dbf5e1cd23ff486c75"
+  },
+  {
+    "track": "tabular",
+    "dataset": "cardsim",
+    "family": "baseline",
+    "variant": "hbos",
+    "method": "baseline_geometry_hbos",
+    "seed": 44,
+    "metrics": {
+      "evaluated": 16021,
+      "unknown_excluded": 0,
+      "positives": 154,
+      "normal": 15867,
+      "prevalence": 0.009612383746332939,
+      "average_precision": 0.13976451852493202,
+      "roc_auc": 0.919988516556866,
+      "pr_auc_trapezoid": 0.13639430305603573,
+      "operating_points": {
+        "quantile": {
+          "tp": 36,
+          "fp": 121,
+          "fn": 118,
+          "tn": 15746,
+          "precision": 0.22929936305732485,
+          "recall": 0.23376623376623376,
+          "f1": 0.2315112540192926,
+          "fpr": 0.007625890212390496,
+          "alarm_fraction": 0.009799637975157606
+        },
+        "pot": {
+          "tp": 31,
+          "fp": 105,
+          "fn": 123,
+          "tn": 15762,
+          "precision": 0.22794117647058823,
+          "recall": 0.2012987012987013,
+          "f1": 0.21379310344827587,
+          "fpr": 0.006617508035545471,
+          "alarm_fraction": 0.008488858373384933
+        }
+      }
+    },
+    "model_info": {
+      "method": "hbos",
+      "bins": 10,
+      "binning": "equal_width",
+      "pseudocount": 1,
+      "density_normalization": "maximum_per_feature",
+      "warnings": []
+    },
+    "seconds": 0.12457729500010828,
+    "parent_sha256": {
+      "model": "0a90dbcbaac950349b96c3ad0938b5fa497f8858b729aaf62bd1323ee70f2ff5"
+    },
+    "score_sha256": "10bbf6dc5a1e7f580ee2c763c158709b8708f53226e2cd4c5ab0a918f7411a8d"
+  },
+  {
+    "track": "tabular",
+    "dataset": "cardsim",
+    "family": "baseline",
+    "variant": "lof",
+    "method": "baseline_geometry_lof",
+    "seed": 42,
+    "metrics": {
+      "evaluated": 16021,
+      "unknown_excluded": 0,
+      "positives": 154,
+      "normal": 15867,
+      "prevalence": 0.009612383746332939,
+      "average_precision": 0.0604847866744626,
+      "roc_auc": 0.8562515193258246,
+      "pr_auc_trapezoid": 0.05747220940574173,
+      "operating_points": {
+        "quantile": {
+          "tp": 16,
+          "fp": 151,
+          "fn": 138,
+          "tn": 15716,
+          "precision": 0.09580838323353294,
+          "recall": 0.1038961038961039,
+          "f1": 0.09968847352024922,
+          "fpr": 0.009516606793974916,
+          "alarm_fraction": 0.010423818737906498
+        },
+        "pot": {
+          "tp": 12,
+          "fp": 134,
+          "fn": 142,
+          "tn": 15733,
+          "precision": 0.0821917808219178,
+          "recall": 0.07792207792207792,
+          "f1": 0.08,
+          "fpr": 0.008445200731077079,
+          "alarm_fraction": 0.009113039136133825
+        }
+      }
+    },
+    "model_info": {
+      "method": "lof",
+      "n_neighbors": 20,
+      "mode": "inductive_novelty",
+      "warnings": []
+    },
+    "seconds": 1.1709355710000295,
+    "parent_sha256": {
+      "model": "f298a15c45a15c4ed8ee01e7857e0de370aac7a13eaba2a810a33f845bc51025"
+    },
+    "score_sha256": "106e65f2f40f861901aef92185689958bcaff22ef8e645b28801620888b35875"
+  },
+  {
+    "track": "tabular",
+    "dataset": "cardsim",
+    "family": "baseline",
+    "variant": "lof",
+    "method": "baseline_geometry_lof",
+    "seed": 43,
+    "metrics": {
+      "evaluated": 16021,
+      "unknown_excluded": 0,
+      "positives": 154,
+      "normal": 15867,
+      "prevalence": 0.009612383746332939,
+      "average_precision": 0.05282967145044611,
+      "roc_auc": 0.8315940377766811,
+      "pr_auc_trapezoid": 0.04961976829370443,
+      "operating_points": {
+        "quantile": {
+          "tp": 12,
+          "fp": 129,
+          "fn": 142,
+          "tn": 15738,
+          "precision": 0.0851063829787234,
+          "recall": 0.07792207792207792,
+          "f1": 0.08135593220338982,
+          "fpr": 0.008130081300813009,
+          "alarm_fraction": 0.008800948754759378
+        },
+        "pot": {
+          "tp": 11,
+          "fp": 118,
+          "fn": 143,
+          "tn": 15749,
+          "precision": 0.08527131782945736,
+          "recall": 0.07142857142857142,
+          "f1": 0.07773851590106007,
+          "fpr": 0.007436818554232054,
+          "alarm_fraction": 0.008051931839460708
+        }
+      }
+    },
+    "model_info": {
+      "method": "lof",
+      "n_neighbors": 20,
+      "mode": "inductive_novelty",
+      "warnings": []
+    },
+    "seconds": 1.1346517640000684,
+    "parent_sha256": {
+      "model": "cb07b05cce9f153d814fdef376ce5d7db3092d282ade91e5e10251e80206cf4a"
+    },
+    "score_sha256": "4731913ee62152ad530396ae8049cf462c8ede89b18e9573520e5241f54585aa"
+  },
+  {
+    "track": "tabular",
+    "dataset": "cardsim",
+    "family": "baseline",
+    "variant": "lof",
+    "method": "baseline_geometry_lof",
+    "seed": 44,
+    "metrics": {
+      "evaluated": 16021,
+      "unknown_excluded": 0,
+      "positives": 154,
+      "normal": 15867,
+      "prevalence": 0.009612383746332939,
+      "average_precision": 0.06970118158238847,
+      "roc_auc": 0.8450846279830965,
+      "pr_auc_trapezoid": 0.067929830104292,
+      "operating_points": {
+        "quantile": {
+          "tp": 14,
+          "fp": 139,
+          "fn": 140,
+          "tn": 15728,
+          "precision": 0.0915032679738562,
+          "recall": 0.09090909090909091,
+          "f1": 0.09120521172638436,
+          "fpr": 0.008760320161341149,
+          "alarm_fraction": 0.00954996567005805
+        },
+        "pot": {
+          "tp": 14,
+          "fp": 131,
+          "fn": 140,
+          "tn": 15736,
+          "precision": 0.09655172413793103,
+          "recall": 0.09090909090909091,
+          "f1": 0.09364548494983277,
+          "fpr": 0.008256129072918636,
+          "alarm_fraction": 0.009050621059858936
+        }
+      }
+    },
+    "model_info": {
+      "method": "lof",
+      "n_neighbors": 20,
+      "mode": "inductive_novelty",
+      "warnings": []
+    },
+    "seconds": 1.128834473999973,
+    "parent_sha256": {
+      "model": "110f3648f9c257d4478514f83b3d250d274072ef729522f7ac65be779ecb0c4a"
+    },
+    "score_sha256": "e532754c945142708bb66ba5e8e954b3a7391ed9b5d4ea8229c68abdbcf0e906"
+  },
+  {
+    "track": "tabular",
+    "dataset": "cardsim",
+    "family": "baseline",
+    "variant": "vae",
+    "method": "baseline_geometry_vae",
+    "seed": 42,
+    "metrics": {
+      "evaluated": 16021,
+      "unknown_excluded": 0,
+      "positives": 154,
+      "normal": 15867,
+      "prevalence": 0.009612383746332939,
+      "average_precision": 0.03527353513492103,
+      "roc_auc": 0.8191083511559971,
+      "pr_auc_trapezoid": 0.03460581158037701,
+      "operating_points": {
+        "quantile": {
+          "tp": 9,
+          "fp": 152,
+          "fn": 145,
+          "tn": 15715,
+          "precision": 0.055900621118012424,
+          "recall": 0.05844155844155844,
+          "f1": 0.05714285714285714,
+          "fpr": 0.00957963068002773,
+          "alarm_fraction": 0.010049310280257162
+        },
+        "pot": {
+          "tp": 4,
+          "fp": 111,
+          "fn": 150,
+          "tn": 15756,
+          "precision": 0.034782608695652174,
+          "recall": 0.025974025974025976,
+          "f1": 0.02973977695167286,
+          "fpr": 0.0069956513518623555,
+          "alarm_fraction": 0.0071780787716122585
+        }
+      }
+    },
+    "model_info": {
+      "method": "vae",
+      "features": 24,
+      "latent": 12,
+      "steps": 400,
+      "pretrain_steps": 0,
+      "objective": "negative_gaussian_ELBO",
+      "mc_samples": 8,
+      "losses": [
+        {
+          "step": 1,
+          "loss": 33.73750305175781
+        },
+        {
+          "step": 101,
+          "loss": 32.51644515991211
+        },
+        {
+          "step": 201,
+          "loss": 32.33085632324219
+        },
+        {
+          "step": 301,
+          "loss": 32.56780242919922
+        },
+        {
+          "step": 400,
+          "loss": 32.4144287109375
+        }
+      ]
+    },
+    "seconds": 1.461217428999987,
+    "parent_sha256": {
+      "model": "97ab861c895c061cb23ed23875666c58ed44850e6e4f815ffe584efc08af43bf"
+    },
+    "score_sha256": "d7c0cd2231958ad33eddedc48eda1c516250863808458d88cd4cbb8c87b6cf4e"
+  },
+  {
+    "track": "tabular",
+    "dataset": "cardsim",
+    "family": "baseline",
+    "variant": "vae",
+    "method": "baseline_geometry_vae",
+    "seed": 43,
+    "metrics": {
+      "evaluated": 16021,
+      "unknown_excluded": 0,
+      "positives": 154,
+      "normal": 15867,
+      "prevalence": 0.009612383746332939,
+      "average_precision": 0.03678579920869842,
+      "roc_auc": 0.8039928496536551,
+      "pr_auc_trapezoid": 0.03618590493426481,
+      "operating_points": {
+        "quantile": {
+          "tp": 4,
+          "fp": 143,
+          "fn": 150,
+          "tn": 15724,
+          "precision": 0.027210884353741496,
+          "recall": 0.025974025974025976,
+          "f1": 0.026578073089700997,
+          "fpr": 0.009012415705552404,
+          "alarm_fraction": 0.009175457212408714
+        },
+        "pot": {
+          "tp": 4,
+          "fp": 145,
+          "fn": 150,
+          "tn": 15722,
+          "precision": 0.026845637583892617,
+          "recall": 0.025974025974025976,
+          "f1": 0.026402640264026403,
+          "fpr": 0.009138463477658032,
+          "alarm_fraction": 0.009300293364958492
+        }
+      }
+    },
+    "model_info": {
+      "method": "vae",
+      "features": 24,
+      "latent": 12,
+      "steps": 400,
+      "pretrain_steps": 0,
+      "objective": "negative_gaussian_ELBO",
+      "mc_samples": 8,
+      "losses": [
+        {
+          "step": 1,
+          "loss": 33.62456130981445
+        },
+        {
+          "step": 101,
+          "loss": 32.512428283691406
+        },
+        {
+          "step": 201,
+          "loss": 32.26982879638672
+        },
+        {
+          "step": 301,
+          "loss": 32.57908630371094
+        },
+        {
+          "step": 400,
+          "loss": 32.374786376953125
+        }
+      ]
+    },
+    "seconds": 1.3623095020000164,
+    "parent_sha256": {
+      "model": "ea788275bc969bf9ff6a6ebb51f3796e5ac8688fc3eafe77bb9aae683c165ef0"
+    },
+    "score_sha256": "7f15a4ceae28a6f3b4ac48c7caf07d9eb35a1ee24cd568e065ae67f191faa95d"
+  },
+  {
+    "track": "tabular",
+    "dataset": "cardsim",
+    "family": "baseline",
+    "variant": "vae",
+    "method": "baseline_geometry_vae",
+    "seed": 44,
+    "metrics": {
+      "evaluated": 16021,
+      "unknown_excluded": 0,
+      "positives": 154,
+      "normal": 15867,
+      "prevalence": 0.009612383746332939,
+      "average_precision": 0.03652004242855993,
+      "roc_auc": 0.8168245537786094,
+      "pr_auc_trapezoid": 0.03589925288168494,
+      "operating_points": {
+        "quantile": {
+          "tp": 3,
+          "fp": 156,
+          "fn": 151,
+          "tn": 15711,
+          "precision": 0.018867924528301886,
+          "recall": 0.01948051948051948,
+          "f1": 0.019169329073482427,
+          "fpr": 0.009831726224238986,
+          "alarm_fraction": 0.009924474127707384
+        },
+        "pot": {
+          "tp": 3,
+          "fp": 146,
+          "fn": 151,
+          "tn": 15721,
+          "precision": 0.020134228187919462,
+          "recall": 0.01948051948051948,
+          "f1": 0.019801980198019802,
+          "fpr": 0.009201487363710846,
+          "alarm_fraction": 0.009300293364958492
+        }
+      }
+    },
+    "model_info": {
+      "method": "vae",
+      "features": 24,
+      "latent": 12,
+      "steps": 400,
+      "pretrain_steps": 0,
+      "objective": "negative_gaussian_ELBO",
+      "mc_samples": 8,
+      "losses": [
+        {
+          "step": 1,
+          "loss": 33.43494415283203
+        },
+        {
+          "step": 101,
+          "loss": 32.42875671386719
+        },
+        {
+          "step": 201,
+          "loss": 32.30168151855469
+        },
+        {
+          "step": 301,
+          "loss": 32.37327194213867
+        },
+        {
+          "step": 400,
+          "loss": 32.520328521728516
+        }
+      ]
+    },
+    "seconds": 1.3417145040000378,
+    "parent_sha256": {
+      "model": "5239858c3ec9563506105d1646743b387de178d73d64fa0ec72b4e8e145ea42f"
+    },
+    "score_sha256": "1f8b12dd78aae5dcc8b97aaeb007a49400b4d1bf443a98b0465c032b363d0838"
+  }
+]

@@ -1,13 +1,123 @@
 # HIMVHAD
 
-HIMVH 的独立零标签金融异常检测适配。训练目标为遮蔽字段重构，真实训练／校准标签不参与学习；该实现不是原论文的监督分类器，也不宣称复刻原论文分数。
+**HIMVH 的独立零标签金融交易异常检测适配，可安装、训练、重评分和预测。** 使用遮蔽字段重构学习，不把真实训练／校准标签送入模型。它与[原论文](https://arxiv.org/html/2601.11073v3)的监督分类器有明确区别；本仓库不宣称复刻论文监督成绩。
+
+[中文方法说明](docs/reproduction_CN.md) · [完整结果与消融](results/frozen/README_CN.md) · [数据来源](docs/data_sources_CN.md) · [English](README_EN.md)
+
+## 安装与CPU演示
 
 ```bash
+git clone https://github.com/SansaZheng/HIMVHAD.git
+cd HIMVHAD
 python -m pip install -e '.[test]'
 python -m himvhad demo --output runs/demo --steps 2
 python -m pytest -q
 ```
 
-完整中文方法说明、实验入口和来源核验报告正在本次整理中。上游实现与已核验结果来自 [Financial_unsuperviesdAD](https://github.com/SansaZheng/Financial_unsuperviesdAD)。原论文：[arXiv:2601.11073v3](https://arxiv.org/html/2601.11073v3)。
+支持Python3.10及以上，CPU演示不需要GPU。`demo`是合成流程检查，不是金融成绩；输出目录必须是新目录。完整金融训练是后续显式命令，安装和演示不会自动启动它。
 
-Independent zero-label adaptation: masked-field reconstruction instead of the paper's supervised classification. The synthetic demo is a pipeline check, not financial benchmark evidence.
+## 直接使用随仓库提供的模型
+
+提供BankSim、S-FFSD、CardSim三个**固定cm/seed42**历史检查点及其训练缩放器、无标签校准器和阈值，未按最佳种子筛选。原始数据另行下载、SHA256核验；无需登录数据平台。
+
+```bash
+python -m himvhad fetch-benchmark --root data/benchmark --datasets cardsim
+python -m himvhad predict \
+  --run examples/pretrained/cardsim \
+  --data data/benchmark/cardsim \
+  --score tail \
+  --output runs/cardsim-prediction
+```
+
+输出`predictions.npz`包括分数和可用阈值的布尔报警，`prediction_manifest.json`记录来源；预测不读取真实标签。POT拟合失败时不产生`pot`报警数组，失败原因保留在模型目录对应评分的`thresholds.json`，不会用q99冒充POT。
+
+如需对已知测试标签评价，使用冻结阈值：
+
+```bash
+python -m himvhad evaluate \
+  --scores runs/cardsim-prediction/predictions.npz \
+  --labels data/benchmark/cardsim/test.y.i8 \
+  --thresholds examples/pretrained/cardsim/tail/thresholds.json \
+  --output runs/cardsim-prediction/metrics.json
+```
+
+## 重新训练相同设置
+
+```bash
+python -m himvhad fetch-benchmark \
+  --root data/benchmark --datasets banksim s_ffsd cardsim
+
+python -m himvhad run \
+  --data data/benchmark/banksim \
+  --output runs/banksim \
+  --variants m cm --seeds 42 43 44 \
+  --steps 800 --device cuda \
+  --scores field flat tail tail_flat skill_tail skill_raw skill_equal_tail skill_hard_tail
+```
+
+没有CUDA时使用`--device cpu`。换数据集只改`--data`和`--output`。默认hidden256、3层、窗口4、每步128目标、8192训练目标、最多100000校准样本；median/IQR缩放只拟合训练特征。固定POT q0.85/risk0.01/min20及独立q99；未知标签只在最终评价排除，不以正常标签筛训练数据。
+
+`m`重建抽样训练视图；`cm`保留完整原生训练上下文，承担损失的交易目标相同。评分和阈值持久化后才解析测试标签。每阶段独立构图，使用同阶段完整上下文，属于离线检测，不能当作严格逐笔因果报警。
+
+`legacy/f00/c`也可运行以审计历史行为，边界见方法说明；历史f00/c原评分对应`flat`。`mean_scale/median_scale/tail_max/tail_corr`是其他可选评分。`skill_*`是本项目扩展，不属于论文原方法，现有结果未显示稳定收益。
+
+若本机已有父项目文件，可离线复用：
+
+```bash
+python -m himvhad fetch-benchmark --root data/benchmark \
+  --datasets banksim s_ffsd cardsim \
+  --source-local /path/to/Financial_unsuperviesdAD
+```
+
+## 冻结模型只重评分
+
+```bash
+python -m himvhad rescore \
+  --parent runs/banksim/cm/42 \
+  --data data/benchmark/banksim \
+  --output runs/banksim-rescored \
+  --scores field flat tail tail_flat skill_tail
+```
+
+该命令复用检查点及`components.npz`，不训练网络；skill评分还需要原训练／校准特征。随仓库的轻量预训练示例供`predict`使用，未捆绑大批逐点误差；要使用`rescore`，请使用完整训练输出或原CQ归档。
+
+## 自己的交易CSV
+
+准备[配置JSON](docs/example_csv_config.json)，明确时间、原生视图键、数值字段、类别哈希维数和可选测试标签映射：
+
+```bash
+python -m himvhad prepare-csv --csv transactions.csv \
+  --config docs/example_csv_config.json --output data/custom
+python -m himvhad run --data data/custom --output runs/custom --steps 800
+```
+
+按完整时间戳60/20/20切分；自定义数据只写测试标签，训练／校准标签文件不是必要输入。数值字段须有限。新数据自己的训练／校准分区用于建模，评价测试分区；不声称旧模型零样本跨来源迁移。
+
+## Python接口
+
+```python
+from himvhad import HIMVHAnomalyDetector
+from himvhad.preprocessing import Preprocessor
+
+# x_train/x_test为数值特征；views_*为原生键形成的超边列表。
+pre = Preprocessor().fit(x_train[train_indices])
+model = HIMVHAnomalyDetector(width=61, task="banksim", steps=800)
+model.fit(pre.transform(x_train), views_train, target_rows=train_indices)
+field_errors = model.components(pre.transform(x_test), views_test)
+model.save("model.pt")
+restored = HIMVHAnomalyDetector.load("model.pt")
+```
+
+自定义字段使用`field_groups`明确划分；支持多于一种视图数，这是接口扩展。校准评分见`FieldScorer/SkillScorer`，完整数据流程以CLI为例。
+
+## 本次核验与结果
+
+本次复用**18个冻结金融模型，重新计算144组评分／288条操作点**，没有新金融神经网络训练。旧数据48组既有评分指标完全一致；新源码训练与原端口有数值等价控制测试。三个数据源及所有消融、负结果、原始模型SHA和核验记录见[中文结果报告](results/frozen/README_CN.md)。
+
+BankSim/S-FFSD为旧测试回顾性评估；CardSim为一个预先固定参数后生成的独立模拟世界，不能替代真实银行外部验证。重构可预测性不是欺诈相关性，新增权重没有稳定超过已有评分对照。本文F1是异常类F1，论文报告macro-F1，两者不直接比较。跨设备推理可能使阈值边缘样本有微小差异；重新评分与端到端推理分别记录。
+
+完整文件索引、来源、命令和环境见[发布核验](results/release_verification.json)与[工作流状态](paper/workflow/current.md)。
+
+## 来源与许可
+
+代码MIT；独立实现源自[SansaZheng/Financial_unsuperviesdAD](https://github.com/SansaZheng/Financial_unsuperviesdAD)，文件SHA见[迁移清单](PORTING_MANIFEST.json)。数据许可证单列，未重新许可为MIT。引用原论文及本仓库可参考[CITATION.cff](CITATION.cff)。

@@ -1,0 +1,21 @@
+{
+  "dataset": "banksim",
+  "variant": "cm",
+  "seed": 42,
+  "origin": "copied_frozen_checkpoint_not_new_training",
+  "files_sha256": {
+    "field/thresholds.json": "940cec5e1632510de752d835b5d1584aa413799d1e6597426506fd16ee3d102e",
+    "field_calibrator.npz": "9883e997bf0c29c5cc058f47516c9d99a7598b1a8e86a07da695d436b07171a2",
+    "flat/thresholds.json": "deb9f752dc9b9db579f7d7fa4087cd524f17f06bfe78ff4ce9ddc7b45c01de28",
+    "input_schema.json": "e06d9b8961f4e551ef18a45701d4bd8e6b7328423f649033109eb62e2fe00efb",
+    "model.pt": "dedaccab9edf7d38b513d794ca68856cfa5a7501551ee1299a57483465fbce70",
+    "preprocessor.npz": "b0ec31ddea2ccb442b6af8a894b2f16b3c4aa598a2cc970aa3cdd4edec15e22c",
+    "skill_calibrator.npz": "00b7de4e86c493f7fb2d7b82f6bda2e238032c50d2015d739cc567edcfc6fa75",
+    "skill_equal_tail/thresholds.json": "d0fe71c960186b074592ffb9b6a7556ab98bda1211254a5f4ce209916a2b8268",
+    "skill_hard_tail/thresholds.json": "847cf0c08827a47dd73ccb64e5bfe5922afee439bd81937498d083204c68403e",
+    "skill_raw/thresholds.json": "deb9f752dc9b9db579f7d7fa4087cd524f17f06bfe78ff4ce9ddc7b45c01de28",
+    "skill_tail/thresholds.json": "847cf0c08827a47dd73ccb64e5bfe5922afee439bd81937498d083204c68403e",
+    "tail/thresholds.json": "0c78d858648e419dd7a446203cdb7ac1a4ad17ceb47d7b241107545332885eba",
+    "tail_flat/thresholds.json": "847cf0c08827a47dd73ccb64e5bfe5922afee439bd81937498d083204c68403e"
+  }
+}

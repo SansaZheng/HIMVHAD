@@ -1,0 +1,252 @@
+{
+  "status": "passed",
+  "evaluated_configurations": 144,
+  "operating_records": 288,
+  "frozen_models": 18,
+  "new_financial_network_fits": 0,
+  "CPU_checkpoint_probes": [
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "seed": 42,
+      "cpu_component_probe_max_abs": 5.245208740234375e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "seed": 42,
+      "cpu_component_probe_max_abs": 2.384185791015625e-05,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "seed": 43,
+      "cpu_component_probe_max_abs": 3.814697265625e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "seed": 43,
+      "cpu_component_probe_max_abs": 6.854534149169922e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "m",
+      "seed": 44,
+      "cpu_component_probe_max_abs": 5.245208740234375e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "banksim",
+      "variant": "cm",
+      "seed": 44,
+      "cpu_component_probe_max_abs": 1.1920928955078125e-05,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "seed": 42,
+      "cpu_component_probe_max_abs": 2.9802322387695312e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "seed": 42,
+      "cpu_component_probe_max_abs": 4.76837158203125e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "seed": 43,
+      "cpu_component_probe_max_abs": 5.7220458984375e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "seed": 43,
+      "cpu_component_probe_max_abs": 1.0013580322265625e-05,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "m",
+      "seed": 44,
+      "cpu_component_probe_max_abs": 3.5762786865234375e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "s_ffsd",
+      "variant": "cm",
+      "seed": 44,
+      "cpu_component_probe_max_abs": 5.4836273193359375e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "cardsim",
+      "variant": "m",
+      "seed": 42,
+      "cpu_component_probe_max_abs": 3.814697265625e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "cardsim",
+      "variant": "cm",
+      "seed": 42,
+      "cpu_component_probe_max_abs": 4.604458808898926e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "cardsim",
+      "variant": "m",
+      "seed": 43,
+      "cpu_component_probe_max_abs": 3.337860107421875e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "cardsim",
+      "variant": "cm",
+      "seed": 43,
+      "cpu_component_probe_max_abs": 9.5367431640625e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "cardsim",
+      "variant": "m",
+      "seed": 44,
+      "cpu_component_probe_max_abs": 5.0067901611328125e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    },
+    {
+      "dataset": "cardsim",
+      "variant": "cm",
+      "seed": 44,
+      "cpu_component_probe_max_abs": 7.62939453125e-06,
+      "checkpoint_state_exact": true,
+      "source_indices_exact": true
+    }
+  ],
+  "score_and_metric_replay": true,
+  "zero_fitting_labels_read": true,
+  "source": {
+    "git_commit": "f64cf733f0949ebc49957b9cdc8c37eed65db4e1",
+    "source_matches_git_commit": true,
+    "source_sha256": {
+      "__init__.py": "507668233b54129cfa24e3acf810b174944d5f82c779941407f2f9658cc3aa6a",
+      "__main__.py": "cf7390a2508a0fcad4777a4a629fc5212ab655cb45845975995f835676a834e3",
+      "audit.py": "047f340e97ed67ac7efe800af6c402a132b68cdd41c340520c4031ef1f206e9c",
+      "benchmark.py": "3a339fab718ccf7d7e436e5161e8407a922305522d17289219bfa411c5e2c14b",
+      "benchmark_sources.json": "9158543ba3a9889a660aab06b2b792bc46c59919480823fe5ba272928ed7a052",
+      "cli.py": "87d4b4caf92b0bbf5e95aad765eda0407b5ac6f94715a849334c39e617a6e4ee",
+      "data.py": "84e7e196fe7c3515ec379d712943fa81a6b41300b3804f11d960e99730aca0b8",
+      "evaluation.py": "46244c0c80a77ed0a50fa40de2783ec3c3c2176ce9e557ab04ee55db978dce9c",
+      "hypergraph.py": "136fc02c347bf4249fb6011470a962ee97d36283e8797581d4fadf4aa1206c29",
+      "io.py": "972677fff1ef31fac48514433c5b14400ea51fec67ec7f003012dfb84fa24b11",
+      "model.py": "a3a85599e1e618a8dac470ee39dfce99cde7bab6d98a62672cb1e0dfa0e90bcf",
+      "network.py": "da434d857d397067b5c659803ebb00062bc26ae805bc3941e8489365e68060ba",
+      "preprocessing.py": "ae807b6df9c6cf6e9f5496167335587860e9f1e3db22c6596150a7833a8f541c",
+      "runner.py": "d890d73f16648bb75fe23791a9d438eef2ed2c0cb592e3f22b9db6b86e35b4a0",
+      "scoring.py": "9557579da83322ded3da223c0f836083479796d1ecd1bb9ad8f42f6c030f5a36",
+      "thresholds.py": "7b628daa1dc62e25489ccf9a3126f718644958444d717b5a36cf6f426e95e506"
+    },
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2",
+    "torch": "2.6.0"
+  },
+  "parent_training_manifest": {
+    "git_commit": "a683fcb152b8db48d5d6398f45e44331f605ac91",
+    "family": "validation",
+    "source_sha256": {
+      "docs/geometry_cardsim_archive.json": "fdefabcf5d8f8d23ec4239b0ff239653252f3cca9fe4bce172a4c08b169584eb",
+      "docs/geometry_protocol_CN.md": "63668e62acf6863bfb5a74f9c1bafceef1baa4aedb8e2229ec4ee03837c1aa75",
+      "finad/__init__.py": "8e434339fde504af03a294d786536101360363aad29a17aff662f65a50131fa4",
+      "finad/__main__.py": "f6b38a97ee40fcfaa5ed7f4bbb7f014c780684f1dfa3d52462ccfe4f5e8749e1",
+      "finad/classical.py": "c8ebd9693af62766412d8db9d13e77507fb46b8fa70cf87b61ad8c046fa8b9ea",
+      "finad/data.py": "f003ae543a82fb558ee5477e7bb4cec4ca7b858cf337eb9eff855c3030537e55",
+      "finad/detectors.py": "31b0e4838ace4ae5abc15e7dfb50bf17309f925ea82b100949852245c3f8cd70",
+      "finad/evaluation.py": "46244c0c80a77ed0a50fa40de2783ec3c3c2176ce9e557ab04ee55db978dce9c",
+      "finad/experiment.py": "7ccf523ff0782db9e0eedb73b956d40b69cd0b8f4e17fd4e1c3f8da1f3a4b58d",
+      "finad/neural.py": "cf92b4bb03492d019bf4d215c0b671183537d49ec5dda0b2d895fa15ae49e448",
+      "finad/predict.py": "0c54098885e3a0c7eba79f8d9a7765f60b4306cc282f7c9e727e909bbe09df7f",
+      "finad/preprocessing.py": "ae807b6df9c6cf6e9f5496167335587860e9f1e3db22c6596150a7833a8f541c",
+      "finad/report.py": "22146691be3621f1a1d56066b12a901e51c96312891b3f9bfd03fc9a515b9633",
+      "finad/rgld.py": "a52959edf4a649b55609d5e8c5d9dd4a610aa27c97d8151a701dbc98fcfec095",
+      "finad/rttad.py": "bf4b34f9062a3b49bfb832b804f16b27476eaf5e92a3e5c959609cc5ba00d37b",
+      "finad/thresholds.py": "7b628daa1dc62e25489ccf9a3126f718644958444d717b5a36cf6f426e95e506",
+      "finad/verify.py": "b99b4bc3d007d4505f7aa25e36c319953a3caf4bc8c300f1f9dd92ac69798b71",
+      "finad_geometry/__init__.py": "ce2288d75e7651d9556ca5624f57106ab040e8a606832d35b8db24f32af55124",
+      "finad_geometry/experiment.py": "80d77c8f4cc6c72a420d6be82ca24692f72bee82a205b0d7e7cd2b790d611fda",
+      "finad_geometry/models.py": "598e925f81b6902021c6920453201db6e9b78f3d640698550aced8f9bf8606d3",
+      "finad_geometry/prepare.py": "7e13dff5803a9495cad70c4c8b681c2819c50ab7653a6494103d7b6001b4b9ad",
+      "finad_geometry/score_himvh.py": "fea6fe330ca2f10457a4cf0354438bac3299c9685f586eb6d8290e9cf811701d",
+      "finad_recent/__init__.py": "74f78c5604067456e6e248c6010b05060f9b3f1f0264e3895ff67ab556df6d0d",
+      "finad_recent/data.py": "484faf8d0bbce7fef9fe5f4f5ca457764913f26775fe9a2410146d02e6fb0c4f",
+      "finad_recent/experiment.py": "bd840b698a70f4be2be33d96bf085b48de984f55b0d170b5feb490e74313f8e2",
+      "finad_recent/himvh.py": "82d3c34b4dafbf606c0f42cd8b2cc8bcb00c5e6770635a8b25935e6ba8d09b9a",
+      "finad_recent/huge.py": "57bfe22ed858b556d28024c0bd27e8afef879d18469f1bb9dac590795cd6403e",
+      "finad_recent/sdfmm.py": "f35306f99f0b4520cceac430941c65956e4de9ded3538b0fffbc1005188bb7d3",
+      "finad_repair/__init__.py": "26268d0c061d33719c8e4fa76550191db7e760e637edd128c4b08f48af497321",
+      "finad_repair/experiment.py": "f0392d70cd169f82db3c572df74ac4ef6cb403b1c9f8ff4fd59d7bfb862e26ca",
+      "finad_repair/himvh.py": "7f3ae7f9faa48bd2944475dfd8e3556cbc2525ec9c18812baba893f06902f7ee",
+      "finad_repair/hypergraph.py": "4f1ca4e839f215282b83c60ac82f1083250747dde3bc309f3fe1dbf4d1575eae",
+      "finad_repair/roles.py": "085074ae08d90eb5cf33a1b171901b7325f709c32c00453b1a9a408ade5fc940",
+      "finad_repair/sdfmm.py": "a49fe6dae366cd0d98e94f2468c5626fde5846ab8a7c46fe24eae5e9d081ec1b",
+      "finad_roleweight/__init__.py": "7f50549388a23396912d8b4b3ec0bca19f90d92142789bfe4e84ded0f9c7b8d8",
+      "finad_roleweight/adapters.py": "4956c2efad3c567842c49fbfe9c3a10b11e440f18fa56ff8e277270ba21017c1",
+      "finad_roleweight/experiment.py": "b15e3c52f748726d1a5d95da04e668b600a93f7f7be3a96555ee0a76220f6674",
+      "finad_roleweight/fields.py": "d41c36117944ab6faed5312d0c5c64eb7477fbd92068b41db3f5abe62659f7f7",
+      "finad_zero/__init__.py": "aee9c1fe9d700a14c87aecad6cdf69c6beda3167e0bfa95832edd84f7f5146b6",
+      "finad_zero/audit_hcl.py": "b030df76f0a936e4272b66d74223774aa22f8eaa28c00e7cfe164742b08f587b",
+      "finad_zero/cae_if.py": "c1fe5086ddcaa5ff98e3aa106929953b76295b645207e9a8051d98da4ba4b689",
+      "finad_zero/ebgad.py": "dd33474dabd93e3b83111698549c590221772601bc6c19735a7c1c70f44097b5",
+      "finad_zero/experiment.py": "977c04b250d168636a6c28b0ad35028ee3f53a0f1811695781d2343c06fca5d8",
+      "finad_zero/graph_data.py": "bbccc0717f9597068b920f5ad3f37fa30e0dbdd577795cf4e7b61c01f9a05bdd",
+      "scripts/prepare_repo_data.py": "b0868d2f8c61e7cb9cad5e99341cda31c4eddc111ddac99d75602155c2e5324f"
+    },
+    "python": "3.13.16",
+    "numpy": "2.3.5",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2",
+    "torch": "2.11.0+cu130",
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "primary": {
+      "huge": "fusion",
+      "himvh": "cm_skill_tail"
+    },
+    "independent_outcomes_inspected": false
+  },
+  "new_validation_training_job": "j-1117-8c114e",
+  "independent_source": "single CardSim synthetic world; design frozen before generation,not real-bank external validation",
+  "baseline_reference_runs": 9,
+  "seconds": 57.79013887490146
+}

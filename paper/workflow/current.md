@@ -1,3 +1,3 @@
-# Active — independent zero-label package
+# Active — publication verification
 
-Stage001,executor Codex,venue none. [Full prompt](prompts/001-extract-verify-publish.md). Scope confirmed zero-label. Parent sourcef0a6c7f retained;old experiments/CQ jobs unchanged. Next port modules,add CLI/docs,run demo/tests/archived parity,then publish and verify CI.
+[Task prompt002](prompts/002-evidence-release.md),Codex,revision1,venue none. Package/docs/results/pretrained ready.27tests and144 frozen configurations independently verified.3 fixed models andwheel tested. [Release proof](../../results/release_verification.json). Next push andverify main/feature refs,remote report andCI;then mark complete.

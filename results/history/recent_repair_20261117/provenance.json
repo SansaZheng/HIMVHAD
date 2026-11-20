@@ -1,0 +1,15 @@
+{
+  "source_repository": "SansaZheng/Financial_unsuperviesdAD",
+  "source_commit": "f0a6c7fa00eb54fba0f76b421cc11f66b9b536fe",
+  "source_path": "results/recent_repair_20261117",
+  "scope": "imported historical HIM evidence; not newly fitted in HIMVHAD",
+  "configurations": 42,
+  "source_files_sha256": {
+    "per_seed.json": "8f881a61fe142744a73b143da22d7791524f3875c7f4b18bd02f644c5139fdfe",
+    "summary.csv": "0e983ed9a519842629e0bb93923e101c751294aabbd82047fd4a5d4575c54a73",
+    "metrics.csv": "cc5cbd6bcb0c352be7c91633938503a4eae1316d5c8c941ba4c1bee4d46d2a28",
+    "paired_effects.csv": "62f60312b15a9fd78378d833cd3110759df212b36c6b6ed11d75e7ed331bdb72",
+    "verification.json": "1b387839d7a874c5f73a1402e8cf0e575ef590c81457d1415394c27f8fc08fc2"
+  },
+  "upstream_verification_status": "passed"
+}
