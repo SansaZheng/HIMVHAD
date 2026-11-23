@@ -87,6 +87,23 @@ def test_fusion_is_calibration_only_baseline_unchanged_and_serializable(tmp_path
     assert fusion.scores(baseline,logits)['cnn_fused'][0]==result['cnn_fused'][0]
 
 
+def test_attention_and_dimension_controls_share_selected_kan_initialization_and_rng(monkeypatch):
+    torch.set_num_threads(2);rng=np.random.default_rng(19)
+    h=rng.normal(size=(128,4,8)).astype('f4');error=np.exp(h[:,0,0]);observed=[]
+    original=KnobAdapter._fit
+    def capture(self,model,states,labels,fit,valid,steps,seed):
+        if isinstance(model,KANBoundary):
+            observed.append((model,seed,{k:v.clone() for k,v in model.state_dict().items() if k!='indices'}))
+        return original(self,model,states,labels,fit,valid,steps,seed)
+    monkeypatch.setattr(KnobAdapter,'_fit',capture)
+    adapter=KnobAdapter(KnobConfig(probe_steps=2,student_steps=2,max_knobs=3,channels=2)).fit(h,error)
+    primary=next(r for r in observed if r[0] is adapter.students['kan'])
+    for name in ['random','uniform','linear']:
+        control=next(r for r in observed if r[0] is adapter.students[name]);assert control[1]==primary[1]
+        if name!='linear':
+            for key in primary[2]:torch.testing.assert_close(primary[2][key],control[2][key],rtol=0,atol=0)
+
+
 def test_knob_pipeline_never_fits_backbone_and_gates_all_labels(tmp_path,monkeypatch):
     from himvhad.data import demo_data
     from himvhad.runner import run_group

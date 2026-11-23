@@ -20,12 +20,12 @@ def assertclose(a,b):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--input',type=Path,required=True);p.add_argument('--data',type=Path,required=True);p.add_argument('--output',type=Path,required=True);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--input',type=Path,required=True);p.add_argument('--data',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--code-commit',required=True);a=p.parse_args()
     repo=Path(__file__).resolve().parents[1];manifest=json.loads((repo/'experiments/knob_inputs/manifest.json').read_text());root=a.input
     records=json.loads((root/'records.json').read_text());globalgate=json.loads((root/'global_label_gate.json').read_text());assert len(records)==81 and globalgate['groups']==9
     historic=json.loads((repo/'results/frozen/per_seed.json').read_text());checks=[]
     runtime=json.loads((root/'runtime.json').read_text())
-    commit='3a745530d50422c642faad23c9c06dfef7635a8c'
+    commit=a.code_commit
     for name,h in runtime['source']['source_sha256'].items():
         content=subprocess.check_output(['git','-C',str(repo),'show',commit+':himvhad/'+name])
         assert hashlib.sha256(content).hexdigest()==h,'Runtime source differs from pinned commit: '+name

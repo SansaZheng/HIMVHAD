@@ -233,12 +233,16 @@ class KnobAdapter:
         # Single random control fixed by RNG; no test/validation search over random sets.
         random_indices = np.random.default_rng(self.seed + 209).choice(width, selected, replace=False)
         controls = {}
+        # Isolate each control: same initialization stream and minibatch draws
+        # as the selected top-k model. The linear architecture changes shapes,
+        # but retains the same seed and target-row sequence.
+        control_seed = self.seed + 1000 + selected
         for name, indices, attention, linear in [
             ('random', random_indices, True, False), ('uniform', self.ranking[:selected], False, False),
             ('linear', self.ranking[:selected], True, True)]:
-            torch.manual_seed(self.seed + 3000)
+            torch.manual_seed(control_seed)
             model = KANBoundary(depth, indices, cfg.spline_grid, attention, linear).to(self.device)
-            controls[name] = self._fit(model, h, labels, fit, valid, cfg.student_steps, self.seed+3000)
+            controls[name] = self._fit(model, h, labels, fit, valid, cfg.student_steps, control_seed)
             self.students[name] = model
         # Explicit analytic surrogate, fitted to KAN logits, not real targets.
         self.symbolic_coef = np.linalg.lstsq(
@@ -252,6 +256,7 @@ class KnobAdapter:
             selected_k=selected, near_optimal_proxy_criterion_met=reached,
             selected_dimensions=self.ranking[:selected].tolist(), random_dimensions=random_indices.tolist(),
             controls_validation_balanced_accuracy=controls, pseudo_thresholds=thresholds,
+            selected_student_and_controls_rng_seed=control_seed,
             pseudo_fit_rows=len(fit), pseudo_validation_rows=len(valid),
             fit_rows=fit.tolist(), validation_rows=valid.tolist(),
             symbolic_validation_r2=1-float(np.sum((predicted-target)**2))/denom if denom>0 else None,

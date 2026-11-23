@@ -98,4 +98,6 @@ python -m himvhad knob-predict \
   --data data/benchmark/banksim --output runs/knob-predict
 ```
 
+实验表直接使用归档的原骨干误差，确保配对基线分数不变。部署预测会重新计算原骨干误差；跨CPU/CUDA或运行库时可能有浮点微差，不承诺部署输出与历史GPU逐点文件按位一致。适配器的状态、校准器和阈值均保持冻结。
+
 English: This is a zero-label, frozen-backbone adaptation of the supplied hidden-boundary idea. Reconstruction-error proxy targets replace factual-correctness labels. We retain the unchanged baseline, paired splits and negative outcomes. Compactness and intervention diagnostics do not establish fraud correctness or a causal financial mechanism.

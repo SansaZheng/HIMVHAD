@@ -77,9 +77,11 @@ def main():
       '', '| 数据集 | 原版AP | 融合AP | ΔAP | 原版POT-F1 | 融合POT-F1 | 原版q99-F1 | 融合q99-F1 |',
       '|---|---:|---:|---:|---:|---:|---:|---:|']
     changes=[]
+    cuda_text=f"{complete['peak_cuda_allocated_gb']:.2f}GiB" if complete['peak_cuda_allocated_gb'] is not None else '不使用GPU（CPU运行）'
     for d in ['banksim','s_ffsd','cardsim']:
         b,k=get(d,'baseline'),get(d,'kan_fused');delta=100*(k['average_precision_mean']-b['average_precision_mean']);changes.append((d,delta))
-        lines.append(f"| {d} | {fmt(b,'average_precision')} | {fmt(k,'average_precision')} | {delta:+.2f} | {fmt(b,'pot_f1')} | {fmt(k,'pot_f1')} | {fmt(b,'quantile_f1')} | {fmt(k,'quantile_f1')} |")
+        ds=[r['average_precision_delta_pp'] for r in paired if r['dataset']==d and r['variant']=='kan_fused']
+        lines.append(f"| {d} | {fmt(b,'average_precision')} | {fmt(k,'average_precision')} | {delta:+.2f} ± {np.std(ds,ddof=1):.2f} | {fmt(b,'pot_f1')} | {fmt(k,'pot_f1')} | {fmt(b,'quantile_f1')} | {fmt(k,'quantile_f1')} |")
     lines+=['','仓库已有 `cm_skill_tail` 扩展也保留作参考（历史同检查点／划分结果，未冒充本轮新跑）：']
     for d in ['banksim','s_ffsd','cardsim']:
         refs=[r['metrics']['average_precision'] for r in old_skill if r['dataset']==d]
@@ -91,11 +93,17 @@ def main():
       '', '## 完整消融：POT-F1 / q99-F1','', '| 设置 | BankSim | S-FFSD | CardSim |','|---|---:|---:|---:|']
     for v in VARIANTS:lines.append('| '+v+' | '+' | '.join(fmt(get(d,v),'pot_f1')+' / '+fmt(get(d,v),'quantile_f1') for d in ['banksim','s_ffsd','cardsim'])+' |')
     lines+=['','完整Precision、Recall、PR-AUC、ROC-AUC、FPR、报警比例和混淆矩阵在 `metrics.csv/per_seed.json`，各数值阈值及POT状态保存在 `runs/<dataset>/<seed>/<variant>/thresholds.json`。三个种子不足以宣称统计显著。',
+      '', '## 标签比例与报警工作点','', '| 数据集 | 已知标签测试数 | 异常标签比例 | 原版POT报警比例 | 融合POT报警比例 |','|---|---:|---:|---:|---:|']
+    for d in ['banksim','s_ffsd','cardsim']:
+        ref=next(r for r in rows if r['dataset']==d and r['variant']=='baseline')
+        lines.append(f"| {d} | {ref['evaluated']} | {100*ref['prevalence']:.2f}% | {fmt(get(d,'baseline'),'pot_alarm_fraction')}% | {fmt(get(d,'kan_fused'),'pot_alarm_fraction')}% |")
+    lines+=['','校准风险1%并不保证测试报警比例恰好1%，也不是已知欺诈比例。当测试异常比例远高于实际报警比例时，即使排序尚可，固定工作点召回率和F1仍可能很低。本轮没有依据这些测试比例回调阈值。未知标签按原规则排除。',
       '', '## 哪些模块实际有帮助','']
     for d in ['banksim','s_ffsd','cardsim']:
         b,k=get(d,'baseline'),get(d,'kan_fused');best=max((get(d,v) for v in VARIANTS),key=lambda r:r['average_precision_mean'])
         dif=100*(k['average_precision_mean']-b['average_precision_mean']);cnn=100*(k['average_precision_mean']-get(d,'cnn_fused')['average_precision_mean']);random=100*(k['average_precision_mean']-get(d,'random_fused')['average_precision_mean']);linear=100*(k['average_precision_mean']-get(d,'linear_fused')['average_precision_mean'])
-        lines.append(f"- **{d}**：主方法ΔAP {dif:+.2f}个百分点；相对全维CNN融合 {cnn:+.2f}，相对同k随机维度 {random:+.2f}，相对线性边界 {linear:+.2f}。本次所列消融中AP最高为 `{best['variant']}`（{fmt(best,'average_precision')}%），它是事后描述，不替代预先指定主方法。")
+        wins=sum(r['average_precision_delta_pp']>0 for r in paired if r['dataset']==d and r['variant']=='kan_fused')
+        lines.append(f"- **{d}**：主方法ΔAP {dif:+.2f}个百分点，{wins}/3个配对种子提升；相对全维CNN融合 {cnn:+.2f}，相对同k随机维度 {random:+.2f}，相对线性边界 {linear:+.2f}。本次所列消融中AP最高为 `{best['variant']}`（{fmt(best,'average_precision')}%），它是事后描述，不替代预先指定主方法。")
     lines+=['','## 紧凑性与解析近似是否成立','', '| 数据集 | 种子 | 维度k | 达到代理近最优判据 | CNN代理BA | KAN代理BA | 解析式验证R² |','|---|---:|---:|---|---:|---:|---:|']
     for r in details:
         r2=f"{r['symbolic_r2']:.4f}" if r['symbolic_r2'] is not None else '不可用（常数目标）'
@@ -109,10 +117,11 @@ def main():
       '- 原版的字段校准有时已携带较强信息。统一0.5融合可能稀释它；权重固定是为了避免用本轮测试标签补救结果。',
       '- AP与固定阈值F1可能相反：AP评价全部排序，POT/q99只看一个校准工作点；校准与测试分布变化会改变报警率。不能只保留其中改善的指标。',
       '- 解析式的R²低表示蒸馏损失；探针法向能改变自身logit是局部数学性质，不代表改善真实欺诈识别。',
+      '- 本轮只用固定200步CNN和150步学生预算，没有收敛曲线、多预算或更大探针的对照。因此可能存在训练预算／图隐藏空间适配不足，不能把下降直接归因于原论文思想无效。',
       '', '## 公平性与证据边界','',
       '三个数据集原始划分、目标行、测试样本、训练缩放器和骨干检查点不变。新增模块只用训练特征和自身重构误差；内部验证只在原训练分区。校准用于分数尾部与阈值。所有9组评分及阈值在本轮第一次打开测试标签前冻结；`global_label_gate.json`及各组记录提供SHA链。基线误差直接取已核验历史文件，防止跨CPU/CUDA重算微差混入方法改进。',
       '', 'BankSim和S-FFSD是回顾性测试；CardSim是此前生成的单个合成世界，本次并未新增独立真实数据。附加探针、k搜索和对照有额外计算成本。方向干预只在内部验证的标准化探针状态做诊断，未声称对完整骨干做因果干预。',
-      '', f"完成{complete['groups']}组冻结骨干、{complete['configurations']}个评分配置；新增骨干训练0次。完整实验耗时{complete['seconds']/60:.2f}分钟，单进程峰值RAM{complete['peak_ram_linux_gb']:.2f}GiB，峰值CUDA分配{complete['peak_cuda_allocated_gb']:.2f}GiB。运行环境与精确代码提交在 `runtime.json`。时长不含CQ排队、环境作业与GPU检查。", 
+      '', f"完成{complete['groups']}组冻结骨干、{complete['configurations']}个评分配置；新增骨干训练0次。完整实验耗时{complete['seconds']/60:.2f}分钟，单进程峰值RAM{complete['peak_ram_linux_gb']:.2f}GiB，峰值CUDA分配：{cuda_text}。CQ作业记录固定源码提交，`runtime.json`记录各源码文件SHA与环境；Kaggle快照没有.git时其Git字段为null，通过源码SHA独立核验。时长不含CQ排队、环境作业与后端检查。",
       '', '## 产物与重新运行','',
       '本目录发布全部逐种子指标、差值、阈值、代理搜索记录和SHA。固定seed42的三个适配器及校准器也保留在 `runs/<dataset>/42/`，不是按最佳种子挑选。全部逐点分数、训练代理误差及其余种子模型保留在本轮CQ完整结果归档；其SHA在标签访问记录中，重现命令见方法说明。',
       '', 'English: Nine paired frozen-backbone runs evaluate a CNN/KAN hidden-boundary adaptation with training reconstruction-error proxy targets. The unchanged baseline, all ablations and negative outcomes are retained. Proxy compactness and directional sensitivity do not demonstrate fraud correctness, statistical significance or a causal financial mechanism.', '']

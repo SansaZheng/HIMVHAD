@@ -3,24 +3,114 @@
   "date": "2026-11-23",
   "paper_pdf_sha256": "111bc0e78a1794323be52cd69d1e6d54d01d85db4dd88b3110cf5fd4643dc508",
   "paper_title": "Uncovering the Knowledge Boundaries and Mechanistic Knob of LLMs",
-  "datasets": ["banksim", "s_ffsd", "cardsim"],
-  "backbone_seeds": [42, 43, 44],
+  "datasets": [
+    "banksim",
+    "s_ffsd",
+    "cardsim"
+  ],
+  "backbone_seeds": [
+    42,
+    43,
+    44
+  ],
   "frozen_backbone": "previous cm checkpoints; not newly trained",
   "split": "identical canonical whole-timestamp60/20/20, same8192 training targets and<=100000 calibration rows, all original test rows",
   "pseudo_target": "training-only masked reconstruction MSE weighted by field width; low50%, high20%, middle omitted; thresholds from internal fitting rows",
   "internal_validation": "seeded80/20 split inside original training targets; no fraud labels; no calibration or test rows for ranking or candidate selection",
   "hidden_states": "clean-input projection,mean of native-view outputs per depth,fused state; 5x256 for original cm checkpoints",
-  "cnn": {"channels": 8, "kernels": [[9,1],[1,33],[5,5]], "steps": 200, "batch": 128, "lr": 0.001, "ranking_branch": "vertical"},
-  "kan": {"hidden_nodes": 2, "univariate_edges": "degree1 linear B-splines plus linear residual", "grid": 9, "range": [-4,4], "steps": 150, "batch": 128, "lr": 0.001, "k_candidates": [1,2,3,4,5,6,7,8,9,10], "near_optimal_tolerance": 0.01, "fallback": "k10 if criterion not reached; explicitly report failure"},
+  "cnn": {
+    "channels": 8,
+    "kernels": [
+      [
+        9,
+        1
+      ],
+      [
+        1,
+        33
+      ],
+      [
+        5,
+        5
+      ]
+    ],
+    "steps": 200,
+    "batch": 128,
+    "lr": 0.001,
+    "ranking_branch": "vertical"
+  },
+  "kan": {
+    "hidden_nodes": 2,
+    "univariate_edges": "degree1 linear B-splines plus linear residual",
+    "grid": 9,
+    "range": [
+      -4,
+      4
+    ],
+    "steps": 150,
+    "batch": 128,
+    "lr": 0.001,
+    "k_candidates": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "near_optimal_tolerance": 0.01,
+    "fallback": "k10 if criterion not reached; explicitly report failure"
+  },
   "primary_before": "baseline unchanged cm_tail_flat",
   "primary_after": "kan_fused =0.5*baseline+0.5*calibration upper-tail evidence of KAN logit",
-  "ablations": ["baseline","cnn_only","cnn_fused","kan_only","kan_fused","random_fused","uniform_fused","linear_fused","symbolic_fused"],
+  "ablations": [
+    "baseline",
+    "cnn_only",
+    "cnn_fused",
+    "kan_only",
+    "kan_fused",
+    "random_fused",
+    "uniform_fused",
+    "linear_fused",
+    "symbolic_fused"
+  ],
   "symbolic": "ridge analytic surrogate of KAN logit with linear,square,tanh,log1p-square bases; report validationR2,not exact symbolic KAN equivalence",
   "interventions": "training-internal validation states only; normal,tangent,random and +/-tau; Eq10 pooled identity; probe-space diagnostic,not whole-network causal patching or deployed score correction",
-  "thresholds": {"POT_initial_quantile": 0.85, "risk": 0.01, "secondary_quantile": 0.99},
-  "metrics": ["average_precision","pr_auc_trapezoid","roc_auc","anomaly_precision","anomaly_recall","anomaly_f1","fpr","alarm_fraction","tp","fp","fn","tn"],
+  "thresholds": {
+    "POT_initial_quantile": 0.85,
+    "risk": 0.01,
+    "secondary_quantile": 0.99
+  },
+  "metrics": [
+    "average_precision",
+    "pr_auc_trapezoid",
+    "roc_auc",
+    "anomaly_precision",
+    "anomaly_recall",
+    "anomaly_f1",
+    "fpr",
+    "alarm_fraction",
+    "tp",
+    "fp",
+    "fn",
+    "tn"
+  ],
   "aggregation": "3 paired backbone seeds,mean and sampleSD,per-seed differences; no significance claim from3 seeds",
   "test_label_policy": "freeze all9 groups and score/threshold/model hashes before opening any new test label; historical test sets are retrospective and not new independent holdouts",
   "budget_usd": 0,
-  "paper_deviations": ["fraud labels not used; error proxy replaces answer correctness","native graph depth states replace transformer layers","internal training validation replaces test-based compactness selection","independent small spline KAN and analytic surrogate,not official paper implementation","probe-space sensitivity does not prove financial causal mechanism"]
+  "paper_deviations": [
+    "fraud labels not used; error proxy replaces answer correctness",
+    "native graph depth states replace transformer layers",
+    "internal training validation replaces test-based compactness selection",
+    "independent small spline KAN and analytic surrogate,not official paper implementation",
+    "probe-space sensitivity does not prove financial causal mechanism"
+  ],
+  "revision": 2,
+  "control_rng": "Selected top-k and random/uniform/linear controls use seed+1000+selected_k for initialization and identical minibatch RNG",
+  "reason_for_revision": "Static implementation review found head randomness confounded component ablations;fixed before inspecting any new financial test metrics",
+  "pilot_code_commit": "3a745530d50422c642faad23c9c06dfef7635a8c"
 }

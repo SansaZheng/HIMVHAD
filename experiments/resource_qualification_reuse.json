@@ -1,0 +1,14 @@
+{
+  "status": "verified",
+  "qualified_job": "j-1123-e2b51d",
+  "qualified_commit": "3a745530d50422c642faad23c9c06dfef7635a8c",
+  "unchanged_dimension_and_inference_functions": {
+    "hidden_states": "8b3ad5d0abf8f2f6a494d29c5e3675d4875f3a65522427881ab5069a2493d592",
+    "training_components": "12abc1b172174e3c29a8a3f33e17fe2e5de2917a272caa15a7b9325adc07d608",
+    "CNNBoundary": "267313954aae12e2e3b19f18eb9d1d1ee4becdf83f93c2692af735303605851e",
+    "KANBoundary": "f0998aff701ad0285f6c81763d09c5d308a9ef2855ea5e186dcf457ac22f64d4",
+    "SplineEdges": "cb5536b6f3147ef98bfb85283a997e63bbcb0dcc022aa9447a4f2f771f1429d4"
+  },
+  "scope": "Only adapter control RNG initialization/minibatch seed changed;native-context/hidden dimensions/masked-error extraction/teacher andstudent architectures unchanged;existing actual-shape qualification retained",
+  "unit_test": "Control initial state and minibatch RNG parity added"
+}
