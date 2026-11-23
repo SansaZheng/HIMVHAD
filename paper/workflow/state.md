@@ -1,11 +1,7 @@
-# Complete — integration and paired ablations published
+# Complete — Elliptic holdout
 
-[Final task prompt](prompts/004-paired-control-rerun.md) · [Chinese report](../../results/knob_20261123/README_CN.md) · [Adaptation andcommands](../../docs/mechanistic_boundary_CN.md). Codex/CQ;revision2;venue none.
+[Task specification](prompts/005-elliptic-holdout.md) · [Chinese report](../../results/elliptic_20261124/README_CN.md) · [Verification](../../results/elliptic_20261124/verification.json)
 
-Published contentc81077efba90bf056e45b346f0c148ef6bf6d9b6 onmain andcodex/knob-zero-20261123;remoteGitrefs,reportandthreefixedseed42adapterblobsverified. Numericalcode2a8fb7a unchanged.35localandCQtests,81mainsettings/162operatingpoints,fullsource/prelabelhashes,9historicalbaseline metrics,independentwheelandrealCardSim16021-rowpredictionchecks passed.
+CQ j-1124-5e4973 completed the CPU study with three 800-step backbones and 27 paired configurations. All input, code and pre-label file hashes matched. Baseline arrays were identical within each pair. Thresholds and metrics replayed on the official archive. AP 3.14% to 3.02%, POT-F1 and q99-F1 0.17% to 0%. All three proxy compactness searches met the criterion. The official endpoint returned 404 before training in the first attempt. The completed run used the verified byte-identical data mirror.
 
-9unique frozenbackbones,newbackbonefits0;126newneuralheadfitsincludingksearch. Initial81-configpilot keptseparately,RNGcontrolalignmentfixedbeforefinancialmetricinspection;54/54unchangedpathscorepairsbitwiseequal. Cross-platformindependentscorereplaymax8.882e-16,metricsidentical,declaredtolerance1e-12.
-
-MainAPdeltas-10.16/+3.09/-0.54pp;allPOT-F1decline;0/9compactnesscriterionpasses. Negativeoutcomesretained,defaultbaselinepreserved. Zero-real-labeladaptation,notoriginalsupervisedpaper-score reproduction,no newrealbankholdout,nofinancialcausalityclaim.
-
-User-requestedcode,experiments,Chineseexplanationandrepositorypublicationcomplete. Operationalnote:unusedKaggleGPUqualificationj-1123-8acd05 cancellationrequested,providercompletionunconfirmedatlastcheck;CQretainsitsreservationandtracking. Nootherjobsaltered,no paidrental. GitHubActionsCIpassnotclaimed;localandCQtestevidencepublished.
+The report includes reproduction commands, comparisons with the three prior datasets, the individual seed deltas and the label coverage limitation.

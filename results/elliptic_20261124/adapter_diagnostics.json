@@ -1,0 +1,150 @@
+{
+  "42": {
+    "selected_k": 8,
+    "selected_dimensions": [
+      144,
+      69,
+      154,
+      30,
+      94,
+      198,
+      28,
+      213
+    ],
+    "near_optimal_proxy_criterion_met": true,
+    "teacher_validation_balanced_accuracy": 0.8817719584187911,
+    "sweep": [
+      {
+        "k": 1,
+        "pseudo_validation_balanced_accuracy": 0.8349658039007728
+      },
+      {
+        "k": 2,
+        "pseudo_validation_balanced_accuracy": 0.5
+      },
+      {
+        "k": 3,
+        "pseudo_validation_balanced_accuracy": 0.8271712768363344
+      },
+      {
+        "k": 4,
+        "pseudo_validation_balanced_accuracy": 0.7577243412279402
+      },
+      {
+        "k": 5,
+        "pseudo_validation_balanced_accuracy": 0.8043179886298945
+      },
+      {
+        "k": 6,
+        "pseudo_validation_balanced_accuracy": 0.8605192972058239
+      },
+      {
+        "k": 7,
+        "pseudo_validation_balanced_accuracy": 0.7916747900273724
+      },
+      {
+        "k": 8,
+        "pseudo_validation_balanced_accuracy": 0.8786233438092192
+      }
+    ],
+    "symbolic_validation_r2": 0.9983552459896994,
+    "controls_validation_balanced_accuracy": {
+      "random": 0.7656962824901935,
+      "uniform": 0.872090212195179,
+      "linear": 0.7663240558055384
+    },
+    "selected_student_and_controls_rng_seed": 1050
+  },
+  "43": {
+    "selected_k": 2,
+    "selected_dimensions": [
+      178,
+      115
+    ],
+    "near_optimal_proxy_criterion_met": true,
+    "teacher_validation_balanced_accuracy": 0.8591866312391576,
+    "sweep": [
+      {
+        "k": 1,
+        "pseudo_validation_balanced_accuracy": 0.5
+      },
+      {
+        "k": 2,
+        "pseudo_validation_balanced_accuracy": 0.8825512198335492
+      }
+    ],
+    "symbolic_validation_r2": 0.998382156035329,
+    "controls_validation_balanced_accuracy": {
+      "random": 0.6192000263510398,
+      "uniform": 0.8840261460872365,
+      "linear": 0.48687754818214424
+    },
+    "selected_student_and_controls_rng_seed": 1045
+  },
+  "44": {
+    "selected_k": 10,
+    "selected_dimensions": [
+      46,
+      75,
+      227,
+      74,
+      133,
+      86,
+      212,
+      73,
+      112,
+      204
+    ],
+    "near_optimal_proxy_criterion_met": true,
+    "teacher_validation_balanced_accuracy": 0.8937979094076656,
+    "sweep": [
+      {
+        "k": 1,
+        "pseudo_validation_balanced_accuracy": 0.30825467215711116
+      },
+      {
+        "k": 2,
+        "pseudo_validation_balanced_accuracy": 0.6477035159961989
+      },
+      {
+        "k": 3,
+        "pseudo_validation_balanced_accuracy": 0.7768408826945412
+      },
+      {
+        "k": 4,
+        "pseudo_validation_balanced_accuracy": 0.7673001794953014
+      },
+      {
+        "k": 5,
+        "pseudo_validation_balanced_accuracy": 0.8066138739309472
+      },
+      {
+        "k": 6,
+        "pseudo_validation_balanced_accuracy": 0.7977510294583465
+      },
+      {
+        "k": 7,
+        "pseudo_validation_balanced_accuracy": 0.8157786928518636
+      },
+      {
+        "k": 8,
+        "pseudo_validation_balanced_accuracy": 0.837668672790624
+      },
+      {
+        "k": 9,
+        "pseudo_validation_balanced_accuracy": 0.8564565515785028
+      },
+      {
+        "k": 10,
+        "pseudo_validation_balanced_accuracy": 0.8941759053954176
+      }
+    ],
+    "symbolic_validation_r2": 0.9984036861143536,
+    "controls_validation_balanced_accuracy": {
+      "random": 0.7885756519902861,
+      "uniform": 0.8929637841832964,
+      "linear": 0.7817675007918911
+    },
+    "selected_student_and_controls_rng_seed": 1054
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "jobs": [
+    {
+      "id": "j-1124-66913d",
+      "state": "failed",
+      "reason": "replaced by j-1124-5e4973; Kaggle: exit 22: uf<7.0.0,>=5.29.1, but you have protobuf 7.36.2 which is incompatible.\nnumba 0.61.2 requires numpy<2.3,>=1.24, but you have numpy 2.3.5 which is incompatible.\ngradio 6.30.0 requires p",
+      "source": {
+        "github": "SansaZheng/HIMVHAD",
+        "commit": "0b31aab221906bb23cbbda376de9e76abb8cc932"
+      },
+      "spec_sha256": "f7600575594606557250a72d82d58a82e7884af1aeee783ecf9ed9cd11f32b4e",
+      "command": [
+        "bash",
+        "scripts/run_elliptic_cq.sh"
+      ],
+      "resources": {
+        "gpus": 0,
+        "gpu_mem_gb": 0,
+        "exclusive_gpu": false,
+        "cpus": 4,
+        "ram_gb": 8,
+        "disk_gb": 0,
+        "gpu_models": [],
+        "requires": []
+      },
+      "limits": {
+        "max_hours": 2,
+        "max_usd": 0,
+        "max_attempts": 1,
+        "max_wait_hours": 24
+      },
+      "outputs": {
+        "dest": "~/.local/share/cq/kaggle/FinancialAD/himvhad-elliptic-20261124",
+        "expect": [
+          {
+            "path": "experiment/complete.json",
+            "contains": "\"configurations\": 27"
+          },
+          {
+            "path": "experiment/complete.json",
+            "contains": "7a93a27d39546c18cdf05a498da45890226a472da236ffa599540d8244602688"
+          },
+          {
+            "path": "experiment/global_label_gate.json",
+            "contains": "all_groups_frozen_before_any_test_label_read"
+          },
+          {
+            "path": "experiment/records.json",
+            "min_lines": 27
+          }
+        ],
+        "progress": {
+          "path": "progress.log",
+          "stall_min": 70
+        },
+        "direct": false
+      },
+      "started": 1795450743.1034381,
+      "finished": 1795450776.476297
+    },
+    {
+      "id": "j-1124-5e4973",
+      "state": "done",
+      "reason": "outputs verified (Kaggle, 0.55 h); results in ${CQ_CONTROL_USER}/.local/share/cq/kaggle/results/j-1124-5e4973/out; copied to ${CQ_CONTROL_USER}/.local/share/cq/kaggle/FinancialAD/himvhad-elliptic-20261124-pyg",
+      "source": {
+        "github": "SansaZheng/HIMVHAD",
+        "commit": "15755e2648f8b82444cea9e0a6d006484606ce17"
+      },
+      "spec_sha256": "f30a7ebf6fcf8a103fe82615abb997221d0f86c842b45ae736ea258f11026730",
+      "command": [
+        "bash",
+        "scripts/run_elliptic_cq.sh"
+      ],
+      "resources": {
+        "gpus": 0,
+        "gpu_mem_gb": 0,
+        "exclusive_gpu": false,
+        "cpus": 4,
+        "ram_gb": 8,
+        "disk_gb": 0,
+        "gpu_models": [],
+        "requires": []
+      },
+      "limits": {
+        "max_hours": 2,
+        "max_usd": 0,
+        "max_attempts": 1,
+        "max_wait_hours": 24
+      },
+      "outputs": {
+        "dest": "~/.local/share/cq/kaggle/FinancialAD/himvhad-elliptic-20261124-pyg",
+        "expect": [
+          {
+            "path": "experiment/complete.json",
+            "contains": "\"configurations\": 27"
+          },
+          {
+            "path": "experiment/complete.json",
+            "contains": "19a106201854d2a108203705dfec91c6609a3514c5fe885513ec6543924a0ba4"
+          },
+          {
+            "path": "experiment/global_label_gate.json",
+            "contains": "all_groups_frozen_before_any_test_label_read"
+          },
+          {
+            "path": "experiment/records.json",
+            "min_lines": 27
+          }
+        ],
+        "progress": {
+          "path": "progress.log",
+          "stall_min": 70
+        },
+        "direct": false
+      },
+      "started": 1795450995.786808,
+      "finished": 1795452948.8132339
+    }
+  ],
+  "paid_rentals": false
+}

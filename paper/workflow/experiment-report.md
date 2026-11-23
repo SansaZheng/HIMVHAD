@@ -18,3 +18,12 @@ BankSim原AP16.53%→6.37%（-10.16pp），S-FFSD35.19%→38.28%（+3.09pp），
 论文原任务需要正确性标签；此处是代理误差目标的新适配，不是原文监督效果复刻。内部代理验证在原训练分区且骨干已见这些特征；无新独立真实银行留出集。方向干预仅在归一化探针状态空间，未验证完整图网络的金融因果作用。
 
 English: A frozen-backbone, zero-label CNN/KAN boundary extension was implemented and evaluated onnine paired runs. The prespecified fusion improves AP only onS-FFSD and reduces POT-F1 onallthree datasets. None ofthe nine searches meets the compactness criterion. High symbolic fidelity does not establish fraud correctness. Allnegative results,the RNG-confounded pilot andthe corrected ablations are preserved.
+
+
+## Elliptic，2026-11-24
+
+通过预先固定的 Elliptic 验证，三种子平均 AP 从 3.14% 降至 3.02%，配对变化 −0.11 个百分点。POT-F1 和 q99-F1 从 0.17% 降至 0%。三组压缩代理判据都通过，未转化为检测收益。8,841 笔有已知标签，其中 408 笔为非法交易，另有 27,983 笔测试交易参与上下文与评分。真实标签在全体分数和阈值冻结后打开。
+
+[完整结果与限制](../../results/elliptic_20261124/README_CN.md) · [评分与数据核验](../../results/elliptic_20261124/verification.json)。正式 CQ 作业 j-1124-5e4973。三个种子沿用同一套训练预算和评分配置。基线与融合共用各自种子的新骨干。
+
+English: On Elliptic, the fixed fusion lowered mean AP and produced zero true positives at both fixed operating points across all seeds. All three searches met the proxy compactness criterion. This supports separating proxy fidelity from detection utility.

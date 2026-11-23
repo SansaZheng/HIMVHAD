@@ -23,3 +23,12 @@ BankSim原AP16.53%→6.37%（-10.16pp），S-FFSD35.19%→38.28%（+3.09pp），
 35项本地及CQ测试、轮安装重载、225评分前文件哈希和源码SHA、81配置/162工作点独立回放均通过。历史9组基线指标完全一致；独立跨平台重评分末位差最大8.882e-16，按1e-12容差核验；同轮融合恒等式与两次运行54条不变路径仍按位一致。CardSim16021行9设置本机预测不读取真实标签，两种阈值报警变化均0；主方法最大分数差0.001546，跨版本差异保留。
 
 论文原任务需要正确性标签；此处是代理误差目标的新适配，不是原文监督效果复刻。内部代理验证在原训练分区且骨干已见这些特征；无新独立真实银行留出集。方向干预仅在归一化探针状态空间，未验证完整图网络的金融因果作用。
+
+
+## Elliptic，2026-11-24
+
+通过预先固定的 Elliptic 验证，三种子平均 AP 从 3.14% 降至 3.02%，配对变化 −0.11 个百分点。POT-F1 和 q99-F1 从 0.17% 降至 0%。三组压缩代理判据都通过，未转化为检测收益。8,841 笔有已知标签，其中 408 笔为非法交易，另有 27,983 笔测试交易参与上下文与评分。真实标签在全体分数和阈值冻结后打开。
+
+[完整结果与限制](../../results/elliptic_20261124/README_CN.md) · [评分与数据核验](../../results/elliptic_20261124/verification.json)。正式 CQ 作业 j-1124-5e4973。三个种子沿用同一套训练预算和评分配置。基线与融合共用各自种子的新骨干。
+
+English: On Elliptic, the fixed fusion lowered mean AP and produced zero true positives at both fixed operating points across all seeds. All three searches met the proxy compactness criterion. This supports separating proxy fidelity from detection utility.

@@ -10,6 +10,8 @@ The prespecified KAN fusion changes mean AP by -10.16 pp on BankSim, +3.09 pp on
 
 [Full Chinese report and per-seed tables](results/knob_20261123/README_CN.md) · [Adaptation boundaries and commands](docs/mechanistic_boundary_CN.md) · [Independent verification](results/knob_20261123/verification.json). Three fixed seed42 adapters are shipped. No original LLM/supervised paper scores or new real-bank external validation are claimed.
 
+On the Elliptic Bitcoin holdout, the three-seed mean AP decreased from 3.14% to 3.02%, and POT-F1 fell from 0.17% to 0.00%. See the [Elliptic report](results/elliptic_20261124/README_CN.md) for the paired controls and a comparison with the three prior datasets.
+
 ```bash
 python -m pip install -e '.[test]'
 python -m himvhad demo --output runs/demo --steps 2

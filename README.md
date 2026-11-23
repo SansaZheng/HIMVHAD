@@ -36,6 +36,8 @@ python -m himvhad knob-predict \
 
 该命令只使用冻结模型／校准器，不读取真实标签。重新训练新增头及全部消融的命令见方法说明。
 
+Elliptic 外部数据验证已完成。三种子平均 AP 从 3.14% 降到 3.02%，POT-F1 从 0.17% 降到 0.00%。四个数据集的变化、27 组评分及复现命令见 [Elliptic 中文报告](results/elliptic_20261124/README_CN.md)。
+
 ## 安装与CPU演示
 
 ```bash
