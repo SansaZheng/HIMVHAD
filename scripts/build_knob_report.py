@@ -50,6 +50,7 @@ def main():
                 paired.append(dict(dataset=d,seed=seed,variant=v,**{k+'_delta_pp':100*(row[k]-base[k]) if row[k] is not None and base[k] is not None else None for k in ['average_precision','pr_auc_trapezoid','roc_auc','pot_f1','quantile_f1']}))
         for seed in [42,43,44]:
             folder=source/'runs'/d/str(seed);info=json.loads((folder/'adapter_info.json').read_text());stats=json.loads((folder/'scoring_complete.json').read_text())
+            assert info['selected_student_and_controls_rng_seed']==seed+1000+info['selected_k'],'Final report requires aligned control RNG'
             details.append(dict(dataset=d,seed=seed,selected_k=info['selected_k'],near_optimal=info['near_optimal_proxy_criterion_met'],teacher_proxy_ba=info['teacher_validation_balanced_accuracy'],student_proxy_ba=info['sweep'][-1]['pseudo_validation_balanced_accuracy'],symbolic_r2=info['symbolic_validation_r2'],seconds=stats['seconds'],peak_cuda_gb=stats['peak_cuda_allocated_gb']))
             dest=out/'runs'/d/str(seed);dest.mkdir(parents=True)
             for name in ['adapter_info.json','interventions.json','run_manifest.json','scoring_complete.json','label_access_gate.json','records.json']:
@@ -93,6 +94,8 @@ def main():
       '', '## 完整消融：POT-F1 / q99-F1','', '| 设置 | BankSim | S-FFSD | CardSim |','|---|---:|---:|---:|']
     for v in VARIANTS:lines.append('| '+v+' | '+' | '.join(fmt(get(d,v),'pot_f1')+' / '+fmt(get(d,v),'quantile_f1') for d in ['banksim','s_ffsd','cardsim'])+' |')
     lines+=['','完整Precision、Recall、PR-AUC、ROC-AUC、FPR、报警比例和混淆矩阵在 `metrics.csv/per_seed.json`，各数值阈值及POT状态保存在 `runs/<dataset>/<seed>/<variant>/thresholds.json`。三个种子不足以宣称统计显著。',
+      '', '![AP与POT-F1的同骨干比较](comparison.png)',
+      '', '图显示原版与融合设置，误差棒为三个种子的样本标准差；仅用探针的两项消融见上表。',
       '', '## 标签比例与报警工作点','', '| 数据集 | 已知标签测试数 | 异常标签比例 | 原版POT报警比例 | 融合POT报警比例 |','|---|---:|---:|---:|---:|']
     for d in ['banksim','s_ffsd','cardsim']:
         ref=next(r for r in rows if r['dataset']==d and r['variant']=='baseline')
@@ -101,9 +104,11 @@ def main():
       '', '## 哪些模块实际有帮助','']
     for d in ['banksim','s_ffsd','cardsim']:
         b,k=get(d,'baseline'),get(d,'kan_fused');best=max((get(d,v) for v in VARIANTS),key=lambda r:r['average_precision_mean'])
+        winner_names=[v for v in VARIANTS if abs(get(d,v)['average_precision_mean']-best['average_precision_mean'])<=1e-12]
+        winners=' / '.join(winner_names)
         dif=100*(k['average_precision_mean']-b['average_precision_mean']);cnn=100*(k['average_precision_mean']-get(d,'cnn_fused')['average_precision_mean']);random=100*(k['average_precision_mean']-get(d,'random_fused')['average_precision_mean']);linear=100*(k['average_precision_mean']-get(d,'linear_fused')['average_precision_mean'])
         wins=sum(r['average_precision_delta_pp']>0 for r in paired if r['dataset']==d and r['variant']=='kan_fused')
-        lines.append(f"- **{d}**：主方法ΔAP {dif:+.2f}个百分点，{wins}/3个配对种子提升；相对全维CNN融合 {cnn:+.2f}，相对同k随机维度 {random:+.2f}，相对线性边界 {linear:+.2f}。本次所列消融中AP最高为 `{best['variant']}`（{fmt(best,'average_precision')}%），它是事后描述，不替代预先指定主方法。")
+        lines.append(f"- **{d}**：主方法ΔAP {dif:+.2f}个百分点，{wins}/3个配对种子提升；相对全维CNN融合 {cnn:+.2f}，相对同k随机维度 {random:+.2f}，相对线性边界 {linear:+.2f}。本次所列消融中AP最高{'（并列）' if len(winner_names)>1 else ''}为 `{winners}`（{fmt(best,'average_precision')}%），按未舍入均值比较。它是事后描述，不替代预先指定主方法。")
     lines+=['','## 紧凑性与解析近似是否成立','', '| 数据集 | 种子 | 维度k | 达到代理近最优判据 | CNN代理BA | KAN代理BA | 解析式验证R² |','|---|---:|---:|---|---:|---:|---:|']
     for r in details:
         r2=f"{r['symbolic_r2']:.4f}" if r['symbolic_r2'] is not None else '不可用（常数目标）'

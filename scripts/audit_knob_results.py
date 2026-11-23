@@ -20,7 +20,7 @@ def assertclose(a,b):
 
 
 def main():
-    p=argparse.ArgumentParser();p.add_argument('--input',type=Path,required=True);p.add_argument('--data',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--code-commit',required=True);a=p.parse_args()
+    p=argparse.ArgumentParser();p.add_argument('--input',type=Path,required=True);p.add_argument('--data',type=Path,required=True);p.add_argument('--output',type=Path,required=True);p.add_argument('--code-commit',required=True);p.add_argument('--pilot',action='store_true');a=p.parse_args()
     repo=Path(__file__).resolve().parents[1];manifest=json.loads((repo/'experiments/knob_inputs/manifest.json').read_text());root=a.input
     records=json.loads((root/'records.json').read_text());globalgate=json.loads((root/'global_label_gate.json').read_text());assert len(records)==81 and globalgate['groups']==9
     historic=json.loads((repo/'results/frozen/per_seed.json').read_text());checks=[]
@@ -31,6 +31,8 @@ def main():
         assert hashlib.sha256(content).hexdigest()==h,'Runtime source differs from pinned commit: '+name
     for item in manifest['records']:
         dataset,seed=item['dataset'],item['seed'];folder=root/'runs'/dataset/str(seed);gate=json.loads((folder/'label_access_gate.json').read_text())
+        info=json.loads((folder/'adapter_info.json').read_text())
+        if not a.pilot:assert info['selected_student_and_controls_rng_seed']==seed+1000+info['selected_k'],'Unpaired pilot must not be used as final ablation'
         assert sha(folder/'label_access_gate.json')==globalgate['gates'][str(folder.relative_to(root))]
         for name,h in gate['files_sha256'].items():assert sha(folder/name)==h,name
         with tarfile.open(repo/item['path']) as t:
@@ -74,7 +76,7 @@ def main():
                 old=next(r for r in historic if r['dataset']==dataset and r['seed']==seed and r['variant']=='cm' and r['scoring']=='tail_flat')
                 assert m==old['metrics'],'Historical baseline metrics changed'
         checks.append(dict(dataset=dataset,seed=seed,baseline_arrays_exact=True,historical_baseline_metrics_exact=True,score_variants=9,target_sha256=sha(a.data/dataset/'test.y.i8')))
-    write(a.output,dict(status='passed',groups=9,configurations=81,pinned_code_commit=commit,runtime_source_hashes_match_pinned_commit=True,baseline_and_historical_metrics_exact=True,independent_score_fusion_tail_and_metric_replay=True,all_recorded_pre_label_hashes_verified=True,checks=checks))
+    write(a.output,dict(status='passed',groups=9,configurations=81,pinned_code_commit=commit,paired_control_rng=not a.pilot,pilot_only=a.pilot,runtime_source_hashes_match_pinned_commit=True,baseline_and_historical_metrics_exact=True,independent_score_fusion_tail_and_metric_replay=True,all_recorded_pre_label_hashes_verified=True,checks=checks))
     print('AUDIT PASSED:9 paired backbones,81 configs,162 thresholds,all old baseline metrics exact')
 
 

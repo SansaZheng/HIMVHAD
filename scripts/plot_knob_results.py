@@ -19,6 +19,8 @@ def main():
         for row,metric in enumerate(['average_precision','pot_f1']):
             ax=axes[row,col];mean=np.array([float(r[metric+'_mean'])*100 if r[metric+'_mean'] else np.nan for r in group]);sd=np.array([float(r[metric+'_sd'])*100 if r[metric+'_sd'] else 0 for r in group])
             ax.barh(np.arange(len(variants)),mean,xerr=sd,color=colors,error_kw=dict(elinewidth=.8,capsize=2))
+            for i,value in enumerate(mean):
+                if np.isnan(value):ax.text(.02,i,'Unavailable',transform=ax.get_yaxis_transform(),va='center',fontsize=8,color='#555555')
             ax.set_yticks(np.arange(len(variants)),labels if col==0 else ['']*len(variants));ax.invert_yaxis()
             ax.set_xlabel('Average precision (%)' if row==0 else 'POT anomaly F1 (%)');ax.grid(axis='x',alpha=.2);ax.set_axisbelow(True)
             if row==0:ax.set_title({'banksim':'BankSim','s_ffsd':'S-FFSD','cardsim':'CardSim'}[dataset])

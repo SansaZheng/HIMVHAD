@@ -1,9 +1,9 @@
-# Running — full paired experiment
+# Running — final paired experiment
 
-[Active task prompt](prompts/003-knob-integration.md); Codex; revision2; venue none; zero-label route knob-zero-20261123.
+[Active task prompt](prompts/004-paired-control-rerun.md);Codex/CQ;configurationrevision2;protocolrevision2;venue none.
 
-CPUenvironment j-1123-e65994 passed34tests. CPUactual-shape qualification j-1123-e2b51d passed,peakRAM2.989GiB,244.0s,all source SHA match pinned3a745530d50422c642faad23c9c06dfef7635a8c. Full81-configuration pairedCPUbatch j-1123-21f2ed submitted withdepends_on qualification,4CPUs/8GBRAM,2h ceiling,0USD.
+Correctedcode2a8fb7a03344640daf43a99fc823f9f074317f6b.35local andremoteCQtests passed (j-1123-87784e). Finalpaired81-configCPUbatch j-1123-c26354 running,4CPUs/8GBRAM,2h ceiling,0USD. All9groups freezebeforelabels.
 
-GPUqualification j-1123-1c2e92 failed only the overly strict runtime.git expectation (Kaggle archives omit.git); replacement j-1123-8acd05 wasproviderqueued and cancellation requested afterCPUqualification. Providercompletion/cancellation notyetconfirmed. No unrelated jobs changed. No full financial results yet.
+Pilot j-1123-21f2ed completeandfetched:9groups/81configs,1752.1spipeline,peakRAM3.172GiB,backbonefits0.225pre-label filesandallruntime sourcehashes verified;financialmetricsnotinspected. Retain separately as RNG-confoundedpilot. Correctedresource-criticalASTs same as passedactual-shape j-1123-e2b51d.
 
-Next: wait for batch,fetch and independently replay all81scores/162threshold records,buildChinese report andpublish main.
+UnusedGPUj-1123-8acd05 cancellation requested;providercompletion unconfirmed,CQretainsreservation. No unrelated jobs altered. Next:waitfinal,fetch,auditboth,buildreportanddeploycheck,pushmain.
