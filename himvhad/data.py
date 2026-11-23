@@ -23,7 +23,22 @@ def load_data(path):
     return schema,x
 
 def load_views(path,phase,indices=None):
-    with np.load(Path(path)/f'{phase}.keys.npz',allow_pickle=False) as z:keys=[z[k] for k in sorted(z.files,key=lambda k:int(k[1:]))]
+    path=Path(path)
+    schema=json.loads((path/'schema.json').read_text())
+    with np.load(path/f'{phase}.keys.npz',allow_pickle=False) as z:keys=[z[k] for k in sorted(z.files,key=lambda k:int(k[1:]))]
+    if schema.get('view_encoding')=='explicit_edges':
+        n=schema['splits'][phase]['rows']
+        if len(keys)!=len(schema['view_columns']) or any(
+            e.ndim!=2 or e.shape[1]<2 or e.dtype.kind not in 'iu' or (e<0).any() or (e>=n).any()
+            for e in keys
+        ):
+            raise ValueError('Invalid phase-local explicit hyperedges')
+        if indices is None:
+            return keys
+        local=np.full(n,-1,dtype=np.int64)
+        local[indices]=np.arange(len(indices))
+        remapped=[local[edges] for edges in keys]
+        return [edges[(edges>=0).all(1)] for edges in remapped]
     return [hyperedges(k if indices is None else k[indices],4) for k in keys]
 
 def prepare_csv(csv_path,config_path,output):
