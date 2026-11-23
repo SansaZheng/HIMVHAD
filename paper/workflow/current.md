@@ -1,9 +1,11 @@
-# Verified — publishing integration and ablations
+# Complete — integration and paired ablations published
 
-[Active/final task prompt](prompts/004-paired-control-rerun.md);Codex/CQ;revision2;venue none.
+[Final task prompt](prompts/004-paired-control-rerun.md) · [Chinese report](../../results/knob_20261123/README_CN.md) · [Adaptation andcommands](../../docs/mechanistic_boundary_CN.md). Codex/CQ;revision2;venue none.
 
-FinalCPUj-1123-c26354 andpilotj-1123-21f2ed doneandfetched. All81main/81pilot metricsandthresholds replayed,9historicalbaseline metrics exact,all source/input/prelabel hashes verified.35localandCQtests pass.9unique frozenbackbones,newbackbonefits0,126newheadfits inmain experiment.
+Published contentc81077efba90bf056e45b346f0c148ef6bf6d9b6 onmain andcodex/knob-zero-20261123;remoteGitrefs,reportandthreefixedseed42adapterblobsverified. Numericalcode2a8fb7a unchanged.35localandCQtests,81mainsettings/162operatingpoints,fullsource/prelabelhashes,9historicalbaseline metrics,independentwheelandrealCardSim16021-rowpredictionchecks passed.
 
-Report results/knob_20261123/README_CN.md,81main configs/162workpoints,3fixedseed42 adapters,fullpilotandRNGcorrection retained. APchanges-10.16/+3.09/-0.54pp;no stablegain,allPOTF1decline,0/9compactnesscriterionpasses. Truefraudlabels onlyfinaleval. RealCardSim16021rowpredictcheck completed withoutlabels.
+9unique frozenbackbones,newbackbonefits0;126newneuralheadfitsincludingksearch. Initial81-configpilot keptseparately,RNGcontrolalignmentfixedbeforefinancialmetricinspection;54/54unchangedpathscorepairsbitwiseequal. Cross-platformindependentscorereplaymax8.882e-16,metricsidentical,declaredtolerance1e-12.
 
-UnusedGPUj-1123-8acd05 cancelrequested;providercompletion stillunconfirmedinlastreceipt,CQtrackingretainsreservation. Nootherjobsmodified,no paidrental. Numericalpackageunchangedsince2a8fb7a. Next:commitandpushmain,verifyremote,recordcompletion.
+MainAPdeltas-10.16/+3.09/-0.54pp;allPOT-F1decline;0/9compactnesscriterionpasses. Negativeoutcomesretained,defaultbaselinepreserved. Zero-real-labeladaptation,notoriginalsupervisedpaper-score reproduction,no newrealbankholdout,nofinancialcausalityclaim.
+
+User-requestedcode,experiments,Chineseexplanationandrepositorypublicationcomplete. Operationalnote:unusedKaggleGPUqualificationj-1123-8acd05 cancellationrequested,providercompletionunconfirmedatlastcheck;CQretainsitsreservationandtracking. Nootherjobsaltered,no paidrental. GitHubActionsCIpassnotclaimed;localandCQtestevidencepublished.

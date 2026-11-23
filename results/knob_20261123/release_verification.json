@@ -1,5 +1,5 @@
 {
-  "status": "experiments_verified_ready_for_publication",
+  "status": "complete",
   "source_commit": "2a8fb7a03344640daf43a99fc823f9f074317f6b",
   "scope": "zero-real-label adaptation;not original supervised paper-score reproduction",
   "unique_frozen_backbones": 9,
@@ -22,7 +22,22 @@
   "paid_budget_usd": 0,
   "CI": "Local andCQ tests verified;GitHubActions pass not claimed",
   "publication": {
-    "status": "pending",
-    "branch": "main"
+    "status": "published_verified",
+    "branch": "main",
+    "content_commit": "c81077efba90bf056e45b346f0c148ef6bf6d9b6",
+    "report_git_blob_sha": "fdb4815c4a63608c4be01ffec7c248957ead8e00",
+    "pretrained_adapter_git_blob_shas": {
+      "banksim": "1b35ed69f534e04b8669b629c658241b54fa56a6",
+      "s_ffsd": "a9c357b796feb80dd7c72a844be555913e6f7e8c",
+      "cardsim": "354b8174d0eb1dcc7ee4df7d0eb3bb8994c5106d"
+    },
+    "remote_refs_and_files_verified": true
+  },
+  "operational_cleanup": {
+    "job": "j-1123-8acd05",
+    "state": "assigned",
+    "cancellation_requested": true,
+    "provider_completion_confirmed": false,
+    "note": "CQtracksunusedproviderqueuedGPUqualification;no paidrental;scientificfullCPUexperimentcomplete"
   }
 }
