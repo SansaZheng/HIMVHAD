@@ -7,3 +7,6 @@ build/
 dist/
 data/
 runs/
+# Published fixed-model evidence for this study belongs in Git.
+!results/knob_20261123/runs/
+!results/knob_20261123/runs/**

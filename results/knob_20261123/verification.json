@@ -1,0 +1,158 @@
+{
+  "status": "passed",
+  "groups": 9,
+  "configurations": 81,
+  "pinned_code_commit": "2a8fb7a03344640daf43a99fc823f9f074317f6b",
+  "paired_control_rng": true,
+  "pilot_only": false,
+  "runtime_source_hashes_match_pinned_commit": true,
+  "historical_baseline_metrics_exact": true,
+  "independent_score_fusion_tail_and_metric_replay": true,
+  "all_recorded_pre_label_hashes_verified": true,
+  "checks": [
+    {
+      "dataset": "banksim",
+      "seed": 42,
+      "independent_baseline_bitwise_equal": false,
+      "independent_baseline_max_abs": {
+        "calibration": 4.440892098500626e-16,
+        "test": 4.440892098500626e-16
+      },
+      "independent_baseline_tolerance": {
+        "rtol": 1e-12,
+        "atol": 1e-12
+      },
+      "historical_baseline_metrics_exact": true,
+      "score_variants": 9,
+      "target_sha256": "9cf9860f4f344a0bf2ea3ca380d044da553dae986f6041afc28524ad40d0cf1c"
+    },
+    {
+      "dataset": "banksim",
+      "seed": 43,
+      "independent_baseline_bitwise_equal": false,
+      "independent_baseline_max_abs": {
+        "calibration": 4.440892098500626e-16,
+        "test": 2.220446049250313e-16
+      },
+      "independent_baseline_tolerance": {
+        "rtol": 1e-12,
+        "atol": 1e-12
+      },
+      "historical_baseline_metrics_exact": true,
+      "score_variants": 9,
+      "target_sha256": "9cf9860f4f344a0bf2ea3ca380d044da553dae986f6041afc28524ad40d0cf1c"
+    },
+    {
+      "dataset": "banksim",
+      "seed": 44,
+      "independent_baseline_bitwise_equal": false,
+      "independent_baseline_max_abs": {
+        "calibration": 4.440892098500626e-16,
+        "test": 4.440892098500626e-16
+      },
+      "independent_baseline_tolerance": {
+        "rtol": 1e-12,
+        "atol": 1e-12
+      },
+      "historical_baseline_metrics_exact": true,
+      "score_variants": 9,
+      "target_sha256": "9cf9860f4f344a0bf2ea3ca380d044da553dae986f6041afc28524ad40d0cf1c"
+    },
+    {
+      "dataset": "s_ffsd",
+      "seed": 42,
+      "independent_baseline_bitwise_equal": false,
+      "independent_baseline_max_abs": {
+        "calibration": 8.881784197001252e-16,
+        "test": 2.220446049250313e-16
+      },
+      "independent_baseline_tolerance": {
+        "rtol": 1e-12,
+        "atol": 1e-12
+      },
+      "historical_baseline_metrics_exact": true,
+      "score_variants": 9,
+      "target_sha256": "fe1bd872b78f907c3f7b54a5a7ae38843680fb08d083f1168c39109133c45694"
+    },
+    {
+      "dataset": "s_ffsd",
+      "seed": 43,
+      "independent_baseline_bitwise_equal": false,
+      "independent_baseline_max_abs": {
+        "calibration": 4.440892098500626e-16,
+        "test": 2.220446049250313e-16
+      },
+      "independent_baseline_tolerance": {
+        "rtol": 1e-12,
+        "atol": 1e-12
+      },
+      "historical_baseline_metrics_exact": true,
+      "score_variants": 9,
+      "target_sha256": "fe1bd872b78f907c3f7b54a5a7ae38843680fb08d083f1168c39109133c45694"
+    },
+    {
+      "dataset": "s_ffsd",
+      "seed": 44,
+      "independent_baseline_bitwise_equal": false,
+      "independent_baseline_max_abs": {
+        "calibration": 2.220446049250313e-16,
+        "test": 2.220446049250313e-16
+      },
+      "independent_baseline_tolerance": {
+        "rtol": 1e-12,
+        "atol": 1e-12
+      },
+      "historical_baseline_metrics_exact": true,
+      "score_variants": 9,
+      "target_sha256": "fe1bd872b78f907c3f7b54a5a7ae38843680fb08d083f1168c39109133c45694"
+    },
+    {
+      "dataset": "cardsim",
+      "seed": 42,
+      "independent_baseline_bitwise_equal": false,
+      "independent_baseline_max_abs": {
+        "calibration": 4.440892098500626e-16,
+        "test": 4.440892098500626e-16
+      },
+      "independent_baseline_tolerance": {
+        "rtol": 1e-12,
+        "atol": 1e-12
+      },
+      "historical_baseline_metrics_exact": true,
+      "score_variants": 9,
+      "target_sha256": "cf4660da17fb6fcb1b10da08094c529e7c2a380a8c766b1103e42ed1d6f96cc5"
+    },
+    {
+      "dataset": "cardsim",
+      "seed": 43,
+      "independent_baseline_bitwise_equal": false,
+      "independent_baseline_max_abs": {
+        "calibration": 2.220446049250313e-16,
+        "test": 4.440892098500626e-16
+      },
+      "independent_baseline_tolerance": {
+        "rtol": 1e-12,
+        "atol": 1e-12
+      },
+      "historical_baseline_metrics_exact": true,
+      "score_variants": 9,
+      "target_sha256": "cf4660da17fb6fcb1b10da08094c529e7c2a380a8c766b1103e42ed1d6f96cc5"
+    },
+    {
+      "dataset": "cardsim",
+      "seed": 44,
+      "independent_baseline_bitwise_equal": false,
+      "independent_baseline_max_abs": {
+        "calibration": 4.440892098500626e-16,
+        "test": 6.661338147750939e-16
+      },
+      "independent_baseline_tolerance": {
+        "rtol": 1e-12,
+        "atol": 1e-12
+      },
+      "historical_baseline_metrics_exact": true,
+      "score_variants": 9,
+      "target_sha256": "cf4660da17fb6fcb1b10da08094c529e7c2a380a8c766b1103e42ed1d6f96cc5"
+    }
+  ]
+}

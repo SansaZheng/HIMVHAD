@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "checks": [
+    {
+      "dataset": "banksim",
+      "context_rows": 357136,
+      "hidden_shape": [
+        8,
+        5,
+        256
+      ],
+      "parent_sha256": "dedaccab9edf7d38b513d794ca68856cfa5a7501551ee1299a57483465fbce70"
+    },
+    {
+      "dataset": "s_ffsd",
+      "context_rows": 46729,
+      "hidden_shape": [
+        8,
+        5,
+        256
+      ],
+      "parent_sha256": "b0e78741dbe97f354d962020b965eef390bcd26eca6083aac5388863c32587e2"
+    },
+    {
+      "dataset": "cardsim",
+      "context_rows": 48065,
+      "hidden_shape": [
+        8,
+        5,
+        256
+      ],
+      "parent_sha256": "6f99293d07cf6efb01c78c9e09c9f03918e614748709319982b5493fa943a957"
+    }
+  ],
+  "financial_metrics": false,
+  "actual_labels_read": false,
+  "seconds": 244.026214824,
+  "peak_ram_linux_gb": 2.9888076782226562,
+  "peak_cuda_allocated_gb": null
+}

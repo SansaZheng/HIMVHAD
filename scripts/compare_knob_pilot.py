@@ -22,7 +22,7 @@ def main():
                 with np.load(r1) as x,np.load(r2) as y:
                     parity.append(dict(dataset=dataset,seed=seed,variant=variant,calibration_bitwise_equal=bool(np.array_equal(x['calibration'],y['calibration'])),test_bitwise_equal=bool(np.array_equal(x['test'],y['test'])),test_max_abs=float(np.max(np.abs(x['test']-y['test'])))))
     for name,values in [('summary.csv',rows),('unchanged_path_parity.csv',parity)]:
-        with (out/name).open('w',newline='') as f:w=csv.DictWriter(f,fieldnames=list(values[0]));w.writeheader();w.writerows(values)
+        with (out/name).open('w',newline='') as f:w=csv.DictWriter(f,fieldnames=list(values[0]),lineterminator="\n");w.writeheader();w.writerows(values)
     exact=sum(r['calibration_bitwise_equal'] and r['test_bitwise_equal'] for r in parity)
     write(out/'provenance.json',dict(scope='RNG-confounded pilot;not strict component ablation;not combined with final results',pilot_records_sha256=sha(a.pilot/'records.json'),final_records_sha256=sha(a.final/'records.json'),unchanged_formula_paths=len(parity),bitwise_equal_paths=exact,model_fits='Same9 frozen backbones reused in two adapter runs;no new backbone fitting'))
     lines=['','## 初跑保留与随机流修正','',

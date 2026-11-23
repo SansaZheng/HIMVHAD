@@ -1,0 +1,8 @@
+{
+  "status": "passed",
+  "isolated_import": "isolated wheel-r2-install/himvhad/__init__.py outside repository",
+  "new_adapter_fit_and_reload": true,
+  "paired_control_seed": true,
+  "wheel_sha256": "b024e14e27a547b01e4bb186016626b3da664d6bbb2912ca7cca8d87477b71a4",
+  "financial_benchmark": false
+}

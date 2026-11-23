@@ -1,0 +1,629 @@
+{
+  "checked_at": "2026-11-23T22:00:26.933637+08:00",
+  "jobs": [
+    {
+      "id": "j-1123-e65994",
+      "name": "HIMVHAD knob zero-label environment and34-test gate",
+      "state": "done",
+      "reason": "outputs verified (Kaggle, 0.03 h); results in ${CQ_CONTROL_USER}/.local/share/cq/kaggle/results/j-1123-e65994/out; copied to ${CQ_CONTROL_USER}/.local/share/cq/kaggle/FinancialAD/himvhad-knob-20261123-env",
+      "spec_sha": "eb7a02b264c8fa7ef5f467c95a210c1e6b3ca9599034b6137ff6277bfd1f08f6",
+      "code": {
+        "github": "SansaZheng/HIMVHAD",
+        "commit": "3a745530d50422c642faad23c9c06dfef7635a8c"
+      },
+      "command": [
+        "bash",
+        "scripts/run_knob_cq.sh",
+        "env"
+      ],
+      "resources": {
+        "gpus": 0,
+        "gpu_mem_gb": 0,
+        "exclusive_gpu": false,
+        "cpus": 4,
+        "ram_gb": 8,
+        "disk_gb": 0,
+        "gpu_models": [],
+        "requires": []
+      },
+      "limits": {
+        "max_hours": 0.5,
+        "max_usd": 0,
+        "max_attempts": 1,
+        "max_wait_hours": 24
+      },
+      "depends_on": [],
+      "outputs": {
+        "dest": "~/.local/share/cq/kaggle/FinancialAD/himvhad-knob-20261123-env",
+        "expect": [
+          {
+            "path": "tests.txt",
+            "contains": "34 passed"
+          },
+          {
+            "path": "env.json",
+            "contains": "passed"
+          }
+        ],
+        "progress": {
+          "path": "tests.txt",
+          "stall_min": 20
+        },
+        "direct": false
+      },
+      "started": 1795436326.749114,
+      "finished": 1795436389.558487
+    },
+    {
+      "id": "j-1123-1c2e92",
+      "name": "HIMVHAD knob actual-shape GPU smoke",
+      "state": "failed",
+      "reason": "replaced by j-1123-8acd05; Kaggle: verification failed: experiment/runtime.json: does not contain '3a745530d50422c642faad23c9c06dfef7635a8c'",
+      "spec_sha": "8fb265a591cc22a19bae344bb6035c463df869e2360d5ffcddd5e64174114602",
+      "code": {
+        "github": "SansaZheng/HIMVHAD",
+        "commit": "3a745530d50422c642faad23c9c06dfef7635a8c"
+      },
+      "command": [
+        "bash",
+        "scripts/run_knob_cq.sh",
+        "smoke"
+      ],
+      "resources": {
+        "gpus": 1,
+        "gpu_mem_gb": 8,
+        "exclusive_gpu": false,
+        "cpus": 4,
+        "ram_gb": 12,
+        "disk_gb": 0,
+        "gpu_models": [],
+        "requires": []
+      },
+      "limits": {
+        "max_hours": 0.75,
+        "max_usd": 0,
+        "max_attempts": 1,
+        "max_wait_hours": 24
+      },
+      "depends_on": [
+        "j-1123-e65994"
+      ],
+      "outputs": {
+        "dest": "~/.local/share/cq/kaggle/FinancialAD/himvhad-knob-20261123-smoke",
+        "expect": [
+          {
+            "path": "experiment/smoke.json",
+            "contains": "passed"
+          },
+          {
+            "path": "experiment/runtime.json",
+            "contains": "3a745530d50422c642faad23c9c06dfef7635a8c"
+          }
+        ],
+        "progress": {
+          "path": "progress.log",
+          "stall_min": 30
+        },
+        "direct": false
+      },
+      "started": 1795436475.407389,
+      "finished": 1795436571.581829
+    },
+    {
+      "id": "j-1123-8acd05",
+      "name": "HIMVHAD knob actual-shape GPU smoke with explicit source-hash gate",
+      "state": "assigned",
+      "reason": "cancel requested; provider completion unconfirmed, notebook slot and GPU budget retained",
+      "spec_sha": "334ec7d113946ab7d216dc31bc746c4a4dd1ab8ae02ab7834d6fb1dbf372ab3b",
+      "code": {
+        "github": "SansaZheng/HIMVHAD",
+        "commit": "3a745530d50422c642faad23c9c06dfef7635a8c"
+      },
+      "command": [
+        "bash",
+        "scripts/run_knob_cq.sh",
+        "smoke"
+      ],
+      "resources": {
+        "gpus": 1,
+        "gpu_mem_gb": 8,
+        "exclusive_gpu": false,
+        "cpus": 4,
+        "ram_gb": 12,
+        "disk_gb": 0,
+        "gpu_models": [],
+        "requires": []
+      },
+      "limits": {
+        "max_hours": 0.75,
+        "max_usd": 0,
+        "max_attempts": 1,
+        "max_wait_hours": 24
+      },
+      "depends_on": [
+        "j-1123-e65994"
+      ],
+      "outputs": {
+        "dest": "~/.local/share/cq/kaggle/FinancialAD/himvhad-knob-20261123-smoke-sourcehash",
+        "expect": [
+          {
+            "path": "experiment/smoke.json",
+            "contains": "passed"
+          },
+          {
+            "path": "experiment/runtime.json",
+            "contains": "fbdde3c19799a3884cd9da1b56b4b0bc92b87623ffe883711112251c11524315"
+          }
+        ],
+        "progress": {
+          "path": "progress.log",
+          "stall_min": 30
+        },
+        "direct": false
+      },
+      "started": null,
+      "finished": null
+    },
+    {
+      "id": "j-1123-e2b51d",
+      "name": "HIMVHAD knob CPU actual-shape fallback qualification",
+      "state": "done",
+      "reason": "outputs verified (Kaggle, 0.09 h); results in ${CQ_CONTROL_USER}/.local/share/cq/kaggle/results/j-1123-e2b51d/out; copied to ${CQ_CONTROL_USER}/.local/share/cq/kaggle/FinancialAD/himvhad-knob-20261123-CPU-shape",
+      "spec_sha": "ba4115bc1234b0cdf63f9ab69abce892905cc825eb71f72667f9b3f3b7b315ec",
+      "code": {
+        "github": "SansaZheng/HIMVHAD",
+        "commit": "3a745530d50422c642faad23c9c06dfef7635a8c"
+      },
+      "command": [
+        "bash",
+        "-c",
+        "set -euo pipefail\nexport PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=\"$PWD\" OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4\npython -m pip install --no-cache-dir -q numpy==2.3.5 scipy==1.15.3 pandas==2.2.3 scikit-learn==1.7.2 threadpoolctl\npython scripts/run_knob_experiment.py smoke --output \"$CQ_OUTPUT_DIR/experiment\" --device cpu > \"$CQ_OUTPUT_DIR/progress.log\" 2>&1"
+      ],
+      "resources": {
+        "gpus": 0,
+        "gpu_mem_gb": 0,
+        "exclusive_gpu": false,
+        "cpus": 4,
+        "ram_gb": 12,
+        "disk_gb": 0,
+        "gpu_models": [],
+        "requires": []
+      },
+      "limits": {
+        "max_hours": 0.75,
+        "max_usd": 0,
+        "max_attempts": 1,
+        "max_wait_hours": 24
+      },
+      "depends_on": [
+        "j-1123-e65994"
+      ],
+      "outputs": {
+        "dest": "~/.local/share/cq/kaggle/FinancialAD/himvhad-knob-20261123-CPU-shape",
+        "expect": [
+          {
+            "path": "experiment/smoke.json",
+            "contains": "passed"
+          },
+          {
+            "path": "experiment/runtime.json",
+            "contains": "fbdde3c19799a3884cd9da1b56b4b0bc92b87623ffe883711112251c11524315"
+          }
+        ],
+        "progress": {
+          "path": "progress.log",
+          "stall_min": 30
+        },
+        "direct": false
+      },
+      "started": 1795437334.003232,
+      "finished": 1795437627.1835752
+    },
+    {
+      "id": "j-1123-21f2ed",
+      "name": "HIMVHAD knob full81 paired zero-label configurations CPU",
+      "state": "done",
+      "reason": "outputs verified (Kaggle, 0.51 h); results in ${CQ_CONTROL_USER}/.local/share/cq/kaggle/results/j-1123-21f2ed/out; copied to ${CQ_CONTROL_USER}/.local/share/cq/kaggle/FinancialAD/himvhad-knob-20261123-full-CPU",
+      "spec_sha": "ef10ce36475e016e9bbc689f7d1a16e670c13da8e99005d28f52738a974636fc",
+      "code": {
+        "github": "SansaZheng/HIMVHAD",
+        "commit": "3a745530d50422c642faad23c9c06dfef7635a8c"
+      },
+      "command": [
+        "bash",
+        "-c",
+        "set -euo pipefail\nexport PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=\"$PWD\" OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4\npython -m pip install --no-cache-dir -q numpy==2.3.5 scipy==1.15.3 pandas==2.2.3 scikit-learn==1.7.2 threadpoolctl\npython scripts/run_knob_experiment.py full --output \"$CQ_OUTPUT_DIR/experiment\" --device cpu > \"$CQ_OUTPUT_DIR/progress.log\" 2>&1"
+      ],
+      "resources": {
+        "gpus": 0,
+        "gpu_mem_gb": 0,
+        "exclusive_gpu": false,
+        "cpus": 4,
+        "ram_gb": 8,
+        "disk_gb": 0,
+        "gpu_models": [],
+        "requires": []
+      },
+      "limits": {
+        "max_hours": 2,
+        "max_usd": 0,
+        "max_attempts": 1,
+        "max_wait_hours": 24
+      },
+      "depends_on": [
+        "j-1123-e2b51d"
+      ],
+      "outputs": {
+        "dest": "~/.local/share/cq/kaggle/FinancialAD/himvhad-knob-20261123-full-CPU",
+        "expect": [
+          {
+            "path": "experiment/complete.json",
+            "contains": "\"configurations\": 81"
+          },
+          {
+            "path": "experiment/complete.json",
+            "contains": "\"new_backbone_fits\": 0"
+          },
+          {
+            "path": "experiment/global_label_gate.json",
+            "contains": "all_groups_frozen_before_any_test_label_read"
+          },
+          {
+            "path": "experiment/runtime.json",
+            "contains": "fbdde3c19799a3884cd9da1b56b4b0bc92b87623ffe883711112251c11524315"
+          },
+          {
+            "path": "experiment/records.json",
+            "min_lines": 145
+          },
+          {
+            "path": "experiment/runs/banksim/42/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/banksim/42/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/banksim/42/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/banksim/42/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/banksim/43/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/banksim/43/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/banksim/43/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/banksim/43/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/banksim/44/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/banksim/44/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/banksim/44/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/banksim/44/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/42/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/42/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/42/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/42/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/43/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/43/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/43/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/43/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/44/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/44/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/44/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/44/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/cardsim/42/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/cardsim/42/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/cardsim/42/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/cardsim/42/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/cardsim/43/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/cardsim/43/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/cardsim/43/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/cardsim/43/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/cardsim/44/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/cardsim/44/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/cardsim/44/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/cardsim/44/baseline/scores.npz"
+          }
+        ],
+        "progress": {
+          "path": "progress.log",
+          "stall_min": 60
+        },
+        "direct": false
+      },
+      "started": 1795437778.335897,
+      "finished": 1795439589.172064
+    },
+    {
+      "id": "j-1123-87784e",
+      "name": "HIMVHAD paired-knob revision2 environment and35-test gate",
+      "state": "done",
+      "reason": "outputs verified (Kaggle, 0.04 h); results in ${CQ_CONTROL_USER}/.local/share/cq/kaggle/results/j-1123-87784e/out; copied to ${CQ_CONTROL_USER}/.local/share/cq/kaggle/FinancialAD/himvhad-knob-20261123-r2-env",
+      "spec_sha": "402e71a002c193dab9008e668a910124c4e3b78a3835474da6c1a240dbc25471",
+      "code": {
+        "github": "SansaZheng/HIMVHAD",
+        "commit": "2a8fb7a03344640daf43a99fc823f9f074317f6b"
+      },
+      "command": [
+        "bash",
+        "scripts/run_knob_cq.sh",
+        "env"
+      ],
+      "resources": {
+        "gpus": 0,
+        "gpu_mem_gb": 0,
+        "exclusive_gpu": false,
+        "cpus": 4,
+        "ram_gb": 4,
+        "disk_gb": 0,
+        "gpu_models": [],
+        "requires": []
+      },
+      "limits": {
+        "max_hours": 0.5,
+        "max_usd": 0,
+        "max_attempts": 1,
+        "max_wait_hours": 24
+      },
+      "depends_on": [],
+      "outputs": {
+        "dest": "~/.local/share/cq/kaggle/FinancialAD/himvhad-knob-20261123-r2-env",
+        "expect": [
+          {
+            "path": "tests.txt",
+            "contains": "35 passed"
+          },
+          {
+            "path": "env.json",
+            "contains": "passed"
+          }
+        ],
+        "progress": {
+          "path": "tests.txt",
+          "stall_min": 20
+        },
+        "direct": false
+      },
+      "started": 1795439689.520982,
+      "finished": 1795439788.81089
+    },
+    {
+      "id": "j-1123-c26354",
+      "name": "HIMVHAD paired-RNG revision2 full81 zero-label ablations",
+      "state": "done",
+      "reason": "outputs verified (Kaggle, 0.52 h); results in ${CQ_CONTROL_USER}/.local/share/cq/kaggle/results/j-1123-c26354/out; copied to ${CQ_CONTROL_USER}/.local/share/cq/kaggle/FinancialAD/himvhad-knob-20261123-r2-full-CPU",
+      "spec_sha": "5716eb7330574f26426b12ca01c457ad88db1536dcd86a1672a33c8305db6548",
+      "code": {
+        "github": "SansaZheng/HIMVHAD",
+        "commit": "2a8fb7a03344640daf43a99fc823f9f074317f6b"
+      },
+      "command": [
+        "bash",
+        "-c",
+        "set -euo pipefail\nexport PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=\"$PWD\" OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4\npython -m pip install --no-cache-dir -q numpy==2.3.5 scipy==1.15.3 pandas==2.2.3 scikit-learn==1.7.2 threadpoolctl\npython scripts/run_knob_experiment.py full --output \"$CQ_OUTPUT_DIR/experiment\" --device cpu > \"$CQ_OUTPUT_DIR/progress.log\" 2>&1"
+      ],
+      "resources": {
+        "gpus": 0,
+        "gpu_mem_gb": 0,
+        "exclusive_gpu": false,
+        "cpus": 4,
+        "ram_gb": 8,
+        "disk_gb": 0,
+        "gpu_models": [],
+        "requires": []
+      },
+      "limits": {
+        "max_hours": 2,
+        "max_usd": 0,
+        "max_attempts": 1,
+        "max_wait_hours": 24
+      },
+      "depends_on": [
+        "j-1123-87784e",
+        "j-1123-e2b51d"
+      ],
+      "outputs": {
+        "dest": "~/.local/share/cq/kaggle/FinancialAD/himvhad-knob-20261123-r2-full-CPU",
+        "expect": [
+          {
+            "path": "experiment/complete.json",
+            "contains": "\"configurations\": 81"
+          },
+          {
+            "path": "experiment/complete.json",
+            "contains": "\"new_backbone_fits\": 0"
+          },
+          {
+            "path": "experiment/global_label_gate.json",
+            "contains": "all_groups_frozen_before_any_test_label_read"
+          },
+          {
+            "path": "experiment/runtime.json",
+            "contains": "2e6ef4daecbfe5770a285c91b0b80c0d3be4e138972ddeedf4bffcb163275330"
+          },
+          {
+            "path": "experiment/records.json",
+            "min_lines": 145
+          },
+          {
+            "path": "experiment/runs/banksim/42/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/banksim/42/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/banksim/42/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/banksim/42/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/banksim/43/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/banksim/43/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/banksim/43/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/banksim/43/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/banksim/44/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/banksim/44/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/banksim/44/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/banksim/44/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/42/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/42/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/42/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/42/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/43/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/43/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/43/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/43/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/44/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/44/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/44/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/s_ffsd/44/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/cardsim/42/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/cardsim/42/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/cardsim/42/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/cardsim/42/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/cardsim/43/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/cardsim/43/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/cardsim/43/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/cardsim/43/baseline/scores.npz"
+          },
+          {
+            "path": "experiment/runs/cardsim/44/adapter.pt"
+          },
+          {
+            "path": "experiment/runs/cardsim/44/label_access_gate.json"
+          },
+          {
+            "path": "experiment/runs/cardsim/44/kan_fused/scores.npz"
+          },
+          {
+            "path": "experiment/runs/cardsim/44/baseline/scores.npz"
+          }
+        ],
+        "progress": {
+          "path": "progress.log",
+          "stall_min": 60
+        },
+        "direct": false
+      },
+      "started": 1795439876.1155672,
+      "finished": 1795441716.526177
+    }
+  ],
+  "paid_rentals": false,
+  "budget_usd": 0
+}

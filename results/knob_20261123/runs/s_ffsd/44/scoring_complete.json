@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "dataset": "s_ffsd",
+  "seed": 44,
+  "score_variants": 9,
+  "new_backbone_fits": 0,
+  "seconds": 60.20820848299991,
+  "peak_cuda_allocated_gb": null,
+  "gpu": null
+}

@@ -1,0 +1,8 @@
+{
+  "scope": "RNG-confounded pilot;not strict component ablation;not combined with final results",
+  "pilot_records_sha256": "b433bc8658ba4d4797a1148cb44be6de5282a4b2bb532df0924ea465d4cafd2e",
+  "final_records_sha256": "b584fc8459a7e974c250e79aceda80be98040702bac0aa5a225f7f6dfe9d2432",
+  "unchanged_formula_paths": 54,
+  "bitwise_equal_paths": 54,
+  "model_fits": "Same9 frozen backbones reused in two adapter runs;no new backbone fitting"
+}

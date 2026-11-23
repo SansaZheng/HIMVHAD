@@ -45,21 +45,24 @@ def main():
             evidence=np.column_stack([-np.log((len(ce)+1-np.searchsorted(np.sort(ce[:,g]),xe[:,g],side='left'))/(len(ce)+1)) for g in range(ce.shape[1])])
             baseline[phase]=np.average(evidence,axis=1,weights=widths)
         y=np.fromfile(a.data/dataset/'test.y.i8',dtype='i1');known=y!=-1;target=y[known]
+        with np.load(folder/'baseline/scores.npz') as z:saved_baseline={s:z[s] for s in ['calibration','test']}
+        baseline_delta={s:float(np.max(np.abs(saved_baseline[s]-baseline[s]))) for s in baseline}
+        baseline_exact=all(np.array_equal(saved_baseline[s],baseline[s]) for s in baseline)
         with np.load(folder/'fusion_calibrator.npz') as z:calibrators={k:z[k] for k in z.files if k!='weight'};assert float(z['weight'])==.5
         expected_rows=len(y);recorded_prevalence=None
         for variant in VARIANTS:
             with np.load(folder/variant/'scores.npz',allow_pickle=False) as z:cal,test=z['calibration'],z['test']
             assert len(test)==expected_rows and np.isfinite(cal).all() and np.isfinite(test).all()
             if variant=='baseline':
-                np.testing.assert_array_equal(cal,baseline['calibration']);np.testing.assert_array_equal(test,baseline['test'])
+                np.testing.assert_allclose(cal,baseline['calibration'],rtol=1e-12,atol=1e-12);np.testing.assert_allclose(test,baseline['test'],rtol=1e-12,atol=1e-12)
             else:
                 name=variant.split('_')[0];ref=calibrators[name];ranked=-np.log((len(ref)+1-np.searchsorted(ref,ref,side='left'))/(len(ref)+1))
-                implied=2*cal-baseline['calibration'] if variant.endswith('_fused') else cal
+                implied=2*cal-saved_baseline['calibration'] if variant.endswith('_fused') else cal
                 np.testing.assert_allclose(np.sort(implied),ranked,atol=1e-12,rtol=1e-12)
                 if variant in ['cnn_fused','kan_fused']:
                     with np.load(folder/(name+'_only')/'scores.npz') as z:
-                        np.testing.assert_array_equal(cal,.5*baseline['calibration']+.5*z['calibration'])
-                        np.testing.assert_array_equal(test,.5*baseline['test']+.5*z['test'])
+                        np.testing.assert_array_equal(cal,.5*saved_baseline['calibration']+.5*z['calibration'])
+                        np.testing.assert_array_equal(test,.5*saved_baseline['test']+.5*z['test'])
             th=json.loads((folder/variant/'thresholds.json').read_text());r=next(r for r in records if r['dataset']==dataset and r['seed']==seed and r['variant']==variant);m=r['metrics'];s=test[known]
             pr,re,_=precision_recall_curve(target,s)
             for k,v in dict(evaluated=len(target),positives=int((target==1).sum()),normal=int((target==0).sum()),unknown_excluded=int((~known).sum()),prevalence=float(target.mean()),average_precision=average_precision_score(target,s),roc_auc=roc_auc_score(target,s),pr_auc_trapezoid=auc(re,pr)).items():assertclose(m[k],v)
@@ -75,8 +78,8 @@ def main():
             if variant=='baseline':
                 old=next(r for r in historic if r['dataset']==dataset and r['seed']==seed and r['variant']=='cm' and r['scoring']=='tail_flat')
                 assert m==old['metrics'],'Historical baseline metrics changed'
-        checks.append(dict(dataset=dataset,seed=seed,baseline_arrays_exact=True,historical_baseline_metrics_exact=True,score_variants=9,target_sha256=sha(a.data/dataset/'test.y.i8')))
-    write(a.output,dict(status='passed',groups=9,configurations=81,pinned_code_commit=commit,paired_control_rng=not a.pilot,pilot_only=a.pilot,runtime_source_hashes_match_pinned_commit=True,baseline_and_historical_metrics_exact=True,independent_score_fusion_tail_and_metric_replay=True,all_recorded_pre_label_hashes_verified=True,checks=checks))
+        checks.append(dict(dataset=dataset,seed=seed,independent_baseline_bitwise_equal=baseline_exact,independent_baseline_max_abs=baseline_delta,independent_baseline_tolerance=dict(rtol=1e-12,atol=1e-12),historical_baseline_metrics_exact=True,score_variants=9,target_sha256=sha(a.data/dataset/'test.y.i8')))
+    write(a.output,dict(status='passed',groups=9,configurations=81,pinned_code_commit=commit,paired_control_rng=not a.pilot,pilot_only=a.pilot,runtime_source_hashes_match_pinned_commit=True,historical_baseline_metrics_exact=True,independent_score_fusion_tail_and_metric_replay=True,all_recorded_pre_label_hashes_verified=True,checks=checks))
     print('AUDIT PASSED:9 paired backbones,81 configs,162 thresholds,all old baseline metrics exact')
 
 

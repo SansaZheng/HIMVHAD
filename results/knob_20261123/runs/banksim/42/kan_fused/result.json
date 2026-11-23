@@ -1,0 +1,49 @@
+{
+  "dataset": "banksim",
+  "seed": 42,
+  "variant": "kan_fused",
+  "metrics": {
+    "evaluated": 118638,
+    "unknown_excluded": 0,
+    "positives": 1280,
+    "normal": 117358,
+    "prevalence": 0.010789123215158718,
+    "average_precision": 0.03441632082620271,
+    "roc_auc": 0.8157550907266654,
+    "pr_auc_trapezoid": 0.034296251505349304,
+    "operating_points": {
+      "quantile": {
+        "tp": 66,
+        "fp": 1224,
+        "fn": 1214,
+        "tn": 116134,
+        "precision": 0.05116279069767442,
+        "recall": 0.0515625,
+        "f1": 0.051361867704280154,
+        "fpr": 0.010429625590074813,
+        "alarm_fraction": 0.010873413240277146
+      },
+      "pot": {
+        "tp": 66,
+        "fp": 1190,
+        "fn": 1214,
+        "tn": 116168,
+        "precision": 0.052547770700636945,
+        "recall": 0.0515625,
+        "f1": 0.052050473186119876,
+        "fpr": 0.01013991376812829,
+        "alarm_fraction": 0.010586827154874492
+      }
+    }
+  },
+  "target_sha256": "9cf9860f4f344a0bf2ea3ca380d044da553dae986f6041afc28524ad40d0cf1c",
+  "scores_sha256": "8ffc8ef49eeb57773dd092b4fa6920db5c9b6325b4b15220b1c0f8d714f8f9c5",
+  "gate_sha256": "c32f804bf118e08fc068c6b187e140813cb3c0b2a740c44ed0fb5a7981b732cf",
+  "parent_sha256": {
+    "model.pt": "dedaccab9edf7d38b513d794ca68856cfa5a7501551ee1299a57483465fbce70",
+    "preprocessor.npz": "b0ec31ddea2ccb442b6af8a894b2f16b3c4aa598a2cc970aa3cdd4edec15e22c",
+    "indices.npz": "9fd335b4f365ac73ffe3d79c9f9da59def9b5dd18a89c973c353c996b60993f8",
+    "components.npz": "08a93b74c5e077448350da82701700fde434528443319ff444b3c9444e68fe34"
+  },
+  "new_backbone_fits": 0
+}

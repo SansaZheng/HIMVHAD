@@ -16,6 +16,7 @@ flowchart TD
     A --> C[提取干净输入的隐藏状态]
     B --> D[CNN探针：仅内部拟合]
     C --> D
+    C --> F
     D --> E[激活差排序关键维度]
     E --> F[层注意力与小型KAN]
     B --> F
@@ -89,10 +90,10 @@ mkdir -p runs/parent-banksim42
 tar -xzf experiments/knob_inputs/banksim-42.tar.gz -C runs/parent-banksim42
 python -m himvhad knob-run \
   --parent runs/parent-banksim42 --data data/benchmark/banksim \
-  --output runs/knob-banksim42 --device cuda
+  --output runs/knob-banksim42 --device cpu
 ```
 
-需要复现完整81组时，使用 `python scripts/run_knob_experiment.py full --device cuda --output runs/knob-all`。它下载并核验数据，在全部组冻结后统一评价。运行时间较长的 CPU 和所有 GPU 任务应通过用户授权的 CQ 提交。
+需要复现完整81组时，使用 `python scripts/run_knob_experiment.py full --device cpu --output runs/knob-all`。本轮正式结果使用CPU；有CUDA时可以换为 `cuda`，但须记录环境并重新核验浮点差异。脚本下载并核验数据，在全部组冻结后统一评价。运行时间较长的 CPU 和所有 GPU 任务应通过用户授权的 CQ 提交。
 
 完整输出包括 `adapter.pt`、`adapter_info.json`（维度、权重、k搜索、解析式系数与R²）、`training_proxy.npz`、校准器、逐点分数、阈值、原始指标及标签访问记录。应用已保存适配器不会再选维度、训练或调整阈值：
 

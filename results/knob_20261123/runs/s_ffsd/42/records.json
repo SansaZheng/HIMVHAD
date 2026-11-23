@@ -1,0 +1,443 @@
+[
+  {
+    "dataset": "s_ffsd",
+    "seed": 42,
+    "variant": "baseline",
+    "metrics": {
+      "evaluated": 6159,
+      "unknown_excluded": 9417,
+      "positives": 2394,
+      "normal": 3765,
+      "prevalence": 0.3886994641987336,
+      "average_precision": 0.35401624794918524,
+      "roc_auc": 0.5041592471661669,
+      "pr_auc_trapezoid": 0.3537877751257618,
+      "operating_points": {
+        "quantile": {
+          "tp": 8,
+          "fp": 58,
+          "fn": 2386,
+          "tn": 3707,
+          "precision": 0.12121212121212122,
+          "recall": 0.003341687552213868,
+          "f1": 0.0065040650406504065,
+          "fpr": 0.015405046480743692,
+          "alarm_fraction": 0.01071602532878714
+        },
+        "pot": {
+          "tp": 14,
+          "fp": 63,
+          "fn": 2380,
+          "tn": 3702,
+          "precision": 0.18181818181818182,
+          "recall": 0.005847953216374269,
+          "f1": 0.0113314447592068,
+          "fpr": 0.016733067729083666,
+          "alarm_fraction": 0.012502029550251665
+        }
+      }
+    },
+    "target_sha256": "fe1bd872b78f907c3f7b54a5a7ae38843680fb08d083f1168c39109133c45694",
+    "scores_sha256": "da84e43f99870ad973e1c3d8300ccb71d8188865e26bfce690bcba3a418d9347",
+    "gate_sha256": "065c4382023169e1673365fe574b9c93b036db86fc37678afec7c9aaddefdbc6",
+    "parent_sha256": {
+      "model.pt": "b0e78741dbe97f354d962020b965eef390bcd26eca6083aac5388863c32587e2",
+      "preprocessor.npz": "cb0ae2a0e4b2dfc0f2eb47c089d8805008b7e02d44f533f560822acb2709d0f1",
+      "indices.npz": "c35283087b0ad7a41fda5552fb1d2bf6fb3f252bf9acd865db66b8c9793fa2ff",
+      "components.npz": "b888f970ec2b16417e8756773bac65b86b8975b6a2810ebe800c1620cd7b86f7"
+    },
+    "new_backbone_fits": 0
+  },
+  {
+    "dataset": "s_ffsd",
+    "seed": 42,
+    "variant": "cnn_only",
+    "metrics": {
+      "evaluated": 6159,
+      "unknown_excluded": 9417,
+      "positives": 2394,
+      "normal": 3765,
+      "prevalence": 0.3886994641987336,
+      "average_precision": 0.39757087517993395,
+      "roc_auc": 0.5641373797486191,
+      "pr_auc_trapezoid": 0.397657988129556,
+      "operating_points": {
+        "quantile": {
+          "tp": 3,
+          "fp": 14,
+          "fn": 2391,
+          "tn": 3751,
+          "precision": 0.17647058823529413,
+          "recall": 0.0012531328320802004,
+          "f1": 0.002488593944421402,
+          "fpr": 0.0037184594953519256,
+          "alarm_fraction": 0.0027601883422633546
+        },
+        "pot": {
+          "tp": 3,
+          "fp": 14,
+          "fn": 2391,
+          "tn": 3751,
+          "precision": 0.17647058823529413,
+          "recall": 0.0012531328320802004,
+          "f1": 0.002488593944421402,
+          "fpr": 0.0037184594953519256,
+          "alarm_fraction": 0.0027601883422633546
+        }
+      }
+    },
+    "target_sha256": "fe1bd872b78f907c3f7b54a5a7ae38843680fb08d083f1168c39109133c45694",
+    "scores_sha256": "001b9de141cd312a1eaed58e0fcb2a854779c19f218604ac844acc096f67f069",
+    "gate_sha256": "065c4382023169e1673365fe574b9c93b036db86fc37678afec7c9aaddefdbc6",
+    "parent_sha256": {
+      "model.pt": "b0e78741dbe97f354d962020b965eef390bcd26eca6083aac5388863c32587e2",
+      "preprocessor.npz": "cb0ae2a0e4b2dfc0f2eb47c089d8805008b7e02d44f533f560822acb2709d0f1",
+      "indices.npz": "c35283087b0ad7a41fda5552fb1d2bf6fb3f252bf9acd865db66b8c9793fa2ff",
+      "components.npz": "b888f970ec2b16417e8756773bac65b86b8975b6a2810ebe800c1620cd7b86f7"
+    },
+    "new_backbone_fits": 0
+  },
+  {
+    "dataset": "s_ffsd",
+    "seed": 42,
+    "variant": "cnn_fused",
+    "metrics": {
+      "evaluated": 6159,
+      "unknown_excluded": 9417,
+      "positives": 2394,
+      "normal": 3765,
+      "prevalence": 0.3886994641987336,
+      "average_precision": 0.371375338311652,
+      "roc_auc": 0.5386409804946186,
+      "pr_auc_trapezoid": 0.3711026842060385,
+      "operating_points": {
+        "quantile": {
+          "tp": 4,
+          "fp": 45,
+          "fn": 2390,
+          "tn": 3720,
+          "precision": 0.08163265306122448,
+          "recall": 0.001670843776106934,
+          "f1": 0.003274662300450266,
+          "fpr": 0.01195219123505976,
+          "alarm_fraction": 0.007955836986523787
+        },
+        "pot": {
+          "tp": 4,
+          "fp": 41,
+          "fn": 2390,
+          "tn": 3724,
+          "precision": 0.08888888888888889,
+          "recall": 0.001670843776106934,
+          "f1": 0.003280032800328003,
+          "fpr": 0.010889774236387782,
+          "alarm_fraction": 0.007306380905991232
+        }
+      }
+    },
+    "target_sha256": "fe1bd872b78f907c3f7b54a5a7ae38843680fb08d083f1168c39109133c45694",
+    "scores_sha256": "5c8a7dc8d40c2f9e33bad9b91009d97cdd312a676defeb42dd9469d5487f84e9",
+    "gate_sha256": "065c4382023169e1673365fe574b9c93b036db86fc37678afec7c9aaddefdbc6",
+    "parent_sha256": {
+      "model.pt": "b0e78741dbe97f354d962020b965eef390bcd26eca6083aac5388863c32587e2",
+      "preprocessor.npz": "cb0ae2a0e4b2dfc0f2eb47c089d8805008b7e02d44f533f560822acb2709d0f1",
+      "indices.npz": "c35283087b0ad7a41fda5552fb1d2bf6fb3f252bf9acd865db66b8c9793fa2ff",
+      "components.npz": "b888f970ec2b16417e8756773bac65b86b8975b6a2810ebe800c1620cd7b86f7"
+    },
+    "new_backbone_fits": 0
+  },
+  {
+    "dataset": "s_ffsd",
+    "seed": 42,
+    "variant": "kan_only",
+    "metrics": {
+      "evaluated": 6159,
+      "unknown_excluded": 9417,
+      "positives": 2394,
+      "normal": 3765,
+      "prevalence": 0.3886994641987336,
+      "average_precision": 0.5257544340491437,
+      "roc_auc": 0.7534417606654973,
+      "pr_auc_trapezoid": 0.5252188943525703,
+      "operating_points": {
+        "quantile": {
+          "tp": 1,
+          "fp": 11,
+          "fn": 2393,
+          "tn": 3754,
+          "precision": 0.08333333333333333,
+          "recall": 0.0004177109440267335,
+          "f1": 0.0008312551953449709,
+          "fpr": 0.0029216467463479417,
+          "alarm_fraction": 0.001948368241597662
+        },
+        "pot": {
+          "tp": 1,
+          "fp": 12,
+          "fn": 2393,
+          "tn": 3753,
+          "precision": 0.07692307692307693,
+          "recall": 0.0004177109440267335,
+          "f1": 0.0008309098462816784,
+          "fpr": 0.0031872509960159364,
+          "alarm_fraction": 0.0021107322617308004
+        }
+      }
+    },
+    "target_sha256": "fe1bd872b78f907c3f7b54a5a7ae38843680fb08d083f1168c39109133c45694",
+    "scores_sha256": "99e7988b7782c1c184621732689c68c64a8cbba1ef892c88496e4ea507325e49",
+    "gate_sha256": "065c4382023169e1673365fe574b9c93b036db86fc37678afec7c9aaddefdbc6",
+    "parent_sha256": {
+      "model.pt": "b0e78741dbe97f354d962020b965eef390bcd26eca6083aac5388863c32587e2",
+      "preprocessor.npz": "cb0ae2a0e4b2dfc0f2eb47c089d8805008b7e02d44f533f560822acb2709d0f1",
+      "indices.npz": "c35283087b0ad7a41fda5552fb1d2bf6fb3f252bf9acd865db66b8c9793fa2ff",
+      "components.npz": "b888f970ec2b16417e8756773bac65b86b8975b6a2810ebe800c1620cd7b86f7"
+    },
+    "new_backbone_fits": 0
+  },
+  {
+    "dataset": "s_ffsd",
+    "seed": 42,
+    "variant": "kan_fused",
+    "metrics": {
+      "evaluated": 6159,
+      "unknown_excluded": 9417,
+      "positives": 2394,
+      "normal": 3765,
+      "prevalence": 0.3886994641987336,
+      "average_precision": 0.3991781199120764,
+      "roc_auc": 0.5925045016259107,
+      "pr_auc_trapezoid": 0.39893293578129846,
+      "operating_points": {
+        "quantile": {
+          "tp": 0,
+          "fp": 22,
+          "fn": 2394,
+          "tn": 3743,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0058432934926958835,
+          "alarm_fraction": 0.003572008442929047
+        },
+        "pot": {
+          "tp": 0,
+          "fp": 24,
+          "fn": 2394,
+          "tn": 3741,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.006374501992031873,
+          "alarm_fraction": 0.003896736483195324
+        }
+      }
+    },
+    "target_sha256": "fe1bd872b78f907c3f7b54a5a7ae38843680fb08d083f1168c39109133c45694",
+    "scores_sha256": "76302033f7d5240c264bf89703a15e1cd3326ea28deee4e561bd03d75845e19f",
+    "gate_sha256": "065c4382023169e1673365fe574b9c93b036db86fc37678afec7c9aaddefdbc6",
+    "parent_sha256": {
+      "model.pt": "b0e78741dbe97f354d962020b965eef390bcd26eca6083aac5388863c32587e2",
+      "preprocessor.npz": "cb0ae2a0e4b2dfc0f2eb47c089d8805008b7e02d44f533f560822acb2709d0f1",
+      "indices.npz": "c35283087b0ad7a41fda5552fb1d2bf6fb3f252bf9acd865db66b8c9793fa2ff",
+      "components.npz": "b888f970ec2b16417e8756773bac65b86b8975b6a2810ebe800c1620cd7b86f7"
+    },
+    "new_backbone_fits": 0
+  },
+  {
+    "dataset": "s_ffsd",
+    "seed": 42,
+    "variant": "random_fused",
+    "metrics": {
+      "evaluated": 6159,
+      "unknown_excluded": 9417,
+      "positives": 2394,
+      "normal": 3765,
+      "prevalence": 0.3886994641987336,
+      "average_precision": 0.3723633081501754,
+      "roc_auc": 0.5473701961854615,
+      "pr_auc_trapezoid": 0.37211087792786424,
+      "operating_points": {
+        "quantile": {
+          "tp": 3,
+          "fp": 31,
+          "fn": 2391,
+          "tn": 3734,
+          "precision": 0.08823529411764706,
+          "recall": 0.0012531328320802004,
+          "f1": 0.002471169686985173,
+          "fpr": 0.008233731739707836,
+          "alarm_fraction": 0.005520376684526709
+        },
+        "pot": {
+          "tp": 3,
+          "fp": 35,
+          "fn": 2391,
+          "tn": 3730,
+          "precision": 0.07894736842105263,
+          "recall": 0.0012531328320802004,
+          "f1": 0.0024671052631578946,
+          "fpr": 0.009296148738379814,
+          "alarm_fraction": 0.0061698327650592626
+        }
+      }
+    },
+    "target_sha256": "fe1bd872b78f907c3f7b54a5a7ae38843680fb08d083f1168c39109133c45694",
+    "scores_sha256": "8bfcb9991984acb67a7108087de9717fbc7e0477210d320d915ab008b53c962a",
+    "gate_sha256": "065c4382023169e1673365fe574b9c93b036db86fc37678afec7c9aaddefdbc6",
+    "parent_sha256": {
+      "model.pt": "b0e78741dbe97f354d962020b965eef390bcd26eca6083aac5388863c32587e2",
+      "preprocessor.npz": "cb0ae2a0e4b2dfc0f2eb47c089d8805008b7e02d44f533f560822acb2709d0f1",
+      "indices.npz": "c35283087b0ad7a41fda5552fb1d2bf6fb3f252bf9acd865db66b8c9793fa2ff",
+      "components.npz": "b888f970ec2b16417e8756773bac65b86b8975b6a2810ebe800c1620cd7b86f7"
+    },
+    "new_backbone_fits": 0
+  },
+  {
+    "dataset": "s_ffsd",
+    "seed": 42,
+    "variant": "uniform_fused",
+    "metrics": {
+      "evaluated": 6159,
+      "unknown_excluded": 9417,
+      "positives": 2394,
+      "normal": 3765,
+      "prevalence": 0.3886994641987336,
+      "average_precision": 0.3972794835051903,
+      "roc_auc": 0.5902876935588196,
+      "pr_auc_trapezoid": 0.3970358653696565,
+      "operating_points": {
+        "quantile": {
+          "tp": 0,
+          "fp": 21,
+          "fn": 2394,
+          "tn": 3744,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.005577689243027889,
+          "alarm_fraction": 0.0034096444227959084
+        },
+        "pot": {
+          "tp": 0,
+          "fp": 22,
+          "fn": 2394,
+          "tn": 3743,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "fpr": 0.0058432934926958835,
+          "alarm_fraction": 0.003572008442929047
+        }
+      }
+    },
+    "target_sha256": "fe1bd872b78f907c3f7b54a5a7ae38843680fb08d083f1168c39109133c45694",
+    "scores_sha256": "26b3a18defc97f062db460eee43a3987b846b1670f3fdaca4f0bd14eb4e46245",
+    "gate_sha256": "065c4382023169e1673365fe574b9c93b036db86fc37678afec7c9aaddefdbc6",
+    "parent_sha256": {
+      "model.pt": "b0e78741dbe97f354d962020b965eef390bcd26eca6083aac5388863c32587e2",
+      "preprocessor.npz": "cb0ae2a0e4b2dfc0f2eb47c089d8805008b7e02d44f533f560822acb2709d0f1",
+      "indices.npz": "c35283087b0ad7a41fda5552fb1d2bf6fb3f252bf9acd865db66b8c9793fa2ff",
+      "components.npz": "b888f970ec2b16417e8756773bac65b86b8975b6a2810ebe800c1620cd7b86f7"
+    },
+    "new_backbone_fits": 0
+  },
+  {
+    "dataset": "s_ffsd",
+    "seed": 42,
+    "variant": "linear_fused",
+    "metrics": {
+      "evaluated": 6159,
+      "unknown_excluded": 9417,
+      "positives": 2394,
+      "normal": 3765,
+      "prevalence": 0.3886994641987336,
+      "average_precision": 0.34618548841639374,
+      "roc_auc": 0.4175555089583188,
+      "pr_auc_trapezoid": 0.3459430141215861,
+      "operating_points": {
+        "quantile": {
+          "tp": 1,
+          "fp": 33,
+          "fn": 2393,
+          "tn": 3732,
+          "precision": 0.029411764705882353,
+          "recall": 0.0004177109440267335,
+          "f1": 0.0008237232289950577,
+          "fpr": 0.008764940239043825,
+          "alarm_fraction": 0.005520376684526709
+        },
+        "pot": {
+          "tp": 1,
+          "fp": 35,
+          "fn": 2393,
+          "tn": 3730,
+          "precision": 0.027777777777777776,
+          "recall": 0.0004177109440267335,
+          "f1": 0.0008230452674897119,
+          "fpr": 0.009296148738379814,
+          "alarm_fraction": 0.0058451047247929854
+        }
+      }
+    },
+    "target_sha256": "fe1bd872b78f907c3f7b54a5a7ae38843680fb08d083f1168c39109133c45694",
+    "scores_sha256": "45963d62dea18639cdd7224d962032f054b9dd1710c03ee76df701e7bd4fb50e",
+    "gate_sha256": "065c4382023169e1673365fe574b9c93b036db86fc37678afec7c9aaddefdbc6",
+    "parent_sha256": {
+      "model.pt": "b0e78741dbe97f354d962020b965eef390bcd26eca6083aac5388863c32587e2",
+      "preprocessor.npz": "cb0ae2a0e4b2dfc0f2eb47c089d8805008b7e02d44f533f560822acb2709d0f1",
+      "indices.npz": "c35283087b0ad7a41fda5552fb1d2bf6fb3f252bf9acd865db66b8c9793fa2ff",
+      "components.npz": "b888f970ec2b16417e8756773bac65b86b8975b6a2810ebe800c1620cd7b86f7"
+    },
+    "new_backbone_fits": 0
+  },
+  {
+    "dataset": "s_ffsd",
+    "seed": 42,
+    "variant": "symbolic_fused",
+    "metrics": {
+      "evaluated": 6159,
+      "unknown_excluded": 9417,
+      "positives": 2394,
+      "normal": 3765,
+      "prevalence": 0.3886994641987336,
+      "average_precision": 0.3979348482329193,
+      "roc_auc": 0.591480028091477,
+      "pr_auc_trapezoid": 0.39768316260416914,
+      "operating_points": {
+        "quantile": {
+          "tp": 1,
+          "fp": 20,
+          "fn": 2393,
+          "tn": 3745,
+          "precision": 0.047619047619047616,
+          "recall": 0.0004177109440267335,
+          "f1": 0.0008281573498964803,
+          "fpr": 0.005312084993359893,
+          "alarm_fraction": 0.0034096444227959084
+        },
+        "pot": {
+          "tp": 2,
+          "fp": 21,
+          "fn": 2392,
+          "tn": 3744,
+          "precision": 0.08695652173913043,
+          "recall": 0.000835421888053467,
+          "f1": 0.0016549441456350847,
+          "fpr": 0.005577689243027889,
+          "alarm_fraction": 0.0037343724630621855
+        }
+      }
+    },
+    "target_sha256": "fe1bd872b78f907c3f7b54a5a7ae38843680fb08d083f1168c39109133c45694",
+    "scores_sha256": "6c88cd0f4057ae72d75c85be9567df3f67218674d32e77b799218a9d2ca9e747",
+    "gate_sha256": "065c4382023169e1673365fe574b9c93b036db86fc37678afec7c9aaddefdbc6",
+    "parent_sha256": {
+      "model.pt": "b0e78741dbe97f354d962020b965eef390bcd26eca6083aac5388863c32587e2",
+      "preprocessor.npz": "cb0ae2a0e4b2dfc0f2eb47c089d8805008b7e02d44f533f560822acb2709d0f1",
+      "indices.npz": "c35283087b0ad7a41fda5552fb1d2bf6fb3f252bf9acd865db66b8c9793fa2ff",
+      "components.npz": "b888f970ec2b16417e8756773bac65b86b8975b6a2810ebe800c1620cd7b86f7"
+    },
+    "new_backbone_fits": 0
+  }
+]

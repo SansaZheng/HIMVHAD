@@ -1,0 +1,44 @@
+{
+  "status": "all_groups_frozen_before_any_test_label_read",
+  "groups": 9,
+  "gates": {
+    "runs/banksim/42": "c32f804bf118e08fc068c6b187e140813cb3c0b2a740c44ed0fb5a7981b732cf",
+    "runs/banksim/43": "9a6237162eac464f28eab57548d852b52b13d8bf9c82ed79c695bf830412d69c",
+    "runs/banksim/44": "a16473e232ba309669a15c18593f0dbd475f481ac620e18ac3c0d261edaa71f0",
+    "runs/s_ffsd/42": "065c4382023169e1673365fe574b9c93b036db86fc37678afec7c9aaddefdbc6",
+    "runs/s_ffsd/43": "be47f81f53abac1049e736249464652cab9108012f75774b276421e08f2bde1c",
+    "runs/s_ffsd/44": "e1633ca126066accf3701fe4c4df8a5d2d60ba861f3294540284b4f11216763c",
+    "runs/cardsim/42": "5bb4dece00bc381e93d46acb8fdbea246c67528b6545eae9d308c56b3fd0098d",
+    "runs/cardsim/43": "17ebd6bad3a2f822a75271c04fbbf1c1ceb4684b88e02efbbf2b39e4d276a300",
+    "runs/cardsim/44": "b72eccb7833438f481dec8a864844cda0d72854c539e9d898715b88b5b08feea"
+  },
+  "source": {
+    "git_commit": null,
+    "source_matches_git_commit": null,
+    "source_sha256": {
+      "__init__.py": "507668233b54129cfa24e3acf810b174944d5f82c779941407f2f9658cc3aa6a",
+      "__main__.py": "cf7390a2508a0fcad4777a4a629fc5212ab655cb45845975995f835676a834e3",
+      "audit.py": "047f340e97ed67ac7efe800af6c402a132b68cdd41c340520c4031ef1f206e9c",
+      "benchmark.py": "3a339fab718ccf7d7e436e5161e8407a922305522d17289219bfa411c5e2c14b",
+      "benchmark_sources.json": "9158543ba3a9889a660aab06b2b792bc46c59919480823fe5ba272928ed7a052",
+      "cli.py": "174e501ec3297a65f24ede172e64ad0c51f82cb804508c6e7c569d573c9503a4",
+      "data.py": "84e7e196fe7c3515ec379d712943fa81a6b41300b3804f11d960e99730aca0b8",
+      "evaluation.py": "46244c0c80a77ed0a50fa40de2783ec3c3c2176ce9e557ab04ee55db978dce9c",
+      "hypergraph.py": "136fc02c347bf4249fb6011470a962ee97d36283e8797581d4fadf4aa1206c29",
+      "io.py": "972677fff1ef31fac48514433c5b14400ea51fec67ec7f003012dfb84fa24b11",
+      "knob_runner.py": "18c6a63058a2ef8ea06f5e2e661ba11fefb373afc07a785e7b46345f95f704df",
+      "knobs.py": "2e6ef4daecbfe5770a285c91b0b80c0d3be4e138972ddeedf4bffcb163275330",
+      "model.py": "a3a85599e1e618a8dac470ee39dfce99cde7bab6d98a62672cb1e0dfa0e90bcf",
+      "network.py": "da434d857d397067b5c659803ebb00062bc26ae805bc3941e8489365e68060ba",
+      "preprocessing.py": "ae807b6df9c6cf6e9f5496167335587860e9f1e3db22c6596150a7833a8f541c",
+      "runner.py": "d890d73f16648bb75fe23791a9d438eef2ed2c0cb592e3f22b9db6b86e35b4a0",
+      "scoring.py": "9557579da83322ded3da223c0f836083479796d1ecd1bb9ad8f42f6c030f5a36",
+      "thresholds.py": "7b628daa1dc62e25489ccf9a3126f718644958444d717b5a36cf6f426e95e506"
+    },
+    "python": "3.13.18",
+    "numpy": "2.3.5",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2",
+    "torch": "2.11.0+cpu"
+  }
+}

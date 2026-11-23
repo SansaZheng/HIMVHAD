@@ -1,0 +1,33 @@
+{
+  "status": "all_scores_thresholds_and_models_saved_before_test_labels",
+  "files_sha256": {
+    "adapter.pt": "bfb186f47c376c38aa2bc671b6f71871efdde37fc44c287eaced2e6722b45f31",
+    "adapter_info.json": "173de039eb698607cc4c295e6023e2693dddce1abd212075ff452e897f1e8de7",
+    "baseline/scores.npz": "779a67d99cd2418ab4588a692029acc31efdc6ac6f362ac5a5376bf4a7265a6b",
+    "baseline/thresholds.json": "0a2645e2f8c2c45f4ff4cc2272d088c273184bb23c32d06b99f782a7b9322246",
+    "baseline_calibrator.npz": "7ee15b49be392deff79898a3aafa4e3209930dcc062f11e5a38f702879c1eb96",
+    "cnn_fused/scores.npz": "fd5527f578363cdeb14659790e6d0847b30993e716fd42aa857206684bd8c6e4",
+    "cnn_fused/thresholds.json": "19bef61eff39715f44542800399aba7c1e9c9c03911bd73cd9c809a58cf044ef",
+    "cnn_only/scores.npz": "74e37ab14eb56a4335023b1a314f8462a442659586ea472018112bc8efb33fa6",
+    "cnn_only/thresholds.json": "b2d0f049cfd92414cb28362ac9a8fdd89f46c57228fadcf58cd8e31709ca0998",
+    "fusion_calibrator.npz": "ba5188557dcc5f95fa55d2889e45cb72473b3e0f5bb01e86e5887427ab27ee4f",
+    "interventions.json": "d75cb059c3032d6550da2c654443d698a4abdac09ec89f99f8f6010eb9bd46bb",
+    "kan_fused/scores.npz": "3b854770d533874c964e29a60c68ff0d95561e1e35bbffede25b6f1e92cc6c1e",
+    "kan_fused/thresholds.json": "86f6118bf395cdb602ce4abaa0152e73ef985ccb2065b71292c18e39cc62f949",
+    "kan_only/scores.npz": "5879bbeadf8fcf7c2e6f1a1f953e43b138edd9b777855f765275cf584e57968e",
+    "kan_only/thresholds.json": "b2d0f049cfd92414cb28362ac9a8fdd89f46c57228fadcf58cd8e31709ca0998",
+    "linear_fused/scores.npz": "0ae3b3857962ef35b1b8f345dca3c94a1288f273b2b5a8b8a9b3f87b23bcb368",
+    "linear_fused/thresholds.json": "cb0616131061f3cb84266c08e09932494cdd7af957f45eb62abea3a68035afc8",
+    "random_fused/scores.npz": "873278403c0380aa52bbdf8a0faf4d9a1a4440f1f8eef4ecec1c7bfe1ce3762c",
+    "random_fused/thresholds.json": "697e217f27fce6fa60966d77f2101c1aacb5ffe42ec91f4c2bafb577561f48b5",
+    "run_manifest.json": "50d64ad6f61c7aec8cc8b9df9cc0ae03bf992b3611d6ba67ea12c977afc8fbc3",
+    "symbolic_fused/scores.npz": "d00d8ead0c38b7fe9a6c91a45b5c585a12fe7ed34f45db611fd65f290865389c",
+    "symbolic_fused/thresholds.json": "0685bb5caa26ca474955c2ac41cf83e9d05b1a1aa0928555edf03c4520ba96bd",
+    "training_proxy.npz": "f6a6b4fa8d124496e28aef9325cace19759b02af2e74b6016342f44c9a8c0262",
+    "uniform_fused/scores.npz": "43caed6c7dd5a576aece8ceedfcca6369f490fea0b3b747359550ed386474b58",
+    "uniform_fused/thresholds.json": "9842afaa059f70c7d12d286e3f97605c29b2a0066c9c707ee8ca9bc0d0953af1"
+  },
+  "baseline_components_preserved": true,
+  "backbone_tensors_unchanged": true,
+  "real_training_calibration_labels_read": false
+}

@@ -1,0 +1,9 @@
+{
+  "status": "complete",
+  "groups": 9,
+  "configurations": 81,
+  "new_backbone_fits": 0,
+  "seconds": 1780.145011293,
+  "peak_ram_linux_gb": 3.2372055053710938,
+  "peak_cuda_allocated_gb": null
+}

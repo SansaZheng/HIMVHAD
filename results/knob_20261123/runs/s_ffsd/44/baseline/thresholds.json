@@ -1,0 +1,18 @@
+{
+  "quantile": {
+    "status": "ok",
+    "threshold": 4.004189907784746,
+    "quantile": 0.99
+  },
+  "pot": {
+    "status": "ok",
+    "threshold": 3.9307436987416087,
+    "initial_threshold": 1.7541917159078233,
+    "shape": -0.058123270379284615,
+    "scale": 0.8685707920455058,
+    "n_calibration": 15576,
+    "n_peaks": 2337,
+    "initial_quantile": 0.85,
+    "risk": 0.01
+  }
+}

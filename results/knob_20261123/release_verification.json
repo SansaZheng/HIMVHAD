@@ -1,0 +1,28 @@
+{
+  "status": "experiments_verified_ready_for_publication",
+  "source_commit": "2a8fb7a03344640daf43a99fc823f9f074317f6b",
+  "scope": "zero-real-label adaptation;not original supervised paper-score reproduction",
+  "unique_frozen_backbones": 9,
+  "new_backbone_fits": 0,
+  "final_score_configurations": 81,
+  "pilot_score_configurations": 81,
+  "final_neural_head_fits_including_k_search": 126,
+  "local_and_CQ_tests": 35,
+  "historical_baseline_metrics_exact": true,
+  "independent_baseline_replay_max_abs": 8.881784197001252e-16,
+  "all_prelabel_hashes_verified": true,
+  "pretrained_examples": "fixedcm/seed42 for3datasets,notbestseed",
+  "near_optimal_proxy_criterion_passes": 0,
+  "symbolic_r2_range": [
+    0.9959759135162837,
+    0.9984935739348141
+  ],
+  "report_sha256": "f107dc6544831e97991d0dd528244752780e2e7d4141724a044335604c3fc7f2",
+  "verification_sha256": "ed330cec6a670304ed1159f0638e5b1501f8a693630e0e6463fe90299d50c0a4",
+  "paid_budget_usd": 0,
+  "CI": "Local andCQ tests verified;GitHubActions pass not claimed",
+  "publication": {
+    "status": "pending",
+    "branch": "main"
+  }
+}

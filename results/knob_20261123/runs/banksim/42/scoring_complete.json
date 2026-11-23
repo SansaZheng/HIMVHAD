@@ -1,0 +1,10 @@
+{
+  "status": "complete",
+  "dataset": "banksim",
+  "seed": 42,
+  "score_variants": 9,
+  "new_backbone_fits": 0,
+  "seconds": 439.54252367900006,
+  "peak_cuda_allocated_gb": null,
+  "gpu": null
+}

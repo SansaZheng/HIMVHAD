@@ -1,0 +1,113 @@
+{
+  "status": "completed_finite_frozen_inference",
+  "dataset": "cardsim",
+  "seed": 42,
+  "rows": 16021,
+  "variants": 9,
+  "actual_labels_read": false,
+  "seconds": 13.121946250088513,
+  "local_source": {
+    "git_commit": "db5185f34b382e50025fc5afd74cbe9fa6c59609",
+    "source_matches_git_commit": true,
+    "source_sha256": {
+      "__init__.py": "507668233b54129cfa24e3acf810b174944d5f82c779941407f2f9658cc3aa6a",
+      "__main__.py": "cf7390a2508a0fcad4777a4a629fc5212ab655cb45845975995f835676a834e3",
+      "audit.py": "047f340e97ed67ac7efe800af6c402a132b68cdd41c340520c4031ef1f206e9c",
+      "benchmark.py": "3a339fab718ccf7d7e436e5161e8407a922305522d17289219bfa411c5e2c14b",
+      "benchmark_sources.json": "9158543ba3a9889a660aab06b2b792bc46c59919480823fe5ba272928ed7a052",
+      "cli.py": "174e501ec3297a65f24ede172e64ad0c51f82cb804508c6e7c569d573c9503a4",
+      "data.py": "84e7e196fe7c3515ec379d712943fa81a6b41300b3804f11d960e99730aca0b8",
+      "evaluation.py": "46244c0c80a77ed0a50fa40de2783ec3c3c2176ce9e557ab04ee55db978dce9c",
+      "hypergraph.py": "136fc02c347bf4249fb6011470a962ee97d36283e8797581d4fadf4aa1206c29",
+      "io.py": "972677fff1ef31fac48514433c5b14400ea51fec67ec7f003012dfb84fa24b11",
+      "knob_runner.py": "18c6a63058a2ef8ea06f5e2e661ba11fefb373afc07a785e7b46345f95f704df",
+      "knobs.py": "2e6ef4daecbfe5770a285c91b0b80c0d3be4e138972ddeedf4bffcb163275330",
+      "model.py": "a3a85599e1e618a8dac470ee39dfce99cde7bab6d98a62672cb1e0dfa0e90bcf",
+      "network.py": "da434d857d397067b5c659803ebb00062bc26ae805bc3941e8489365e68060ba",
+      "preprocessing.py": "ae807b6df9c6cf6e9f5496167335587860e9f1e3db22c6596150a7833a8f541c",
+      "runner.py": "d890d73f16648bb75fe23791a9d438eef2ed2c0cb592e3f22b9db6b86e35b4a0",
+      "scoring.py": "9557579da83322ded3da223c0f836083479796d1ecd1bb9ad8f42f6c030f5a36",
+      "thresholds.py": "7b628daa1dc62e25489ccf9a3126f718644958444d717b5a36cf6f426e95e506"
+    },
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "scipy": "1.15.3",
+    "sklearn": "1.7.2",
+    "torch": "2.6.0"
+  },
+  "comparison": "LocalTorch2.6CPU recomputation vs publishedCQ2.11CPU hidden states and archivedGPU baseline errors;strict bitwise identity not assumed",
+  "details": [
+    {
+      "variant": "baseline",
+      "max_score_abs_delta": 0.0030234367769272907,
+      "alarm_differences": {
+        "quantile": 0,
+        "pot": 0
+      }
+    },
+    {
+      "variant": "cnn_only",
+      "max_score_abs_delta": 0.0007636502852972349,
+      "alarm_differences": {
+        "quantile": 0,
+        "pot": 0
+      }
+    },
+    {
+      "variant": "cnn_fused",
+      "max_score_abs_delta": 0.0015117183884636454,
+      "alarm_differences": {
+        "quantile": 0,
+        "pot": 0
+      }
+    },
+    {
+      "variant": "kan_only",
+      "max_score_abs_delta": 0.0030911925696726072,
+      "alarm_differences": {
+        "quantile": 0,
+        "pot": 0
+      }
+    },
+    {
+      "variant": "kan_fused",
+      "max_score_abs_delta": 0.0015455962848363036,
+      "alarm_differences": {
+        "quantile": 0,
+        "pot": 0
+      }
+    },
+    {
+      "variant": "random_fused",
+      "max_score_abs_delta": 0.0015117183884636454,
+      "alarm_differences": {
+        "quantile": 0,
+        "pot": 0
+      }
+    },
+    {
+      "variant": "uniform_fused",
+      "max_score_abs_delta": 0.0017513152756007955,
+      "alarm_differences": {
+        "quantile": 0,
+        "pot": 0
+      }
+    },
+    {
+      "variant": "linear_fused",
+      "max_score_abs_delta": 0.002967367759907358,
+      "alarm_differences": {
+        "quantile": 0,
+        "pot": 0
+      }
+    },
+    {
+      "variant": "symbolic_fused",
+      "max_score_abs_delta": 0.0015117183884632013,
+      "alarm_differences": {
+        "quantile": 0,
+        "pot": 0
+      }
+    }
+  ]
+}

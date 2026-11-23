@@ -21,7 +21,7 @@ def flat(record):
 
 def csvwrite(path,rows):
     with Path(path).open('w',newline='') as f:
-        w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
+        w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator="\n");w.writeheader();w.writerows(rows)
 
 
 def main():
@@ -127,6 +127,7 @@ def main():
       '三个数据集原始划分、目标行、测试样本、训练缩放器和骨干检查点不变。新增模块只用训练特征和自身重构误差；内部验证只在原训练分区。校准用于分数尾部与阈值。所有9组评分及阈值在本轮第一次打开测试标签前冻结；`global_label_gate.json`及各组记录提供SHA链。基线误差直接取已核验历史文件，防止跨CPU/CUDA重算微差混入方法改进。',
       '', 'BankSim和S-FFSD是回顾性测试；CardSim是此前生成的单个合成世界，本次并未新增独立真实数据。附加探针、k搜索和对照有额外计算成本。方向干预只在内部验证的标准化探针状态做诊断，未声称对完整骨干做因果干预。',
       '', f"完成{complete['groups']}组冻结骨干、{complete['configurations']}个评分配置；新增骨干训练0次。完整实验耗时{complete['seconds']/60:.2f}分钟，单进程峰值RAM{complete['peak_ram_linux_gb']:.2f}GiB，峰值CUDA分配：{cuda_text}。CQ作业记录固定源码提交，`runtime.json`记录各源码文件SHA与环境；Kaggle快照没有.git时其Git字段为null，通过源码SHA独立核验。时长不含CQ排队、环境作业与后端检查。",
+      '', '该耗时针对冻结检查点扩展实验，包含本轮训练代理误差、隐藏状态提取和新增头训练。历史基线误差作为缓存输入，其最初计算成本、原骨干训练成本未计入；这不是端到端从零训练成本或在线逐笔预测延迟。',
       '', '## 产物与重新运行','',
       '本目录发布全部逐种子指标、差值、阈值、代理搜索记录和SHA。固定seed42的三个适配器及校准器也保留在 `runs/<dataset>/42/`，不是按最佳种子挑选。全部逐点分数、训练代理误差及其余种子模型保留在本轮CQ完整结果归档；其SHA在标签访问记录中，重现命令见方法说明。',
       '', 'English: Nine paired frozen-backbone runs evaluate a CNN/KAN hidden-boundary adaptation with training reconstruction-error proxy targets. The unchanged baseline, all ablations and negative outcomes are retained. Proxy compactness and directional sensitivity do not demonstrate fraud correctness, statistical significance or a causal financial mechanism.', '']

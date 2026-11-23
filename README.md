@@ -4,6 +4,38 @@
 
 [中文方法说明](docs/reproduction_CN.md) · [完整结果与消融](results/frozen/README_CN.md) · [数据来源](docs/data_sources_CN.md) · [English](README_EN.md)
 
+## 隐藏边界融合扩展（2026-11-23）
+
+已融入用户提供论文的CNN探针、候选维度筛选、层注意力KAN、解析近似和方向诊断，采用**零真实标签适配**：代理目标来自训练重构误差。新增头与原冻结HIMVH组合，保留原始数据划分、测试行、POT/q99评价标准。
+
+[融合机制与复现](docs/mechanistic_boundary_CN.md) · [完整前后对比与消融](results/knob_20261123/README_CN.md) · [逐种子指标](results/knob_20261123/metrics.csv) · [核验记录](results/knob_20261123/verification.json)
+
+主方法预先固定为 `kan_fused`，以下为3个骨干种子的AP均值（%）；原版指已有 `cm_tail_flat` 配置：
+
+| 数据集 | 融合前AP | 融合后AP | 差值/百分点 |
+|---|---:|---:|---:|
+| BankSim | 16.53 | 6.37 | -10.16 |
+| S-FFSD | 35.19 | 38.28 | +3.09 |
+| CardSim | 2.20 | 1.66 | -0.54 |
+
+**本轮未显示稳定改进。** S-FFSD的AP提高，但三个数据集的POT-F1均下降；9/9组未在k≤10内达到近最优压缩判据。默认原版流程保留，扩展通过独立命令调用。全部9项消融、负结果、初跑及随机流修正都保留，未按测试成绩替换主方法。
+
+35项本地及CQ测试通过，81组最终设置／162个工作点独立核验通过；初跑81组另存。三组固定seed42预训练适配器随结果提供，不按最佳种子筛选。完整金融数据为同一批回顾性测试，未新增真实银行外部验证。
+
+完成下方安装后，可直接运行预训练扩展：
+
+```bash
+python -m himvhad fetch-benchmark --root data/benchmark --datasets cardsim
+mkdir -p runs/knob-parent-cardsim42
+tar -xzf experiments/knob_inputs/cardsim-42.tar.gz -C runs/knob-parent-cardsim42
+python -m himvhad knob-predict \
+  --parent runs/knob-parent-cardsim42 \
+  --adapter results/knob_20261123/runs/cardsim/42 \
+  --data data/benchmark/cardsim --output runs/knob-cardsim-prediction
+```
+
+该命令只使用冻结模型／校准器，不读取真实标签。重新训练新增头及全部消融的命令见方法说明。
+
 ## 安装与CPU演示
 
 ```bash
@@ -110,13 +142,13 @@ restored = HIMVHAnomalyDetector.load("model.pt")
 
 自定义字段使用`field_groups`明确划分；支持多于一种视图数，这是接口扩展。校准评分见`FieldScorer/SkillScorer`，完整数据流程以CLI为例。
 
-## 本次核验与结果
+## 基础版本核验与结果（2026-11-21）
 
-本次复用**18个冻结金融模型，重新计算144组评分／288条操作点**，没有新金融神经网络训练。旧数据48组既有评分指标完全一致；新源码训练与原端口有数值等价控制测试。三个数据源及所有消融、负结果、原始模型SHA和核验记录见[中文结果报告](results/frozen/README_CN.md)。
+基础提取版本当时复用**18个冻结金融模型，重新计算144组评分／288条操作点**，没有新金融神经网络训练。旧数据48组既有评分指标完全一致；新源码训练与原端口有数值等价控制测试。三个数据源及所有消融、负结果、原始模型SHA和核验记录见[中文结果报告](results/frozen/README_CN.md)。
 
 BankSim/S-FFSD为旧测试回顾性评估；CardSim为一个预先固定参数后生成的独立模拟世界，不能替代真实银行外部验证。重构可预测性不是欺诈相关性，新增权重没有稳定超过已有评分对照。本文F1是异常类F1，论文报告macro-F1，两者不直接比较。跨设备推理可能使阈值边缘样本有微小差异；重新评分与端到端推理分别记录。
 
-本地27项测试、wheel及实际演示已通过。GitHub CI已配置；发布核对时API尚无远端运行记录，未标记为CI通过。
+基础版本当时的27项本地测试、wheel及实际演示已通过；新增扩展后已通过35项本地和CQ测试。GitHub CI已配置；发布核对时API尚无远端运行记录，未标记为CI通过。
 
 完整文件索引、来源、命令和环境见[发布核验](results/release_verification.json)与[工作流状态](paper/workflow/current.md)。
 

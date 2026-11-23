@@ -1,0 +1,49 @@
+{
+  "dataset": "s_ffsd",
+  "seed": 42,
+  "variant": "baseline",
+  "metrics": {
+    "evaluated": 6159,
+    "unknown_excluded": 9417,
+    "positives": 2394,
+    "normal": 3765,
+    "prevalence": 0.3886994641987336,
+    "average_precision": 0.35401624794918524,
+    "roc_auc": 0.5041592471661669,
+    "pr_auc_trapezoid": 0.3537877751257618,
+    "operating_points": {
+      "quantile": {
+        "tp": 8,
+        "fp": 58,
+        "fn": 2386,
+        "tn": 3707,
+        "precision": 0.12121212121212122,
+        "recall": 0.003341687552213868,
+        "f1": 0.0065040650406504065,
+        "fpr": 0.015405046480743692,
+        "alarm_fraction": 0.01071602532878714
+      },
+      "pot": {
+        "tp": 14,
+        "fp": 63,
+        "fn": 2380,
+        "tn": 3702,
+        "precision": 0.18181818181818182,
+        "recall": 0.005847953216374269,
+        "f1": 0.0113314447592068,
+        "fpr": 0.016733067729083666,
+        "alarm_fraction": 0.012502029550251665
+      }
+    }
+  },
+  "target_sha256": "fe1bd872b78f907c3f7b54a5a7ae38843680fb08d083f1168c39109133c45694",
+  "scores_sha256": "da84e43f99870ad973e1c3d8300ccb71d8188865e26bfce690bcba3a418d9347",
+  "gate_sha256": "065c4382023169e1673365fe574b9c93b036db86fc37678afec7c9aaddefdbc6",
+  "parent_sha256": {
+    "model.pt": "b0e78741dbe97f354d962020b965eef390bcd26eca6083aac5388863c32587e2",
+    "preprocessor.npz": "cb0ae2a0e4b2dfc0f2eb47c089d8805008b7e02d44f533f560822acb2709d0f1",
+    "indices.npz": "c35283087b0ad7a41fda5552fb1d2bf6fb3f252bf9acd865db66b8c9793fa2ff",
+    "components.npz": "b888f970ec2b16417e8756773bac65b86b8975b6a2810ebe800c1620cd7b86f7"
+  },
+  "new_backbone_fits": 0
+}
