@@ -18,8 +18,17 @@ def main():
     s=sub.add_parser('rescore');s.add_argument('--parent',type=Path,required=True);s.add_argument('--output',type=Path,required=True);s.add_argument('--data',type=Path);s.add_argument('--scores',nargs='+',choices=SCORES,default=['field','flat','tail','tail_flat'])
     q=sub.add_parser('predict');q.add_argument('--run',type=Path,required=True);q.add_argument('--data',type=Path,required=True);q.add_argument('--output',type=Path,required=True);q.add_argument('--score',choices=SCORES,default='tail');q.add_argument('--phase',choices=['train','calibration','test'],default='test')
     e=sub.add_parser('evaluate');e.add_argument('--scores',type=Path,required=True);e.add_argument('--labels',type=Path,required=True);e.add_argument('--thresholds',type=Path);e.add_argument('--output',type=Path)
+    k=sub.add_parser('knob-run',help='Frozen HIMVH + zero-label CNN/KAN ablations');k.add_argument('--parent',type=Path,required=True);k.add_argument('--data',type=Path,required=True);k.add_argument('--output',type=Path,required=True);k.add_argument('--device',default='cpu');k.add_argument('--probe-steps',type=int,default=200);k.add_argument('--student-steps',type=int,default=150);k.add_argument('--score-only',action='store_true')
+    k=sub.add_parser('knob-predict',help='Apply frozen knob adapter without labels');k.add_argument('--parent',type=Path,required=True);k.add_argument('--adapter',type=Path,required=True);k.add_argument('--data',type=Path,required=True);k.add_argument('--output',type=Path,required=True)
     a=p.parse_args()
-    if a.command=='demo':
+    if a.command=='knob-run':
+        from .knob_runner import run_knobs
+        from .knobs import KnobConfig
+        run_knobs(a.parent,a.data,a.output,KnobConfig(probe_steps=a.probe_steps,student_steps=a.student_steps),a.device,not a.score_only);print('Knob adapter and paired ablations complete')
+    elif a.command=='knob-predict':
+        from .knob_runner import predict_knobs
+        predict_knobs(a.parent,a.adapter,a.data,a.output);print('Knob predictions saved without label access')
+    elif a.command=='demo':
         if a.output.exists():raise FileExistsError('Use a fresh demo folder')
         demo_data(a.output/'data');records=run_group(a.output/'data',a.output/'model',steps=a.steps,hidden=32,scores=['field','flat','tail','tail_flat']);write(a.output/'DEMO_ONLY.json',dict(financial_benchmark=False,description='Synthetic CLI smoke test; no financial performance claim'));print('DEMO complete (synthetic only): '+str(a.output))
     elif a.command=='fetch-benchmark':fetch_benchmark(a.root,a.datasets,a.source_local)

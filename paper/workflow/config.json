@@ -1,17 +1,17 @@
 {
-  "revision": 1,
+  "revision": 2,
   "project_path": "/Users/zyy/FinancialADExperiments/HIMVHAD",
   "venue": null,
   "research": {
     "topic": "HIMVH金融交易零标签异常检测独立复现",
-    "route_id": "standalone-zero-20261121",
-    "method_name": "HIMVH-Zero",
-    "route": "Extract verified zero-label modules with independent runnable CLI and traceable historical results"
+    "route_id": "knob-zero-20261123",
+    "method_name": "HIMVH-Knob-Zero",
+    "route": "Frozen HIMVH hidden-state CNN probe, training-error pseudo targets, compact KAN boundary and fixed score fusion"
   },
   "output_root": "results",
   "compute": {
     "budget_usd": 0,
-    "policy": "No new financial training required for extraction; CPU unit/demo/parity verification only; any long runs via CQ"
+    "policy": "Reuse frozen HIMVH checkpoints; CQ for GPU/long CPU work; no paid rentals; preserve all baseline artifacts"
   },
   "scope": "User explicitly selected existing zero-label adaptation; not supervised paper-score reproduction"
 }

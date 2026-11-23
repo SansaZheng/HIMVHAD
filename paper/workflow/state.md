@@ -1,5 +1,3 @@
-# State — complete
+# State — running
 
-User-confirmed zero-label HIMVH standalone reproduction uploaded toSansaZheng/HIMVHAD main andcodex/standalone-zero-label. Content4460860 includes runnable package,CSV/canonical-data CLI,training/scoring/prediction/evaluation,3 fixedcm/42 pretrained examples,Chinese/Englishdocs and audited results.27 local tests,4 exact parent controls,18 frozen models/144 score configs/288operations,48 exact old metrics,9 baseline metric references,wheel/network/fullpretrained prediction checks pass. No new financial NN fit. Coreevalf64cf73,numericalmodel/scoring source remains unchanged. Source project andoldCQjobs untouched.
-
-Remote Gitrefs andREADME/report/3weight blobs verified. CIworkflow active/configured,publicAPI shows no remote runs;do not claim remoteCIpassed. LocalCI-equivalent checks passed onPython3.12.14;Python3.10matrix not observed remotely. This is a documented release limitation,not missing user-requested code/upload work. No required work remains. Future independent real-bank validation and new training are separate tasks,not automatically launched.
+2026-11-23: user requested uploaded-paper mechanism integration with before/after ablations. Existing baseline release and results retained. Active prompt003; revision2, venue none, zero-label only, budget0USD. CQ status inspected; no related active integration job found. Implementation and paired evaluation pending.

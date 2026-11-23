@@ -2,3 +2,4 @@
 {"timestamp": "2026-11-20T21:28:58.410013+00:00", "prompt": "001", "status": "completed", "revision": 1, "executor": "Codex", "core_source": "f64cf733f0949ebc49957b9cdc8c37eed65db4e1"}
 {"timestamp": "2026-11-20T21:28:58.410762+00:00", "prompt": "002", "status": "running", "revision": 1, "executor": "Codex"}
 {"timestamp": "2026-11-20T21:42:17.132494+00:00", "prompt": "002", "status": "completed", "revision": 1, "executor": "Codex", "published_content_commit": "4460860e1ab01367aed0b4c1fdd04ebc2fe95b00", "CI": "configured_active_no_remote_run_observed"}
+{"timestamp": "2026-11-23T19:51:33.872537+08:00", "run_id": "knob-20261123", "prompt_id": "003-knob-integration", "version": 1, "configuration_revision": 2, "executor": "Codex", "status": "running", "input_paths": ["attached PDF", "d52ff3b"], "output_paths": ["himvhad/knobs.py", "results/knob_20261123"]}
